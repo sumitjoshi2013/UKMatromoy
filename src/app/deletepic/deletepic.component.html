@@ -1,0 +1,47 @@
+<menubar></menubar>
+ <!--https://bootsnipp.com/snippets/p1lVe-->
+ <div class="container">
+   
+   
+   
+     <div class="col-md-8">
+       
+       <h3>Messages</h3>
+       
+       <table class="table table-condensed table-bordered table-hover small">
+           <thead>
+              <tr>
+                  <th style="width:30px;">.</th>
+                  <th>Pic</th>
+                  <th>Name</th>
+                  <th>Action</th>
+              </tr>
+           </thead>
+           <tbody>
+               <tr  *ngFor="let item of images" class="text-info">
+                   <td>
+                      <i class="glyphicon glyphicon-info-sign"></i>
+                   </td>
+                   <td>
+                      <img class="rounded-circle" 
+                      src= {{item.src}}
+                      alt="Photo gallery" style="width:200px;height:200px">
+                   </td>
+                   <td>
+                   {{item.text}}
+                   </td>
+                   <td>
+                      <button (click)="delPics(item.id)" type="submit" 
+                      class="btn btn-warning"> Delete 
+                       <span class="glyphicon glyphicon-send"></span>
+                     </button>
+                   </td>
+               </tr>
+            
+           </tbody>
+       </table>
+     </div>
+     <div class="col-md-6">
+       <div id='grafico4' class="grafico" style="height: 400px;"></div>
+   </div>
+ </div>

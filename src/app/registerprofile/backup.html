@@ -1,0 +1,453 @@
+<menubar></menubar><br>
+<br><br>
+ <div class="container">
+            <div class="panel panel-primary" style="width:750px;margin:0px auto">
+              <div class="panel-heading">Please fill the below detail for registration!!!</div>
+              <div class="panel-body">
+  <form class="form-horizontal"   [formGroup]="myform"
+      (ngSubmit)="onSubmit()"  id="reg_form">
+      <legend> Basic information </legend>
+      <fieldset>
+      <!-- Text input-->
+      <div class="form-group"
+       [ngClass]="{
+        'has-danger': myform.controls.name.controls.first_name.invalid && (myform.controls.name.controls.first_name.dirty || myform.controls.name.controls.first_name.touched),
+        'has-success': myform.controls.name.controls.first_name.valid && (myform.controls.name.controls.first_name.dirty || myform.controls.name.controls.first_name.touched)
+   }">
+        <label class="col-md-4 control-label">First Name</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input formControlName="first_name" 
+            placeholder="First Name" class="form-control"  type="text" required>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Text input-->
+     
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Last Name</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      
+     <div class="form-group">
+        <label class="col-md-4 control-label">Gender</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="gender" class="form-control selectpicker" >
+              <option value=" " >Please select your gender</option>
+              <option>Male</option>
+              <option>Female</option>
+               </select>
+          </div>
+        </div>
+      </div>
+
+
+     <div class="form-group">
+        <label class="col-md-4 control-label">Marital Status</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Marital Status</option>
+              <option>Single</option>
+              <option>Divorced</option>
+              <option>Other</option>
+               </select>
+          </div>
+        </div>
+      </div>
+           
+
+      
+
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Gotra</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="gotra" placeholder="" class="form-control" type="text">
+          </div>
+        </div>
+      </div>
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Phone/Mobile</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+            <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
+          </div>
+        </div>
+      </div>
+       <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Date of birth</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <input name="dob" placeholder="dd-MM-yyyy" class="form-control" type="text">
+          </div>
+        </div>
+      </div>
+       <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Place of birth</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="birthplace" placeholder="like delhi, haldwani, almora" class="form-control" type="text">
+          </div>
+        </div>
+      </div>
+       <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Time of birth</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            <input name="timeofbirth" placeholder="hh:mm am/pm (eg 02:40 am)" class="form-control" type="text">
+          </div>
+        </div>
+      </div>
+      </fieldset>
+
+
+      
+    <fieldset>
+      <!-- Form Name -->
+      <legend> Other Information </legend>
+          <div class="form-group">
+        <label class="col-md-4 control-label">My Height</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-height"></i></span>
+            <input  name="HEIGHT" placeholder="for eg 5.6" class="form-control"  type="text"> 
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">My Weight</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input  name="WEIGHT" placeholder="for eg 56" class="form-control"  type="text"> 
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">My Income Range</label>
+       <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Income Range</option>
+              <option>0 - 100000</option>
+              <option></option>
+              <option></option>
+               </select>
+          </div>
+        </div>
+      </div>
+
+ <div class="form-group">
+        <label class="col-md-4 control-label">Smoke Status</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Smoking Status</option>
+              <option>Smoking</option>
+              <option>Non-Smoking</option>
+            
+               </select>
+          </div>
+        </div>
+      </div>
+
+       <div class="form-group">
+        <label class="col-md-4 control-label">Diet Status</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Diet Status</option>
+              <option>Veg</option>
+              <option>Non-Veg</option>
+              
+               </select>
+          </div>
+        </div>
+      </div>
+
+
+       <div class="form-group">
+        <label class="col-md-4 control-label">My Work Status</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Work Status</option>
+              <option>Working</option>
+              <option>Non-Working</option>
+              
+               </select>
+          </div>
+      </div>
+  </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Drinking Status</label>
+         <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-glass"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Drinking Status</option>
+              <option>Drinking</option>
+              <option>Non-drinking</option>
+              
+               </select>
+          </div>
+      </div>
+  </div>
+
+           <div class="form-group">
+        <label class="col-md-4 control-label">My Religion</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Religion Status</option>
+              <option>Brahimin</option>
+             
+              
+               </select>
+          </div>
+      </div>
+        </div>
+
+            <div class="form-group">
+        <label class="col-md-4 control-label">MY Mother Toung</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Mother Toung Status</option>
+              <option>Hindu</option>
+                           
+               </select>
+          </div>
+      </div>
+          </div>
+
+            <div class="form-group">
+        <label class="col-md-4 control-label">My Sub Caste</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Sub Caste Status</option>
+              <option>Joshi</option>
+              <option>Pant</option>
+              
+               </select>
+          </div>
+      </div>
+          </div>
+
+            <div class="form-group">
+        <label class="col-md-4 control-label">My Rashi</label>
+      <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Rashi Status</option>
+              <option>Khunb</option>
+              <option>Mithun</option>
+              
+               </select>
+          </div>
+      </div>
+  </div>
+
+        <div class="form-group">
+        <label class="col-md-4 control-label">About my Education</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+            <textarea  name="ABOUT_MY_EDUCATION" placeholder="for eg I have done MBC/MCA..." class="form-control"  type="text">
+            </textarea>
+          </div>
+        </div>
+      </div>
+
+        <div class="form-group">
+        <label class="col-md-4 control-label">About my Profession</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <textarea  name="ABOUT_MY_PROFESSION" placeholder="for eg I am working as .. earing ... total exp  ..." class="form-control"  type="text">
+            </textarea>
+          </div>
+        </div>
+      </div>
+
+    </fieldset>
+
+
+    <fieldset>
+      
+
+
+      <!-- Form Name -->
+      <legend> Residential Information </legend>
+    
+      <!-- http://www.c-sharpcorner.com/article/how-to-upload-images-in-angular-2-application/ -->
+    <div class="form-group">
+        <label class="col-md-4 control-label">Profile Photo</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group">
+           <input type="file" name="student_img" required (change)="fileChange(input)" #input />
+              <div> 
+              
+              <!--  <img [attr.src]='file_srcs[0]' alt="" /> -->
+              
+              </div> 
+          </div>
+        </div>
+      </div>
+        
+
+        <!-- Text input-->
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">Full Address</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <textarea name="address" placeholder="Address" class="form-control" type="text"> </textarea>
+          </div>
+        </div>
+      </div>
+      
+
+
+      <!-- Select Basic -->
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">Country</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <select name="country" class="form-control selectpicker" >
+              <option value=" " >Please select your country</option>
+              <option>India</option>
+               </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">City</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <select name="city" class="form-control selectpicker" >
+              <option value=" " >Please select your city</option>
+              <option>Uttrakhand</option>
+               </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Place</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="place" placeholder="like haldwani, nanital" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- Text input-->
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">Zip Code</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="zip" placeholder="Zip Code" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      
+        <!-- Text area -->
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">About </label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <textarea class="form-control" name="comment" placeholder="About "></textarea>
+          </div>
+        </div>
+      </div>
+      
+     
+       </fieldset>
+
+       	<legend> Account information </legend>
+        <fieldset>
+        <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">E-Mail</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      
+    
+        <div class="form-group has-feedback">
+            <label for="password"  class="col-md-4 control-label">
+                    Password
+                </label>
+                <div class="col-md-6  inputGroupContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input class="form-control" id="userPw" type="password" placeholder="password" 
+                       name="password" data-minLength="5"
+                       data-error="some error"
+                       required/>
+                <span class="glyphicon form-control-feedback"></span>
+                <span class="help-block with-errors"></span>
+                </div>
+             </div>
+        </div>
+     
+        <div class="form-group has-feedback">
+            <label for="confirmPassword"  class="col-md-4 control-label">
+                   Confirm Password
+                </label>
+                 <div class="col-md-6  inputGroupContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input class="form-control {$borderColor}" id="userPw2" type="password" placeholder="Confirm password" 
+                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+                       data-match-error="some error 2"
+                       required/>
+                <span class="glyphicon form-control-feedback"></span>
+                <span class="help-block with-errors"></span>
+      			 </div>
+             </div>
+        </div>
+     
+      <input type="checkbox" required name="terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" id="field_terms">   <label for="terms">I agree with the <a href="/terms.html" title="You may read our terms and conditions by clicking on this link">terms and conditions</a> for Registration.</label><span class="req">* </span>
+  
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+         <button (click)="gotoLogin()" type="submit" class="btn btn-warning" >Back 
+            <span class="glyphicon glyphicon-send"></span>
+          </button>
+        </div>
+        
+      </div>
+
+    
+    </fieldset>
+  </form>
+ </div>
+      </div>
+ </div>
+  

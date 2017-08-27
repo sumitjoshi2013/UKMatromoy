@@ -1,0 +1,154 @@
+<menubar></menubar><br>
+ <fieldset>
+   
+        <div class="form-group">
+        <label class="col-md-4 control-label">First Name</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input formControlName="firstName" placeholder="for eg sumit" class="form-control"  type="text">
+          </div>
+          <div *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+            <div *ngIf="firstName.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> First Name is required.
+          </div>
+        </div>
+        </div>
+      </div>
+     </div>
+      <!-- Text input-->
+     
+      
+      
+   <div class="form-group">
+        <label class="col-md-4 control-label">lastName</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input formControlName="lastName" placeholder="for eg joshi" class="form-control" type="text">
+          </div>
+
+             <div *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+            <div *ngIf="lastName.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> lastName  is required.
+          </div>
+        </div>
+        </div>
+        </div>
+   </div>
+ 
+     <div class="form-group">
+        <label class="col-md-4 control-label">Gender</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="gender" class="form-control selectpicker" >
+              <option value=" " >Please select your gender</option>
+              <option>Male</option>
+              <option>Female</option>
+               </select>
+          </div>
+        </div>
+      </div>
+
+
+     <div class="form-group">
+        <label class="col-md-4 control-label">Marital Status</label>
+        <div class="col-md-6 selectContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="maritalstatus" class="form-control selectpicker" >
+              <option value=" " >Please select your Marital Status</option>
+              <option>Single</option>
+              <option>Divorced</option>
+              <option>Other</option>
+               </select>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Gotra</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="gotra" placeholder="" class="form-control" type="text">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Phone number</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-mobile"></i></span>
+            <input formControlName="phone" placeholder="(+91) - (9650899699)" class="form-control" type="text">
+          </div>
+
+          <div *ngIf="phone.errors && (phone.dirty || phone.touched)">
+            <div *ngIf="phone.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> Mobile is required.
+          </div>
+        </div>
+        </div>
+
+        </div>
+      </div>
+       <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Date of birth</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <input formControlName="dob" placeholder="dd-MM-yyyy" class="form-control" type="text">
+          </div>
+
+          <div *ngIf="dob.errors && (dob.dirty || dob.touched)">
+            <div *ngIf="dob.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> Date of birth is required.
+          </div>
+        </div>
+        </div>
+
+        </div>
+      </div>
+       <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Place of birth</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input formControlName="birthplace" placeholder="like delhi, haldwani, almora" class="form-control" type="text">
+          </div>
+
+             <div *ngIf="birthplace.errors && (birthplace.dirty || birthplace.touched)">
+            <div *ngIf="birthplace.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> Birthplace  is required.
+          </div>
+        </div>
+        </div>
+
+
+        </div>
+      </div>
+       <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Time of birth</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            <input formControlName="timeofbirth" placeholder="hh:mm am/pm (eg 02:40 am)" class="form-control" type="text">
+          </div>
+
+            <div *ngIf="timeofbirth.errors && (timeofbirth.dirty || timeofbirth.touched)">
+            <div *ngIf="timeofbirth.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> Time of Birth  is required.
+          </div>
+        </div>
+        </div>
+
+        </div>
+      </div>
+      </fieldset>

@@ -1,0 +1,38 @@
+<menubar></menubar><br>
+<br><br>
+ <div class="container">
+            <div class="panel panel-primary" style="width:750px;margin:0px auto">
+              <div class="panel-heading">Please fill the below detail for registration!!!</div>
+              <div class="panel-body">
+  <form class="form-horizontal"   [formGroup]="myform"
+      (ngSubmit)="onSubmit()"  id="reg_form">
+      <legend> Basic information </legend>
+      <fieldset>
+      <!-- Text input-->
+      
+        <label class="col-md-4 control-label">First Name</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input formControlName="firstName" 
+            placeholder="First Name" class="form-control"  type="text" required>
+            
+          </div>
+          <div class="form-group"
+       [ngClass]="{
+        'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
+        'has-success': firstName.valid && (firstName.dirty || firstName.touched)
+   }">
+        </div>
+      </div>
+      
+      <!-- Text input-->
+     
+
+
+    
+    </fieldset>
+  </form>
+ </div>
+      </div>
+ </div>
+  

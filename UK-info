@@ -1,0 +1,6 @@
+sql server 
+Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
+
+
+JWT token
+https://www.codeproject.com/Tips/1163971/Step-by-Step-Guide-for-Jwt-Token-Based-Authenticat

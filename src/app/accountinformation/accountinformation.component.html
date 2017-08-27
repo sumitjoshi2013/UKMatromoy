@@ -1,0 +1,92 @@
+<menubar></menubar><br>
+<fieldset>
+        <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">E-Mail</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input formControlName="email" placeholder="E-Mail Address" class="form-control"  type="text">
+          </div>
+
+
+            <div *ngIf="email.errors && (email.dirty || email.touched)">
+            <div *ngIf="email.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> Email Id  is required for communication purpose.
+          </div>
+        </div>
+        </div>
+
+
+        </div>
+      </div>
+      
+    
+        <div class="form-group has-feedback">
+            <label for="password"  class="col-md-4 control-label">
+                    Password
+                </label>
+                <div class="col-md-6  inputGroupContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input class="form-control" id="userPw" type="password" placeholder="password" 
+                       formControlName="password" data-minLength="5"
+                       data-error="some error"
+                       required/>
+                <span class="glyphicon form-control-feedback"></span>
+                <span class="help-block with-errors"></span>
+                </div>
+
+                   <div *ngIf="password.errors && (password.dirty || password.touched)">
+            <div *ngIf="password.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> Password  is required for authencation purpose.
+          </div>
+        </div>
+        </div>
+
+
+             </div>
+        </div>
+     
+        <div class="form-group has-feedback">
+            <label for="confirmPassword"  class="col-md-4 control-label">
+                   Confirm Password
+                </label>
+                 <div class="col-md-6  inputGroupContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input class="form-control {$borderColor}" id="userPw2" type="password" placeholder="Confirm password" 
+                       formControlName="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+                       data-match-error="some error 2"
+                       required/>
+                <span class="glyphicon form-control-feedback"></span>
+                <span class="help-block with-errors"></span>
+             </div>
+               
+
+                   <div *ngIf="confirmPassword.errors && (confirmPassword.dirty || confirmPassword.touched)">
+            <div *ngIf="confirmPassword.errors.required">
+            <div class="alert alert-warning">
+           <strong>Warning!</strong> Password  is required for authencation purpose.
+          </div>
+        </div>
+        </div>
+
+             </div>
+        </div>
+     
+      <input type="checkbox" required name="terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" id="field_terms">   <label for="terms">I agree with the <a href="/terms.html" title="You may read our terms and conditions by clicking on this link">terms and conditions</a> for Registration.</label><span class="req">* </span>
+  
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+         <button (click)="gotoLogin()" type="submit" class="btn btn-warning" >Back 
+            <span class="glyphicon glyphicon-send"></span>
+          </button>
+        </div>
+        
+      </div>
+
+    
+    </fieldset>

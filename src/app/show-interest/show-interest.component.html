@@ -1,0 +1,75 @@
+<!--https://bootsnipp.com/snippets/Bqm1E-->
+<menubar></menubar>
+
+<div class="contact-us">
+		<div class="container">
+		   <div class="contact-form">
+			<div class="row">
+				<div class="col-sm-7">                  
+					 <form id="ajax-contact"  method="post" action="contact-form-mail.php" role="form">
+						 <div class="messages" id="form-messages"></div>
+						 <div class="controls">
+							 <div class="row">
+								 <div class="col-md-6">
+									 <div class="form-group">
+										 <label for="form_email">Contact Email *</label>
+										 <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+										 <div class="help-block with-errors"></div>
+									 </div>
+								 </div>
+								 <div class="col-md-6">
+									 <div class="form-group">
+										 <label for="form_phone">Phone*</label>
+										 <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required>
+										 
+									 </div>
+								 </div>
+							 </div>
+
+
+
+							 <div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+											<label for="form_message">Interest Status *</label>
+										<div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select required name="interest" class="ui fluid search selection dropdown" >
+											 <option *ngFor="let item of interestList;" value= {{item.id}} >{{item.name}}</option>
+										   </select>
+										 </div>
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+							
+							</div>
+
+							<div class="row">
+								 <div class="col-md-12">
+									 <div class="form-group">
+										 <label for="form_message">Message *</label>
+										 <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+										 <div class="help-block with-errors"></div>
+									 </div>
+								 </div>
+								 <div class="col-md-12">
+									 <input type="submit" class="btn btn-black" value="Send message">
+								 </div>
+							 </div>
+							 <div class="row">
+								 <div class="col-md-12">
+									<br>
+									 <small class="text-muted"><strong>*</strong> These fields are required.</small>
+								 </div>
+							 </div>
+						 </div>
+ 
+					 </form>
+	 
+				</div>
+				
+			</div>
+			
+		   </div>
+		</div>
+	</div>
+ 

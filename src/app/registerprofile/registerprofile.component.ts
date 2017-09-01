@@ -14,6 +14,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { NotFoundError } from './../common/not-found-error';
+import { OrderService } from "app/services/order.service";
+
 
 export interface FormModel {
   captcha?: string;
@@ -131,7 +133,7 @@ export class RegisterprofileComponent implements OnInit {
    ];
 
     CTCIncomeList = [
-        {id:310, name:'No Value'},
+        {id:309, name:'No Value'},
         {id:300, name:'0 - 1,00,000'},
         {id:301, name:'1,00,000 - 3,00,000'},
         {id:302, name:'3,00,000 - 5,00,000'},
@@ -139,8 +141,8 @@ export class RegisterprofileComponent implements OnInit {
         {id:304, name:'8,00,000 - 10,00,000'},
         {id:305, name:'10,00,000 - 13,00,000'},
         {id:306, name:'13,00,000 - 15,00,000'},
-        {id:305, name:'15,00,000 - 18,00,000'},
-        {id:306, name:'18,00,000 - above 18,00,000'}
+        {id:307, name:'15,00,000 - 18,00,000'},
+        {id:308, name:'18,00,000 - above 18,00,000'}
    ];
 
     smokeStatusList = [
@@ -157,20 +159,14 @@ export class RegisterprofileComponent implements OnInit {
 
     workStatusList = [
         {id:600, name:'Working in Govt Organisation'},
-        {id:600, name:'Working in Semi-Govt Organisation'},
-        {id:600, name:'Working in Pvt Organisation'},
-        {id:601, name:'Non-Working'},
-        {id:601, name:'Own Business'},
-        {id:600, name:'Other'},
+        {id:601, name:'Working in Semi-Govt Organisation'},
+        {id:602, name:'Working in Pvt Organisation'},
+        {id:603, name:'Non-Working'},
+        {id:604, name:'Own Business'},
+        {id:605, name:'Other'},
    ];
 
-    drinkStatusList = [
-        {id:1301, name:'Daily'},
-        {id:1300, name:'Occational'},
-        {id:1301, name:'Never'}
-   ];
-
-    religionStatusList = [
+  religionStatusList = [
         {id:700, name:'Brahimin'}
    ];
 
@@ -207,7 +203,14 @@ export class RegisterprofileComponent implements OnInit {
         {id:1200, name:'Delhi'}
    ];
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private http: Http) {
+   drinkStatusList = [
+    {id:1301, name:'Daily'},
+    {id:1300, name:'Occational'},
+    {id:1301, name:'Never'}
+];
+  constructor(private router: Router, private formBuilder: FormBuilder, private http: Http, 
+    private orderService: OrderService
+  ) {
   }
   
   
@@ -368,8 +371,7 @@ get mySocialProfile()
  }
 
    onSubmit(data: any) {
-    //console.log("Form Submitted!");
-     // console.log("Form Submitted!" + JSON.stringify(this.myform.value));
+   
       let url1 = "http://localhost:8910/Api/api/Registration";
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -378,9 +380,7 @@ get mySocialProfile()
       headers.append('Access-Control-Allow-Origin','*');
       
       headers.append('Access-Control-Allow-Credentials', 'true');
-      //headers.append('GET', 'POST', 'OPTIONS');
-
-      
+    
       let options = new RequestOptions({ headers: headers });
       console.log("POST");
       let url = `${url1}/`;

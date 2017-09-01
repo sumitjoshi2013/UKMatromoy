@@ -52,6 +52,7 @@ import 'hammerjs';
 import { UsermessagehistoryComponent } from './usermessagehistory/usermessagehistory.component';
 import { UsermessagesComponent } from './usermessages/usermessages.component';
 import { SearchprofilesComponent } from './searchprofiles/searchprofiles.component';
+import { ShowInterestComponent } from './show-interest/show-interest.component';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -134,7 +135,8 @@ export function getAuthHttp(http) {
     OurvisionComponent,
     UsermessagehistoryComponent,
     UsermessagesComponent,
-    SearchprofilesComponent
+    SearchprofilesComponent,
+    ShowInterestComponent
   ],
   imports: [
     MaterialModule,
@@ -165,7 +167,6 @@ export function getAuthHttp(http) {
       { path: 'profilelist', component: ProfilelistComponent , canActivate: [AdminAuthGuard]},
       { path: 'profiledetail', component: ProfiledetailComponent , canActivate: [AdminAuthGuard]},
       { path: '#/profiledetail', component: ProfiledetailComponent , canActivate: [AdminAuthGuard]},
-     
       { path: 'contactus', component: ContactusComponent },
       { path: 'vision', component: OurvisionComponent },
       { path: 'deletepic', component: DeletepicComponent , canActivate: [AdminAuthGuard]},
@@ -173,8 +174,7 @@ export function getAuthHttp(http) {
       { path: 'messagehistory', component: UsermessagehistoryComponent , canActivate: [AdminAuthGuard]},
       { path: 'usermessage', component: UsermessagesComponent , canActivate: [AdminAuthGuard]},
       { path: 'searchprofile', component: SearchprofilesComponent , canActivate: [AdminAuthGuard]},
-      
-
+      { path: 'showInterest', component: ShowInterestComponent},
     ],{ useHash: true })
   ],
   providers: [

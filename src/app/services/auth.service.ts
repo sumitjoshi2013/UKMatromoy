@@ -79,7 +79,7 @@ params1.set('callback', "JSONP_CALLBACK");
     let user = credentials.email;
      let password = credentials.password;
     // console.log(credentials);
-     let _InstUrl = "http://ukwebapp.azurewebsites.net/api/Token?username="+user+"&password="+password+""; 
+     let _InstUrl = "http://localhost:8010/api/Token?username="+user+"&password="+password+""; 
     //console.log(_InstUrl);
 let data = JSON.stringify(credentials); //[{"email": "sumit.joshi"}, {"password": "pwd"}];
 

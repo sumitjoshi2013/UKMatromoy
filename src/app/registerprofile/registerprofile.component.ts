@@ -15,6 +15,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { NotFoundError } from './../common/not-found-error';
 import { OrderService } from "app/services/order.service";
+import {MdAutocompleteModule} from '@angular/material';
 
 
 export interface FormModel {
@@ -90,6 +91,7 @@ export class RegisterprofileComponent implements OnInit {
   about: new FormControl('', Validators.required),
   mySubCaste: new FormControl('', Validators.required),
   recaptcha:  new FormControl('', Validators.required),
+  mobile:  new FormControl('', Validators.required),
   mySocialProfile: new FormControl('')
 });
    open() {
@@ -227,6 +229,11 @@ export class RegisterprofileComponent implements OnInit {
   get sec()
   {
     return this.myform.get("sec");
+  }
+  
+  get mobile()
+  {
+    return this.myform.get("mobile");
   }
 
   get dob()

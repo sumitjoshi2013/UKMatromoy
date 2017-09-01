@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http, BaseRequestOptions, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router'; 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -53,6 +52,7 @@ import { UsermessagehistoryComponent } from './usermessagehistory/usermessagehis
 import { UsermessagesComponent } from './usermessages/usermessages.component';
 import { SearchprofilesComponent } from './searchprofiles/searchprofiles.component';
 import { ShowInterestComponent } from './show-interest/show-interest.component';
+import {MdAutocompleteModule} from '@angular/material';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -137,10 +137,12 @@ export function getAuthHttp(http) {
     UsermessagesComponent,
     SearchprofilesComponent,
     ShowInterestComponent
+    
   ],
   imports: [
     MaterialModule,
     MdGridListModule,
+    MdAutocompleteModule,
     MyDatePickerModule ,
   //AlertModule.forRoot(),
     BrowserModule,

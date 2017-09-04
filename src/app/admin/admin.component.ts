@@ -1,4 +1,4 @@
-import { OrderService } from './../services/order.service';
+import { dataService } from './../services/data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
   orders: any[];
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: dataService) { }
 
   ngOnInit() {
-    this.orderService.getOrders()
-      .subscribe(orders => this.orders = orders);
+   // this.orderService.getMasterData(1)
+     // .subscribe(orders => this.orders = orders);
   }
 }

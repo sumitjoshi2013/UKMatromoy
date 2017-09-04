@@ -14,9 +14,14 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { NotFoundError } from './../common/not-found-error';
-import { OrderService } from "app/services/order.service";
+import { dataService } from "app/services/data.service";
 import {MdAutocompleteModule} from '@angular/material';
+import { AuthService } from "app/services/auth.service";
 
+class arrayData {
+  id: number;
+  name: string;
+}
 
 export interface FormModel {
   captcha?: string;
@@ -122,6 +127,47 @@ export class RegisterprofileComponent implements OnInit {
     // minDate = new Date(2000, 0, 1);
     maxDate = new Date(2000, 0, 1);
 
+    
+  religionStatusList = this.dataservice.getMasterData(7).subscribe((res:any) => res);
+  //this.getData(7); 
+
+  /*
+  [
+        {id:700, name:'Brahimin'}
+   ];
+*/
+    motherToungeList = this.getData(8); 
+    /*
+    [
+        {id:1800, name:'Hindu'}
+   ];
+    */
+
+    rashiStatusList = this.getData(10);
+    /*
+    [
+         {id:1000, name:'Mesa / Mesh'},
+         {id:1001, name:'Vrishabha / Vrushabh'},
+         {id:1002, name:'Mithuna / Mithun'},
+         {id:1000, name:'Karka'},
+         {id:1001, name:'Simha / Sinh'},
+         {id:1002, name:'Kanya'},
+         {id:1000, name:'Tula'},
+         {id:1001, name:'Vrischika / Vrushchik'},
+         {id:1002, name:'Dhanu'},
+         {id:1000, name:'Makar'},
+         {id:1001, name:'Kumbha'},
+         {id:1002, name:'Mina / Meen'}
+    ];
+ */
+
+ 
+cityStatusList =  this.getData(12);
+/*
+[
+     {id:1200, name:'Delhi'}
+];
+*/
 
     genderList = [
         {id:100, name:'Male'},
@@ -168,42 +214,16 @@ export class RegisterprofileComponent implements OnInit {
         {id:605, name:'Other'},
    ];
 
-  religionStatusList = [
-        {id:700, name:'Brahimin'}
-   ];
-
-    motherToungeList = [
-        {id:800, name:'Hindu'}
-   ];
-
    subCasteStatusList = [
         {id:900, name:'Joshi'},
         {id:901, name:'Pant'},
         {id:902, name:'Pandey'}
    ];
 
-   rashiStatusList = [
-        {id:1000, name:'Mesa / Mesh'},
-        {id:1001, name:'Vrishabha / Vrushabh'},
-        {id:1002, name:'Mithuna / Mithun'},
-        {id:1000, name:'Karka'},
-        {id:1001, name:'Simha / Sinh'},
-        {id:1002, name:'Kanya'},
-        {id:1000, name:'Tula'},
-        {id:1001, name:'Vrischika / Vrushchik'},
-        {id:1002, name:'Dhanu'},
-        {id:1000, name:'Makar'},
-        {id:1001, name:'Kumbha'},
-        {id:1002, name:'Mina / Meen'}
-   ];
-
     countryStatusList = [
         {id:1100, name:'India'}
    ];
    
-   cityStatusList = [
-        {id:1200, name:'Delhi'}
-   ];
 
    drinkStatusList = [
     {id:1301, name:'Daily'},
@@ -211,10 +231,14 @@ export class RegisterprofileComponent implements OnInit {
     {id:1301, name:'Never'}
 ];
   constructor(private router: Router, private formBuilder: FormBuilder, private http: Http, 
-    private orderService: OrderService
-  ) {
-  }
+    private dataservice: dataService,  private authService: AuthService
+  ) {  }
   
+  getData(id)
+  {
+    this.dataservice.getMasterData(id).subscribe((res:any) => res);
+    //console.log(d);
+  }
   
   get hh()
   {

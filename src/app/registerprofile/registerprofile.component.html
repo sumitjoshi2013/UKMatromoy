@@ -379,7 +379,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <div class="col-md-6 selectContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
               <select required name="religion" formControlName="religion"   class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of religionStatusList;" value= {{item.id}} >{{item.name}}</option>
+              <option *ngFor="let item of religionStatusList | json;" value= {{item.id}} >{{item.name}}</option>
             </select>
           </div>
 
@@ -766,6 +766,9 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
     </div>
   </div>
  </div>
+<div>
+    data : {{religionStatusList|json}}
+</div>
   
 
    <div style="margin-top: 20px" >

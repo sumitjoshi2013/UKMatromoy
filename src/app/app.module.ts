@@ -1,5 +1,5 @@
 import { AuthHttp, AUTH_PROVIDERS, provideAuth, AuthConfig } from 'angular2-jwt/angular2-jwt';
-import { OrderService } from './services/order.service';
+import { dataService } from './services/data.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
 import { AuthGuard } from './auth-guard.service';
 import { MockBackend } from '@angular/http/testing';
@@ -180,8 +180,7 @@ export function getAuthHttp(http) {
     ],{ useHash: true })
   ],
   providers: [
-    OrderService,
-
+    dataService,
     AuthService,
     AuthGuard,
     AdminAuthGuard,

@@ -1,8 +1,16 @@
 import { AuthService } from './../services/auth.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderMenuComponent } from '../header/header.component';
 //import './home.js';
 import { Router } from "@angular/router";
+import { dataService } from "app/services/data.service";
+
+
+class arrayData {
+  constructor(public message: string, public profileid: string,
+              public name: string, public status: string
+  ){}
+}
 
 
 @Component({
@@ -10,17 +18,19 @@ import { Router } from "@angular/router";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) 
-  {
-
-   // let cuser = this.authService.currentUser.name;
-//console.log(cuser);
-   }
+  constructor(private authService: AuthService, private router: Router, private dataservice: dataService  ) 
+  { }
+  userData : arrayData[]; 
+  ngOnInit() {
+    let Url = "http://localhost:8910/api/api/ShowInterest?userid="; 
+    this.dataservice.getData(Url + 1).subscribe((res: any) => { this.userData = res });
+  }
 
 Message()
 {
+  
   console.log("Message");
   this.router.navigate(['/messagehistory']);
 } 

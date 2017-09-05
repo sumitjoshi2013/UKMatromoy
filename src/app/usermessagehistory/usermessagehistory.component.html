@@ -3,49 +3,23 @@
 <div style="padding: 20px 20% 0 20%; ">
 <div class="chat_list">
     <ul class="list-group">
-        <li class="list-group-item">
+        <li class="list-group-item" *ngFor="let item of MessageData;">
             <div class="pull-left hidden-xs">
                 <div>
                     <img class="img-circle" title="User1" alt="User1" 
                     data-src="holder.js/40x40/lava">                    
                 </div>
             </div>
-            <small class="pull-right text-muted">10.12.2014 in 12:56</small>
+            <small class="pull-right text-muted"> {{item.message_send_date}} </small>
             <div>
-                <small class="list-group-item-heading text-muted text-primary">User1</small>
+                <small class="list-group-item-heading text-muted text-primary"> {{item.message_sender}} </small>
                 <p class="list-group-item-text">
-                    Hi! this message is FOR you.
+                    {{item.message}}
                 </p>
             </div>
         </li>
-        <li class="list-group-item">
-            <div class="pull-left hidden-xs">
-                <div>
-                                        
-                </div>
-            </div>
-            <small class="pull-right text-muted">10.12.2014 in 12:57</small>
-            <div>
-                <small class="list-group-item-heading text-muted">You</small>
-                <p class="list-group-item-text">
-                    This response message FROM you.
-                </p>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="pull-left hidden-xs">
-                <div>
-                    
-                </div>
-            </div>
-            <small class="pull-right text-muted">10.12.2014 in 12:58</small>
-            <div>
-                <small class="list-group-item-heading text-muted text-primary">User2</small>
-                <p class="list-group-item-text">
-                    Very long text. He correctly displayed. Very long text. He correctly displayed. Very long text. He correctly displayed. Very long text. He correctly displayed. Very long text. He correctly displayed. Very long text. He correctly displayed. Very long text. He correctly displayed. Very long text. He correctly displayed. 
-                </p>
-            </div>
-        </li>
+
+        
     </ul>
 </div>
 </div>

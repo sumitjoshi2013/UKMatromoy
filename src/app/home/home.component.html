@@ -215,7 +215,7 @@
 	    
     </div>
 	-->
-		<div class="col-md-8">
+		<div  class="col-md-8">
 	    <h3>Messages</h3>
 	    <table class="table table-condensed table-bordered table-hover small">
 	        <thead>
@@ -227,36 +227,22 @@
 	           </tr>
 	        </thead>
 	        <tbody>
-	            <tr class="text-info">
+	            <tr  class="text-info" *ngFor="let item of userData;">
 	                <td>
 	                   <i class="glyphicon glyphicon-info-sign"></i>
 	                </td>
 	                <td>
-	                   Sumit Joshi
+										{{item.name}}
 	                </td>
 	                <td>
-	                    Reject
+										{{item.status}}
 	                </td>
 	                <td>
 	                    <a href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-eye-open"></i></a>
 	                    <a href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-arrow-right"></i> </a>
 	                </td>
 	            </tr>
-	            <tr class="text-info">
-	                <td>
-	                   <i class="glyphicon glyphicon-info-sign"></i>
-	                </td>
-	                <td>
-	                    Sanjay Joshi
-	                </td>
-	                <td>
-	                    Accepted
-	                </td>
-	                <td>
-	                    <a  href="/#/messagehistory"  (click)= "Message()"> <i class="glyphicon glyphicon-eye-open"></i></a>
-	                    <a  href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-arrow-right"></i> </a>
-	                </td>
-	            </tr>
+	           
 	        </tbody>
 	    </table>
     </div>

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-5" style="text-align:right;">
+      <label>Country:</label>
+  </div>
+  <div class="col-md-7" style="text-align:left;">
+      <select   style="width:150px;">
+          <option value="0">--Select--</option>
+          <option *ngFor="let country of countries" value={{country.id}}>{{country.name}}</option>
+      </select>
+  </div>
+</div>
+<br />

@@ -53,6 +53,8 @@ import { UsermessagesComponent } from './usermessages/usermessages.component';
 import { SearchprofilesComponent } from './searchprofiles/searchprofiles.component';
 import { ShowInterestComponent } from './show-interest/show-interest.component';
 import {MdAutocompleteModule} from '@angular/material';
+import { TestComponent } from './test/test.component';
+import { TestService } from './test/test.service'
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -136,7 +138,8 @@ export function getAuthHttp(http) {
     UsermessagehistoryComponent,
     UsermessagesComponent,
     SearchprofilesComponent,
-    ShowInterestComponent
+    ShowInterestComponent,
+    TestComponent
     
   ],
   imports: [
@@ -166,9 +169,9 @@ export function getAuthHttp(http) {
       { path: 'RegistrationOTP', component: RegistrationThanksComponent },
       { path: 'Imagegallery', component: ImagegalleryComponent , canActivate: [AdminAuthGuard]},
       { path: 'Fileupload', component: FileuploadComponent , canActivate: [AdminAuthGuard]},
-      { path: 'profilelist', component: ProfilelistComponent , canActivate: [AdminAuthGuard]},
+      { path: 'profilelist', component: ProfilelistComponent},
       { path: 'profiledetail', component: ProfiledetailComponent , canActivate: [AdminAuthGuard]},
-      { path: '#/profiledetail', component: ProfiledetailComponent , canActivate: [AdminAuthGuard]},
+      { path: '#/profiledetail', component: ProfiledetailComponent},
       { path: 'contactus', component: ContactusComponent },
       { path: 'vision', component: OurvisionComponent },
       { path: 'deletepic', component: DeletepicComponent , canActivate: [AdminAuthGuard]},
@@ -177,10 +180,12 @@ export function getAuthHttp(http) {
       { path: 'usermessage', component: UsermessagesComponent , canActivate: [AdminAuthGuard]},
       { path: 'searchprofile', component: SearchprofilesComponent , canActivate: [AdminAuthGuard]},
       { path: 'showInterest', component: ShowInterestComponent},
+      { path: 'test', component: TestComponent},
     ],{ useHash: true })
   ],
   providers: [
     dataService,
+    TestService,
     AuthService,
     AuthGuard,
     AdminAuthGuard,

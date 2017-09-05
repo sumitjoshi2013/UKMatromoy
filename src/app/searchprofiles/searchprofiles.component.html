@@ -4,7 +4,9 @@
 	<div class="col-md-8">
 	    <h3>Search Result</h3>
 	    <table class="table table-condensed table-bordered table-hover small">
-	        <thead>
+		 
+			
+			<thead>
 	           <tr>
 	               <th>My Pic</th>
 	               <th>Name</th>
@@ -17,35 +19,13 @@
 	           </tr>
 	        </thead>
 	        <tbody>
-	            <tr class="text-info">
-	                <td>
-                      <img class="img-circle" title="User1" alt="User1"
-                      src="http://localhost/images/IMG_20170626_080945.jpg"
-                      alt="Photo gallery" style="width:70px;height:70px">
-	                  
-	                </td>
-	                <td>
-	                   Sumit Joshi
-	                </td>
-	                <td>
-	                    19/07/1977
-                  </td>
-                  <td>
-                      Brahmin
-                   </td>
-                   <td>
-                       Kaushik
-                   </td>
-                   <td>
-                      Working
-                  </td>
-	                <td>
-	                    <a (click)= "Viewdetail()"> <i class="glyphicon glyphicon-eye-open"></i></a>
-	                    <a (click)= "Viewdetail()"> <i class="glyphicon glyphicon-arrow-right"></i> </a>
-	                </td>
-	            </tr>
-	            <tr class="text-info">
-	                <td>
+				
+	            <div *ngFor="let item of userData;">
+					{{item}}
+	            <tr  >
+				
+			
+					<td>
                       <img class="img-circle" title="User1" alt="User1"
                       src="http://localhost/images/IMG_20170626_080945.jpg"
                       alt="Photo gallery" style="width:70px;height:70px">
@@ -69,7 +49,8 @@
 	                    <a (click)= "Viewdetail()"> <i class="glyphicon glyphicon-eye-open"></i></a>
 	                    <a (click)= "Viewdetail()"> <i class="glyphicon glyphicon-arrow-right"></i> </a>
 	                </td>
-	            </tr>
+				</tr>
+			</div>
 	        </tbody>
 	    </table>
     </div>
@@ -77,3 +58,4 @@
 	    <div id='grafico4' class="grafico" style="height: 400px;"></div>
 	</div>
 </div>
+{{userData}}

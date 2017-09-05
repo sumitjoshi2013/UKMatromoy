@@ -232,6 +232,24 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
           </div>
         </div>
         </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">My Native Place*</label>
+          <div class="col-md-6  inputGroupContainer">
+            <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input formControlName="nativePlace" placeholder="Native Place" class="form-control" type="text">
+            </div>
+               <div *ngIf="nativePlace.errors && (nativePlace.dirty || nativePlace.touched)">
+              <div *ngIf="nativePlace.errors.required">
+              <div class="alert-warning">
+             <strong>Warning!</strong> nativePlace  is required.
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+
+
       </fieldset>
 
 
@@ -379,7 +397,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <div class="col-md-6 selectContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
               <select required name="religion" formControlName="religion"   class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of religionStatusList | json;" value= {{item.id}} >{{item.name}}</option>
+              <option *ngFor="let item of religionStatusList;" value= {{item.id}} >{{item.name}}</option>
             </select>
           </div>
 
@@ -767,7 +785,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
   </div>
  </div>
 <div>
-    data : {{religionStatusList|json}}
+   
 </div>
   
 

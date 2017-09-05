@@ -19,15 +19,12 @@ import {MdAutocompleteModule} from '@angular/material';
 import { AuthService } from "app/services/auth.service";
 
 class arrayData {
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string){}
 }
 
 export interface FormModel {
   captcha?: string;
 }
-
-
 
 @Component({
   selector: 'app-registerprofile',
@@ -38,10 +35,19 @@ export interface FormModel {
   ` ]
 })
 export class RegisterprofileComponent implements OnInit {
-    ngOnInit() {
-     // this.createFormControls();
-     // this.createForm();
-    }
+  religionStatusList: arrayData[];
+  motherToungeList : arrayData[]; 
+  rashiStatusList : arrayData[]; 
+  cityStatusList : arrayData[]; 
+
+  ngOnInit() {
+    let Url = "http://localhost:8910/api/api/MasterData?lookUpId="; 
+    this.dataservice.getData(Url + 7).subscribe((res: any) => { this.religionStatusList = res });
+    this.dataservice.getData(Url + 8).subscribe((res: any) => { this.motherToungeList = res });
+    this.dataservice.getData(Url + 10).subscribe((res: any) => { this.rashiStatusList = res });
+    this.dataservice.getData(Url + 12).subscribe((res: any) => { this.cityStatusList = res });
+  }
+ 
     timeobj = new Array(24);
     minobj = new Array(60);
 
@@ -97,6 +103,7 @@ export class RegisterprofileComponent implements OnInit {
   mySubCaste: new FormControl('', Validators.required),
   recaptcha:  new FormControl('', Validators.required),
   mobile:  new FormControl('', Validators.required),
+  nativePlace: new FormControl('', Validators.required),
   mySocialProfile: new FormControl('')
 });
    open() {
@@ -122,53 +129,10 @@ export class RegisterprofileComponent implements OnInit {
     
  
 
-  public alerts: any = [];
+    public alerts: any = [];
     error = "error";
-    // minDate = new Date(2000, 0, 1);
     maxDate = new Date(2000, 0, 1);
-
     
-  religionStatusList = this.dataservice.getMasterData(7).subscribe((res:any) => res);
-  //this.getData(7); 
-
-  /*
-  [
-        {id:700, name:'Brahimin'}
-   ];
-*/
-    motherToungeList = this.getData(8); 
-    /*
-    [
-        {id:1800, name:'Hindu'}
-   ];
-    */
-
-    rashiStatusList = this.getData(10);
-    /*
-    [
-         {id:1000, name:'Mesa / Mesh'},
-         {id:1001, name:'Vrishabha / Vrushabh'},
-         {id:1002, name:'Mithuna / Mithun'},
-         {id:1000, name:'Karka'},
-         {id:1001, name:'Simha / Sinh'},
-         {id:1002, name:'Kanya'},
-         {id:1000, name:'Tula'},
-         {id:1001, name:'Vrischika / Vrushchik'},
-         {id:1002, name:'Dhanu'},
-         {id:1000, name:'Makar'},
-         {id:1001, name:'Kumbha'},
-         {id:1002, name:'Mina / Meen'}
-    ];
- */
-
- 
-cityStatusList =  this.getData(12);
-/*
-[
-     {id:1200, name:'Delhi'}
-];
-*/
-
     genderList = [
         {id:100, name:'Male'},
         {id:101, name:'Female'}
@@ -234,12 +198,11 @@ cityStatusList =  this.getData(12);
     private dataservice: dataService,  private authService: AuthService
   ) {  }
   
-  getData(id)
+  get nativePlace()
   {
-    this.dataservice.getMasterData(id).subscribe((res:any) => res);
-    //console.log(d);
+    return this.myform.get("nativePlace");
   }
-  
+
   get hh()
   {
     return this.myform.get("hh");
@@ -407,19 +370,14 @@ get mySocialProfile()
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('Accept', 'application/json');
-    
       headers.append('Access-Control-Allow-Origin','*');
-      
       headers.append('Access-Control-Allow-Credentials', 'true');
-    
       let options = new RequestOptions({ headers: headers });
       console.log("POST");
       let url = `${url1}/`;
-     
       let f= this.http.post(url, JSON.stringify(data),options ).subscribe(res => console.log(res.json()));
-  
-    console.log(f);
-                       return f;
+      console.log(f);
+      return f;
    // if (this.myform.valid) {
     //  console.log("Form Submitted!" + this.myform);
     //  this.router.navigate(['/RegistrationOTP']);

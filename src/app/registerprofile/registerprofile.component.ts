@@ -41,11 +41,11 @@ export class RegisterprofileComponent implements OnInit {
   cityStatusList : arrayData[]; 
 
   ngOnInit() {
-    let Url = "http://localhost:8910/api/api/MasterData?lookUpId="; 
-    this.dataservice.getData(Url + 7).subscribe((res: any) => { this.religionStatusList = res });
-    this.dataservice.getData(Url + 8).subscribe((res: any) => { this.motherToungeList = res });
-    this.dataservice.getData(Url + 10).subscribe((res: any) => { this.rashiStatusList = res });
-    this.dataservice.getData(Url + 12).subscribe((res: any) => { this.cityStatusList = res });
+    let Url = "http://localhost:8910/api/api/MasterData/"; 
+    this.dataservice.getData(Url + "ReligionMaster?userid = " + this.authService.currentUser.name).subscribe((res: any) => { this.religionStatusList = res });
+    this.dataservice.getData(Url + "GetMotherToungeMaster?userid = " + this.authService.currentUser.name).subscribe((res: any) => { this.motherToungeList = res });
+    this.dataservice.getData(Url + "RashiMaster?userid = " + this.authService.currentUser.name).subscribe((res: any) => { this.rashiStatusList = res });
+    this.dataservice.getData(Url + "CityMaster?userid = " + this.authService.currentUser.name).subscribe((res: any) => { this.cityStatusList = res });
   }
  
     timeobj = new Array(24);
@@ -127,55 +127,66 @@ export class RegisterprofileComponent implements OnInit {
       disableSince: {year: this.year, month: this.month, day: this.day}
   };
     
- 
-
     public alerts: any = [];
     error = "error";
     maxDate = new Date(2000, 0, 1);
     
     genderList = [
-        {id:100, name:'Male'},
-        {id:101, name:'Female'}
+        {id:1, name:'Male'},
+        {id:2, name:'Female'}
     ];
 
     maritalStatusList = [
-        {id:200, name:'Single'},
-        {id:201, name:'Divorced'},
-        {id:202, name:'Other'}
+        {id:1, name:'Single'},
+        {id:2, name:'Divorced'},
+        {id:3, name:'Other'}
    ];
+
+   
+   countryStatusList = [
+        {id:1, name:'India'}
+      ];
+
+
+    drinkStatusList = [
+        {id:1, name:'Daily'},
+        {id:2, name:'Occational'},
+        {id:3, name:'Never'}
+    ];
+
+    
+    smokeStatusList = [
+      {id:1, name:'Smoking'},
+      {id:2, name:'Non-Smoking'}
+ ];
+
+  dietStatusList = [
+      {id:1, name:'Veg'},
+      {id:2, name:'Non-Veg'},
+      {id:3, name:'Eggetarian'},
+      {id:4, name:'Other'}
+ ];
 
     CTCIncomeList = [
-        {id:309, name:'No Value'},
-        {id:300, name:'0 - 1,00,000'},
-        {id:301, name:'1,00,000 - 3,00,000'},
-        {id:302, name:'3,00,000 - 5,00,000'},
-        {id:303, name:'5,00,000 - 8,00,000'},
-        {id:304, name:'8,00,000 - 10,00,000'},
-        {id:305, name:'10,00,000 - 13,00,000'},
-        {id:306, name:'13,00,000 - 15,00,000'},
-        {id:307, name:'15,00,000 - 18,00,000'},
-        {id:308, name:'18,00,000 - above 18,00,000'}
-   ];
-
-    smokeStatusList = [
-        {id:400, name:'Smoking'},
-        {id:401, name:'Non-Smoking'}
-   ];
-
-    dietStatusList = [
-        {id:500, name:'Veg'},
-        {id:501, name:'Non-Veg'},
-        {id:502, name:'Eggetarian'},
-        {id:503, name:'Other'}
+        {id:1, name:'No Value'},
+        {id:2, name:'0 - 1,00,000'},
+        {id:3, name:'1,00,000 - 3,00,000'},
+        {id:4, name:'3,00,000 - 5,00,000'},
+        {id:5, name:'5,00,000 - 8,00,000'},
+        {id:6, name:'8,00,000 - 10,00,000'},
+        {id:7, name:'10,00,000 - 13,00,000'},
+        {id:8, name:'13,00,000 - 15,00,000'},
+        {id:9, name:'15,00,000 - 18,00,000'},
+        {id:10, name:'18,00,000 - above 18,00,000'}
    ];
 
     workStatusList = [
-        {id:600, name:'Working in Govt Organisation'},
-        {id:601, name:'Working in Semi-Govt Organisation'},
-        {id:602, name:'Working in Pvt Organisation'},
-        {id:603, name:'Non-Working'},
-        {id:604, name:'Own Business'},
-        {id:605, name:'Other'},
+        {id:1, name:'Working in Govt Organisation'},
+        {id:2, name:'Working in Semi-Govt Organisation'},
+        {id:3, name:'Working in Pvt Organisation'},
+        {id:4, name:'Non-Working'},
+        {id:5, name:'Own Business'},
+        {id:6, name:'Other'},
    ];
 
    subCasteStatusList = [
@@ -184,16 +195,6 @@ export class RegisterprofileComponent implements OnInit {
         {id:902, name:'Pandey'}
    ];
 
-    countryStatusList = [
-        {id:1100, name:'India'}
-   ];
-   
-
-   drinkStatusList = [
-    {id:1301, name:'Daily'},
-    {id:1300, name:'Occational'},
-    {id:1301, name:'Never'}
-];
   constructor(private router: Router, private formBuilder: FormBuilder, private http: Http, 
     private dataservice: dataService,  private authService: AuthService
   ) {  }

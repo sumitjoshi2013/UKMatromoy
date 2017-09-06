@@ -28,7 +28,7 @@ public formModel: FormModel = {};
     private authService: AuthService) { }
 
     signIn(credentials) {
-    console.log(credentials);
+  //  console.log(credentials);
   if (this.form.valid) 
   {
     //this.router.navigate(['/multiauth']);
@@ -39,7 +39,7 @@ public formModel: FormModel = {};
         if (result)
         //if (true)
           {
-    console.log(this.form.valid);
+  //  console.log(this.form.valid);
     
           this.router.navigate(['/']);
           }else

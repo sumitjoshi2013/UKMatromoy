@@ -46,7 +46,7 @@ export class AuthService
                 let jwt = new JwtHelper();
                 this.currentUser = jwt.decodeToken(localStorage.getItem('token'));
              //   console.log("currentUser: " + localStorage.getItem('token'));
-                console.log("currentUser email: " + this.currentUser.name);
+               // console.log("currentUser email: " + this.currentUser.name);
                 return true; 
                     }
             else

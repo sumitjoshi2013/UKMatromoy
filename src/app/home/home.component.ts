@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   userData : arrayData[]; 
   ngOnInit() {
     let Url = "http://localhost:8910/api/api/ShowInterest?userid="; 
-    this.dataservice.getData(Url + 1).subscribe((res: any) => { this.userData = res });
+    this.dataservice.getData(Url + this.authService.currentUser.name).subscribe((res: any) => { this.userData = res });
   }
 
 Message()

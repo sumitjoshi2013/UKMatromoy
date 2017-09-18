@@ -6,11 +6,13 @@ import { Router } from "@angular/router";
 import { dataService } from "app/services/data.service";
 
 
-class arrayData {
+class userArray {
   constructor(public message: string, public profileid: string,
               public name: string, public status: string
   ){}
 }
+
+
 
 
 @Component({
@@ -22,10 +24,21 @@ export class HomeComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router, private dataservice: dataService  ) 
   { }
-  userData : arrayData[]; 
+  userData : userArray[]; 
+  RequestStatusCount : object; 
+
   ngOnInit() {
-    let Url = "http://localhost:8910/api/api/ShowInterest?userid="; 
-    this.dataservice.getData(Url + this.authService.currentUser.name).subscribe((res: any) => { this.userData = res });
+    let userRequests = "http://localhost:8910/api/api/UserRequests?userid="; 
+    this.dataservice.getData(userRequests + this.authService.currentUser.name).
+    subscribe((res: any) => 
+    { this.RequestStatusCount = res });
+
+    let showInterest = "http://localhost:8910/api/api/ShowInterest?userid="; 
+    this.dataservice.getData(showInterest + this.authService.currentUser.name).
+    subscribe((res: any) => 
+    { this.userData = res });
+
+
   }
 
 Message()

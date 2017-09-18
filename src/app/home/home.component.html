@@ -2,18 +2,18 @@
 <!--https://bootsnipp.com/snippets/p1lVe-->
 <div class="container">
 	
-	<div class="row" *ngIf="authService.isLoggedIn()">
+	<div class="row">
 		<div class="main-header">Welcome ,  <span class="destaque"> {{ authService.currentUser.name }}</span></div>
 	</div>
 	<div class="col-md-3">
-	    <div class="panel panel-info">
-          <div class="panel-heading">
+	    <div class="panel panel-info" >
+          <div class="panel-heading" >
             <div class="row">
               <div class="col-xs-6">
                 <i class="fa fa-envelope-open fa-5x"></i>
               </div>
-              <div class="col-xs-6 text-right">
-                <p class="announcement-heading">4</p>
+              <div class="col-xs-6 text-right" >  {{ RequestStatusCount?.TotalRequestSendCount }} 
+                <p class="announcement-heading"  ></p>
                 <p class="announcement-text">Request Send</p>
               </div>
             </div>
@@ -42,7 +42,7 @@
                 <i class="fa fa-heart fa-5x"></i>
               </div>
 							<div class="col-xs-6 text-right">
-                <p class="announcement-heading">4</p>
+                <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestReceivedCount }} </p>
                 <p class="announcement-text">Request Received</p>
               </div>
             </div>
@@ -69,7 +69,7 @@
                 <i class="fa fa-heartbeat fa-5x"></i>
               </div>
 							<div class="col-xs-6 text-right">
-                <p class="announcement-heading">4</p>
+                <p class="announcement-heading">{{ RequestStatusCount?.TotalPendingResponseCount }}</p>
                 <p class="announcement-text">Pending Request</p>
               </div>
             </div>
@@ -96,7 +96,7 @@
                 <i class="fa fa-money fa-5x"></i>
               </div>
 							<div class="col-xs-6 text-right">
-                <p class="announcement-heading">4</p>
+                <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestSendCount }}</p>
                 <p class="announcement-text">Reject Request</p>
               </div>
             </div>
@@ -115,138 +115,39 @@
           </a>
         </div>
 	</div>			
-	<!--
-	<div class="col-md-6">
-	    <h3>Main customers</h3>
-	    <table class="table table-condensed table-bordered table-hover small">
-	        <thead>
-	           <tr>
-	               <th style="width:80px;">.</th>
-	               <th>Name</th>
-	               <th>Revenue</th>
-	               <th>Tax</th>
-	               <th>Cap</th>
-	               <th>ROI</th>	               
-	               <th>Interest</th>
-	           </tr>
-	        </thead>
-	        <tbody>
-	            
-	            <tr>
-	                <td>
-	                    <a href="#"> <i class="glyphicon glyphicon-dashboard"></i></a>
-	                    <a href="#"> <i class="glyphicon glyphicon-eye-open"></i></a>
-	                    <a href="#"> <i class="glyphicon glyphicon-warning-sign"></i></a>
-	                </td>
-	                <td>
-	                    Company 1
-	                </td>
-	                <td>
-	                    $ 350 k
-	                </td>
-	                <td>
-	                    4 
-	                </td>
-	                <td>
-	                    $ 291,75
-	                </td>
-	                <td>3,72</td>
-	                <td>
-	                    3,65%
-	                </td>
-	                
-	            </tr>
-	            
-	            <tr class="danger">
-	                <td>
-	                    <a href="#"> <i class="glyphicon glyphicon-dashboard"></i> </a>
-	                    <a href="#"> <i class="glyphicon glyphicon-eye-open"></i> </a>
-	                    <a href="#"> <i class="glyphicon glyphicon-warning-sign"></i></a>
-	                </td>
-	                
-	                <td>
-	                    Customer 2
-	                </td>
-	                <td>$ 270 k</td>
-	                <td>7,8 </td>
-	                <td>$ 1307.32</td>
-	                <td>2,61</td>	                
-	                <td>8,45%</td>
-	            </tr>
 
-	            <tr class="info">
-	                <td>
-	                    <a href="#"> <i class="glyphicon glyphicon-dashboard"></i> </a>
-	                    <a href="#"> <i class="glyphicon glyphicon-eye-open"></i> </a>
-	                    <a href="#"> <i class="glyphicon glyphicon-warning-sign"></i></a>
-	                </td>
-	                
-	                <td>
-	                    Customer 3
-	                </td>
-	                <td>$ 125 k</td>
-	                <td>2,5 </td>
-	                <td>$ 312.45</td>
-	                <td>9,21</td>	                
-	                <td>2,5%</td>
-	            </tr>
-
-	            <tr >
-	                <td>
-	                    <a href="#"> <i class="glyphicon glyphicon-dashboard"></i> </a>
-	                    <a href="#"> <i class="glyphicon glyphicon-eye-open"></i> </a>
-	                    <a href="#"> <i class="glyphicon glyphicon-warning-sign"></i></a>
-	                </td>
-	                
-	                <td>
-	                    Customer 4
-	                </td>
-	                <td>$ 205 k</td>
-	                <td>7,1 </td>
-	                <td>$ 115,75</td>
-	                <td>6,27</td>
-	                <td>(n/d)</td>
-	            </tr>
-
-	            
-	        </tbody>
-	        
-	    </table>
-	    
-    </div>
-	-->
-		<div  class="col-md-8">
-	    <h3>Messages</h3>
-	    <table class="table table-condensed table-bordered table-hover small">
-	        <thead>
-	           <tr>
-	               <th style="width:30px;">.</th>
-	               <th>From</th>
-	               <th>Status</th>
-	               <th>Actions</th>
-	           </tr>
-	        </thead>
-	        <tbody>
-	            <tr  class="text-info" *ngFor="let item of userData;">
-	                <td>
-	                   <i class="glyphicon glyphicon-info-sign"></i>
-	                </td>
-	                <td>
-										{{item.name}}
-	                </td>
-	                <td>
-										{{item.status}}
-	                </td>
-	                <td>
-	                    <a href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-eye-open"></i></a>
-	                    <a href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-arrow-right"></i> </a>
-	                </td>
-	            </tr>
-	           
-	        </tbody>
-	    </table>
-    </div>
-		<div class="col-md-6">
-	    <div id='grafico4' class="grafico" style="height: 400px;"></div>
+	<div  class="col-md-8">
+		<h3>Messages</h3>
+		<table class="table table-condensed table-bordered table-hover small">
+				<thead>
+					 <tr>
+							 <th style="width:30px;">.</th>
+							 <th>From</th>
+							 <th>Status</th>
+							 <th>Actions</th>
+					 </tr>
+				</thead>
+				<tbody>
+						<tr  class="text-info" *ngFor="let item of userData;">
+								<td>
+									 <i class="glyphicon glyphicon-info-sign"></i>
+								</td>
+								<td>
+									{{item.name}}
+								</td>
+								<td>
+									{{item.status}}
+								</td>
+								<td>
+										<a href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-eye-open"></i></a>
+										<a href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-arrow-right"></i> </a>
+								</td>
+						</tr>
+					 
+				</tbody>
+		</table>
 	</div>
+	<div class="col-md-6">
+		<div id='grafico4' class="grafico" style="height: 400px;"></div>
+</div>
 </div>

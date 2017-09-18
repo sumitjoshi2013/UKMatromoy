@@ -1,14 +1,16 @@
 <menubar></menubar><br>
 
 <!-- ******HEADER****** -->
-  <header class="header">
-    <div class="container">
+  <header class="header" >
+    
+    <div class="container" >
+      <div>
       <div class="teacher-name" style="padding-top:20px;">
 
         <div class="row" style="margin-top:0px;">
         <div class="col-md-9">
         
-          <h2 style="font-size:38px"><strong>Full_Name</strong></h2>
+          <h2 style="font-size:38px"><strong>{{userData?.FULL_NAME}}</strong></h2>
         </div>
         <div class="col-md-3">
           <div class="button" style="float:right;">
@@ -24,7 +26,7 @@
               <div>
          
             <img class="rounded-circle" 
-            src="http://localhost/images/IMG_20170626_080945.jpg"
+            src=""
             alt="Photo gallery" style="width:200px;height:200px">
            
 
@@ -35,9 +37,15 @@
  <a href="/#/Imagegallery"> view more
         </a>
         <div class="col-md-6"> <!-- Rank & Qualifications -->
-          <h5 style="color:#3AAA64">About Profession,  <small>About_My_Profession</small></h5>
-          <p style="color:#3AAA64">About Education, </p> About_my_Education
-          <p style="color:#3AAA64">Residence, </p> City_Id + Country_Id
+          <h5 style="color:#3AAA64">About Profession,  <small>
+              {{userData?.ABOUT_MY_PROFESSION}}
+            </small></h5>
+          <p style="color:#3AAA64">About Education, </p> 
+          {{userData?.ABOUT_MY_EDUCATION}}
+          
+          <p style="color:#3AAA64">Residence, </p> 
+          {{userData?.CITY_ID}} 
+           + {{userData?.COUNTRY_ID}} 
         </div>
 
         <div class="col-md-3 text-center"> <!-- Phone & Social -->
@@ -46,6 +54,7 @@
           </div>
          
         </div>
+      </div>
       </div>
     </div>
   </header>
@@ -101,7 +110,5 @@
 
 
 </div> <!--End of Container-->
-
-
 
 

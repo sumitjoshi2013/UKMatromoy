@@ -14,6 +14,15 @@ class jsonArray
 
 class arrayData {
   constructor(public USER_ID: number, 
+              public FULL_NAME: string, 
+              public DOB: string,   
+              public E_MAIL: string,   
+              public CALCULATED_AGE: string,  
+              public GENDER: string,  
+              public MY_SUB_CASTE: string, 
+              public MY_GOTHRA: string, 
+              public MY_OCCUPTION: string, 
+              public MY_RELIGION: string, 
               public JsonRawData: string,   
               public USER_PEROFILE_ID: number){}
 }
@@ -31,15 +40,15 @@ export class SearchprofilesComponent implements OnInit {
     private dataservice: dataService) {}
 
   ngOnInit() {
-    let Url = "http://localhost:8910/api/api/Registration"; 
-    this.dataservice.getData(Url).subscribe((res: any) => { this.userData = res });
-  
-   
+    let Url = "http://localhost:8910/api/api/Registration?emailid="; 
+    this.dataservice.getData(Url + this.authService.currentUser.name ).subscribe((res: any) => { this.userData = res });
   }
 
-  Viewdetail(event)
+  Viewdetail(userid)
   {
-    this.router.navigate(['/#/profiledetail']);
+    console.log(userid);
+    
+    this.router.navigate(['/#/profiledetail/', userid]);
   }
 
   

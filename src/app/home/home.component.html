@@ -116,38 +116,55 @@
         </div>
 	</div>			
 
-	<div  class="col-md-8">
-		<h3>Messages</h3>
-		<table class="table table-condensed table-bordered table-hover small">
-				<thead>
-					 <tr>
-							 <th style="width:30px;">.</th>
-							 <th>From</th>
-							 <th>Status</th>
-							 <th>Actions</th>
-					 </tr>
-				</thead>
-				<tbody>
-						<tr  class="text-info" *ngFor="let item of userData;">
-								<td>
-									 <i class="glyphicon glyphicon-info-sign"></i>
-								</td>
-								<td>
-									{{item.name}}
-								</td>
-								<td>
-									{{item.status}}
-								</td>
-								<td>
-										<a href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-eye-open"></i></a>
-										<a href="/#/messagehistory" (click)= "Message()"> <i class="glyphicon glyphicon-arrow-right"></i> </a>
-								</td>
-						</tr>
-					 
-				</tbody>
-		</table>
-	</div>
-	<div class="col-md-6">
-		<div id='grafico4' class="grafico" style="height: 400px;"></div>
-</div>
-</div>
+
+
+
+
+  <div class="container">
+    
+       
+  
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+              
+                <th class="text-center"> From </th>
+                <th class="text-center"> Status </th>
+              
+                <th class="text-center"> 
+            <em class="fa fa-cog"></em>	  
+        </th>
+              </tr>
+            </thead>
+  
+            <tbody *ngFor="let item of userData;">
+              <tr class="edit" id="detail">
+                <td id="no" class="text-center">    <a href="#"></a> </td>
+                <td id="name" class="text-center"> {{item?.name}} </td>
+                <td id="mobile" class="text-center"> {{item?.status}} </td>
+              
+          <td id="city" class="text-center"> 
+            <a class="btn btn-default" (click)= "Message(item.E_MAIL)">
+              <em class="fa fa-pencil">
+              </em>
+            </a>
+         </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="col-md-8">
+                </div>
+                <div class="col-md-4">
+                <p class="muted pull-right"><strong> ©  All rights reserved </strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+    </div></div>

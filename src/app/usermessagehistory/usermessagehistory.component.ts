@@ -1,7 +1,7 @@
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { HeaderMenuComponent } from '../header/header.component';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { dataService } from "app/services/data.service";
 
 
@@ -19,12 +19,40 @@ class arrayData {
 })
 export class UsermessagehistoryComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router, private dataservice: dataService  ) 
+  constructor(private authService: AuthService, private router: Router, 
+    private dataservice: dataService, private route: ActivatedRoute  ) 
   { }
+
   MessageData : arrayData[]; 
   ngOnInit() {
-    let Url = "http://localhost:8910/api/api/UserMessages?InterestId="; 
-    this.dataservice.getData(Url + 1).subscribe((res: any) => { this.MessageData = res });
+    let profileId = this.route.snapshot.params['profileId'];
+    let messageStatusId = this.route.snapshot.params['messageStatusId'];
+    let Url;// = "http://localhost:8910/api/api/UserMessages/UserLogMessages?ResponderEmailId="; 
+    let param;
+    if(messageStatusId==1)
+    {
+      Url = "http://localhost:8910/api/api/UserMessages/UserLogReqSendMessages?ResponderEmailId=";
+      param = Url+ profileId;
+    }
+    if(messageStatusId==2)
+    {
+      Url = "http://localhost:8910/api/api/UserMessages/UserLogReqReceivedMessages?ResponderEmailId=";
+      param = Url+ profileId;
+    }
+
+    if(messageStatusId==null)
+    {
+      Url = "http://localhost:8910/api/api/UserMessages/UserLogMessages?ResponderEmailId=";
+      param = Url+profileId;
+    }
+console.log(param);
+    this.dataservice.getData(param).subscribe((res: any) => { this.MessageData = res });
+  }
+
+  gotoBack()
+  {
+    this.router.navigate(['/']);
+    
   }
 
 }

@@ -1,13 +1,16 @@
 <!--https://bootsnipp.com/snippets/Bqm1E-->
 <menubar></menubar>
 
-<div class="contact-us">
-		<div class="container">
-		   <div class="contact-form">
-			<div class="row">
-				<div class="col-sm-7">                  
-					 <form id="ajax-contact"  method="post" action="contact-form-mail.php" role="form">
-						 <div class="messages" id="form-messages"></div>
+
+<div class="container">
+		<div class="panel panel-primary" style="width:750px;margin:0px auto">
+	   
+		  <div class="panel-heading">Please fill the below user registration form. Note: All fields are mandatory. </div>
+		   <div class="panel-body">
+				
+	   <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form">
+               
+						
 						 <div class="controls">
 							 <div class="row">
 								 <div class="col-md-6">
@@ -51,9 +54,36 @@
 										 <div class="help-block with-errors"></div>
 									 </div>
 								 </div>
+
+ 
+								 <div class="form-group has-feedback">
+										<label  class="col-md-4 control-label">
+											</label>
+											 <div class="col-md-6  inputGroupContainer">
+											<div class="input-group"> 
+												  <re-captcha formControlName="recaptcha"
+													name="recaptcha"
+													required 
+													siteKey="6LcZgCwUAAAAAPn1N1j7JD2ywG4LrMhxypKiRmc6"
+													></re-captcha>
+												  <div [hidden]="recaptcha.valid || recaptcha.pristine" class="error">Captcha must be solved</div>
+												 
+												  <span class="glyphicon form-control-feedback"></span>
+											<span class="help-block with-errors"></span>
+										 </div>
+									 
+										 </div>
+								   </div>
+								   
+
 								 <div class="col-md-12">
 									 <input type="submit" class="btn btn-black" value="Send message">
+									 <button (click)="gotoLogin(myform.value)" type="submit" 
+									 class="btn btn-black"> Back 
+								
+							   </button>
 								 </div>
+
 							 </div>
 							 <div class="row">
 								 <div class="col-md-12">
@@ -61,15 +91,5 @@
 									 <small class="text-muted"><strong>*</strong> These fields are required.</small>
 								 </div>
 							 </div>
-						 </div>
- 
-					 </form>
-	 
-				</div>
-				
-			</div>
-			
-		   </div>
-		</div>
 	</div>
- 
+	   </form></div></div></div>

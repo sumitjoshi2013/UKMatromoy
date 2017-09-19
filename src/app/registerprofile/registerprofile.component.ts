@@ -42,10 +42,10 @@ export class RegisterprofileComponent implements OnInit {
 
   ngOnInit() {
     let Url = "http://localhost:8910/api/api/MasterData/"; 
-    this.dataservice.getData(Url + "ReligionMaster?userid = " + this.authService.currentUser.name).subscribe((res: any) => { this.religionStatusList = res });
-    this.dataservice.getData(Url + "GetMotherToungeMaster?userid = " + this.authService.currentUser.name).subscribe((res: any) => { this.motherToungeList = res });
-    this.dataservice.getData(Url + "RashiMaster?userid = " + this.authService.currentUser.name).subscribe((res: any) => { this.rashiStatusList = res });
-    this.dataservice.getData(Url + "CityMaster?userid = " + this.authService.currentUser.name).subscribe((res: any) => { this.cityStatusList = res });
+    this.dataservice.getData(Url + "ReligionMaster?userid="+this.authService.currentUser.name).subscribe((res: any) => { this.religionStatusList = res });
+    this.dataservice.getData(Url + "MotherToungeMaster?userid="+this.authService.currentUser.name).subscribe((res: any) => { this.motherToungeList = res });
+    this.dataservice.getData(Url + "RashiMaster?userid="+this.authService.currentUser.name).subscribe((res: any) => { this.rashiStatusList = res });
+    this.dataservice.getData(Url + "CityMaster?userid="+this.authService.currentUser.name).subscribe((res: any) => { this.cityStatusList = res });
   }
  
     timeobj = new Array(24);
@@ -67,7 +67,7 @@ export class RegisterprofileComponent implements OnInit {
   firstName: new FormControl('', Validators.required),
   lastName: new FormControl('', Validators.required),
   landline:  new FormControl('', [Validators.minLength(10), Validators.maxLength(11)]),
-  phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+  mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
   gender: new FormControl('', Validators.required),
   maritalstatus : new FormControl('', Validators.required),
   gotra : new FormControl('', Validators.required),
@@ -102,7 +102,7 @@ export class RegisterprofileComponent implements OnInit {
   about: new FormControl('', Validators.required),
   mySubCaste: new FormControl('', Validators.required),
   recaptcha:  new FormControl('', Validators.required),
-  mobile:  new FormControl('', Validators.required),
+
   nativePlace: new FormControl('', Validators.required),
   mySocialProfile: new FormControl('')
 });

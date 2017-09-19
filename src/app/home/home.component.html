@@ -14,15 +14,15 @@
               </div>
               <div class="col-xs-6 text-right" >  {{ RequestStatusCount?.TotalRequestSendCount }} 
                 <p class="announcement-heading"  ></p>
-                <p class="announcement-text">Request Send</p>
+                <p class="announcement-text">Total Request Send</p>
               </div>
             </div>
           </div>
-					<a href="/#/messagehistory/1" (click)= "usermessage()">
+		
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-6">
-									<a href="/#/messagehistory/1"  (click)= "usermessage()">
+									<a href="/#/messagehistory/{{authService.currentUser.name}}/1" >
 									View Detail
 									</a>
                 </div>
@@ -31,7 +31,7 @@
                 </div>
               </div>
             </div>
-          </a>
+         
         </div>
 	</div>
 	<div class="col-md-3">
@@ -43,7 +43,7 @@
               </div>
 							<div class="col-xs-6 text-right">
                 <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestReceivedCount }} </p>
-                <p class="announcement-text">Request Received</p>
+                <p class="announcement-text">Total Request Received</p>
               </div>
             </div>
           </div>
@@ -51,7 +51,10 @@
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-6">
-                  View Detail
+                    <a href="/#/messagehistory/{{authService.currentUser.name}}/2" >
+                      View Detail
+                      </a>
+               
                 </div>
                 <div class="col-xs-6 text-right">
                   <i class="fa fa-arrow-circle-right"></i>
@@ -70,7 +73,7 @@
               </div>
 							<div class="col-xs-6 text-right">
                 <p class="announcement-heading">{{ RequestStatusCount?.TotalPendingResponseCount }}</p>
-                <p class="announcement-text">Pending Request</p>
+                <p class="announcement-text">Total Pending Request</p>
               </div>
             </div>
           </div>
@@ -78,7 +81,9 @@
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-6">
-                  View Detail
+                  	<a href="/#/messagehistory/{{authService.currentUser.name}}/3" >
+                      View Detail
+                      </a>
                 </div> 
                 <div class="col-xs-6 text-right">
                   <i class="fa fa-arrow-circle-right"></i>
@@ -96,8 +101,8 @@
                 <i class="fa fa-money fa-5x"></i>
               </div>
 							<div class="col-xs-6 text-right">
-                <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestSendCount }}</p>
-                <p class="announcement-text">Reject Request</p>
+                <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestRejectCount }}</p>
+                <p class="announcement-text">Total Rejected Request</p>
               </div>
             </div>
           </div>
@@ -105,7 +110,9 @@
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-6">
-                  View Detail
+                    <a href="/#/messagehistory/{{authService.currentUser.name}}/4" >
+                      View Detail
+                      </a>
                 </div>
                 <div class="col-xs-6 text-right">
                   <i class="fa fa-arrow-circle-right"></i>
@@ -116,34 +123,52 @@
         </div>
 	</div>			
 
-
-
-
-
+  <br>
   <div class="container">
     
-       
-  
+      <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3">
+              <h2 class="text-center pull-left"> 
+                <span class="glyphicon glyphicon-list-alt"> 
+                  </span> Request Status </h2>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-md-4">
+               
+                  <div class="form-group">
+                    <div class="input-group">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+        </div>
+      </div>
         <div class="panel-body table-responsive">
           <table class="table table-hover">
             <thead>
               <tr>
-              
-                <th class="text-center"> From </th>
-                <th class="text-center"> Status </th>
-              
+                <th class="text-center"> S.NO. </th>
+                <th class="text-left"> Name </th>
+                <th class="text-left"> Status </th>
+                <th class="text-left"> Communication Date </th>
+
                 <th class="text-center"> 
             <em class="fa fa-cog"></em>	  
         </th>
               </tr>
             </thead>
   
-            <tbody *ngFor="let item of userData;">
+            <tbody *ngFor="let item of userData; let i=index">
               <tr class="edit" id="detail">
-                <td id="no" class="text-center">    <a href="#"></a> </td>
-                <td id="name" class="text-center"> {{item?.name}} </td>
-                <td id="mobile" class="text-center"> {{item?.status}} </td>
-              
+                <td id="no" class="text-center">    {{ i + 1 }} </td>
+                <td id="name" class="text-left"> {{item?.name}} </td>
+                <td id="status" class="text-left"> {{item?.status}} </td>
+                <td id="date" class="text-left"> {{item?.communicationDate}} </td>
+                
           <td id="city" class="text-center"> 
             <a class="btn btn-default" (click)= "Message(item.E_MAIL)">
               <em class="fa fa-pencil">
@@ -160,7 +185,7 @@
             <div class="col-lg-12">
               <div class="col-md-8">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                 <p class="muted pull-right"><strong> ©  All rights reserved </strong></p>
               </div>
             </div>
@@ -168,3 +193,4 @@
         </div>
      
     </div></div>
+   

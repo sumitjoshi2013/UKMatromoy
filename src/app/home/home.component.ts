@@ -8,12 +8,10 @@ import { dataService } from "app/services/data.service";
 
 class userArray {
   constructor(public message: string, public profileid: string,
-              public name: string, public status: string
+              public name: string, public status: string,
+              public communicationDate: string, public E_MAIL:string
   ){}
 }
-
-
-
 
 @Component({
   selector: 'home',
@@ -33,23 +31,16 @@ export class HomeComponent implements OnInit {
     subscribe((res: any) => 
     { this.RequestStatusCount = res });
 
-    let showInterest = "http://localhost:8910/api/api/ShowInterest?userid="; 
+    let showInterest = "http://localhost:8910/api/api/UserMessages/ShowInterest?ResponderEmailId="; 
     this.dataservice.getData(showInterest + this.authService.currentUser.name).
     subscribe((res: any) => 
     { this.userData = res });
-
-
   }
 
-Message()
+Message(responderId)
 {
-  
-  console.log("Message");
-  this.router.navigate(['/messagehistory']);
+  //console.log("/messagehistory/" + responderId);
+  this.router.navigate(['/messagehistory/' + responderId]);
 } 
-usermessage()
-{
-  console.log("Message");
-  this.router.navigate(['/usermessage']);
-}  
+ 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthService } from './../services/auth.service';
 import {MdGridListModule} from '@angular/material';
@@ -29,6 +29,7 @@ class arrayData {
 
 @Component({
   selector: 'app-searchprofiles',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './searchprofiles.component.html',
   styleUrls: ['./searchprofiles.component.css']
 })

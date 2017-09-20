@@ -8,14 +8,14 @@
 					  <div class="col-md-6">
 						  <div class="form-group">
 							  <label for="form_email">Contact Email *</label>
-							  <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+							  <input id="form_email" formControlName="email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
 							  <div class="help-block with-errors"></div>
 						  </div>
 					  </div>
 					  <div class="col-md-6">
 						  <div class="form-group">
 							  <label for="form_phone">Phone*</label>
-							  <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required>
+							  <input id="form_phone" formControlName="phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required>
 							  
 						  </div>
 					  </div>
@@ -28,7 +28,7 @@
 						 <div class="form-group">
 								 <label for="form_message">Interest Status *</label>
 							 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-								 <select required name="interest" class="ui fluid search selection dropdown" >
+								 <select required name="interest" formControlName="interest" class="ui fluid search selection dropdown" >
 								  <option *ngFor="let item of interestList;" value= {{item.id}} >{{item.name}}</option>
 								</select>
 							  </div>
@@ -42,15 +42,16 @@
 					  <div class="col-md-12">
 						  <div class="form-group">
 							  <label for="form_message">Message *</label>
-							  <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+							  <textarea id="form_message" formControlName="message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
 							  <div class="help-block with-errors"></div>
 						  </div>
 					  </div>
 				 </div>
 			  </div>
+			  <md-dialog-actions>
+				<button md-raised-button (click)="gotoClose(myform)" tabindex="1">Install</button>
+				<button md-button md-dialog-close tabindex="-1">Cancel</button>
+			  </md-dialog-actions>
+
 </form>
 
-<md-dialog-actions>
-	<button md-raised-button (click)="gotoClose()" tabindex="1">Install</button>
-	<button md-button md-dialog-close tabindex="-1">Cancel</button>
-  </md-dialog-actions>

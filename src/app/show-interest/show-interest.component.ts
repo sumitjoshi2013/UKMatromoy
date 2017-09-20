@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from './../services/auth.service';
 import { dataService } from "app/services/data.service";
 import {MdDialog, MdDialogRef,  MD_DIALOG_DATA} from '@angular/material';
+import { RequestOptions } from '@angular/http';
+import { Headers } from '@angular/http';
 
 @Component({
   selector: 'app-show-interest',
@@ -52,14 +54,29 @@ export class ShowInterestComponent   {
     {id:2, name:'Reject'},
 ];
 
-gotoClose()
+gotoClose(data)
 {
   let profileId = this.userdata.userid;
-  console.log('Calling Close' + this.userdata.userid);
-  //return true;
- // this.dialog.open(ThanksshowinginterestComponent);
- this.router.navigate(['thanksshowinginterest/', profileId]);
-  this.dialog.closeAll();
+//  console.log('Calling Close' + this.userdata.userid);
+  let url = "http://localhost:8910/Api/api/ShowInterest";
+  
+  var UserInterestData = {
+    "CommunicatorUserEmailId": this.authService.currentUser.name,
+    "ResponderUserId": profileId,
+    "ResponseStatus": data.value.interest,
+    "Message": data.value.message,
+    "ContactEmailId": data.value.email,
+    "ContactPhoneNumber": data.value.phone
+  }
+ 
+
+ 
+  let result= this.dataservice.Insert(url, UserInterestData);
+  console.log(result);
+  //return result;
+ 
+  //this.router.navigate(['thanksshowinginterest/', profileId]);
+  //this.dialog.closeAll();
 }
 
 

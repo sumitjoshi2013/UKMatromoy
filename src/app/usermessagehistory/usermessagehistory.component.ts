@@ -40,13 +40,26 @@ export class UsermessagehistoryComponent implements OnInit {
       param = Url+ profileId;
     }
 
+    if(messageStatusId==4)
+    {
+      Url = "http://localhost:8910/api/api/UserMessages/UserLogReqRejectedMessages?ResponderEmailId=";
+      param = Url+ profileId;
+    }
+
+    if(messageStatusId==3)
+    {
+      Url = "http://localhost:8910/api/api/UserMessages/UserLogReqPendingMessages?ResponderEmailId=";
+      param = Url+ profileId;
+    }
+
     if(messageStatusId==null)
     {
       Url = "http://localhost:8910/api/api/UserMessages/UserLogMessages?ResponderEmailId=";
       param = Url+profileId;
     }
 console.log(param);
-    this.dataservice.getData(param).subscribe((res: any) => { this.MessageData = res });
+    this.dataservice.getData(param).subscribe((res: any) => 
+    { this.MessageData = res });
   }
 
   gotoBack()

@@ -1,95 +1,56 @@
-<!--https://bootsnipp.com/snippets/Bqm1E-->
+<!--https://bootsnipp.com/snippets/Bqm1E
 <menubar></menubar>
+-->
 
-
-<div class="container">
-		<div class="panel panel-primary" style="width:750px;margin:0px auto">
-	   
-		  <div class="panel-heading">Please fill the below user registration form. Note: All fields are mandatory. </div>
-		   <div class="panel-body">
-				
-	   <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form">
-               
-						
-						 <div class="controls">
-							 <div class="row">
-								 <div class="col-md-6">
-									 <div class="form-group">
-										 <label for="form_email">Contact Email *</label>
-										 <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-										 <div class="help-block with-errors"></div>
-									 </div>
-								 </div>
-								 <div class="col-md-6">
-									 <div class="form-group">
-										 <label for="form_phone">Phone*</label>
-										 <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required>
-										 
-									 </div>
-								 </div>
-							 </div>
+<form  class="form-horizontal"  [formGroup]="myform"  id="reg_form">
+			  <div class="controls">
+				  <div class="row">
+					  <div class="col-md-6">
+						  <div class="form-group">
+							  <label for="form_email">Contact Email *</label>
+							  <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+							  <div class="help-block with-errors"></div>
+						  </div>
+					  </div>
+					  <div class="col-md-6">
+						  <div class="form-group">
+							  <label for="form_phone">Phone*</label>
+							  <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required>
+							  
+						  </div>
+					  </div>
+				  </div>
 
 
 
-							 <div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-											<label for="form_message">Interest Status *</label>
-										<div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select required name="interest" class="ui fluid search selection dropdown" >
-											 <option *ngFor="let item of interestList;" value= {{item.id}} >{{item.name}}</option>
-										   </select>
-										 </div>
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-							
-							</div>
+				  <div class="row">
+					 <div class="col-md-12">
+						 <div class="form-group">
+								 <label for="form_message">Interest Status *</label>
+							 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+								 <select required name="interest" class="ui fluid search selection dropdown" >
+								  <option *ngFor="let item of interestList;" value= {{item.id}} >{{item.name}}</option>
+								</select>
+							  </div>
+							 <div class="help-block with-errors"></div>
+						 </div>
+					 </div>
+				 
+				 </div>
 
-							<div class="row">
-								 <div class="col-md-12">
-									 <div class="form-group">
-										 <label for="form_message">Message *</label>
-										 <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
-										 <div class="help-block with-errors"></div>
-									 </div>
-								 </div>
+				 <div class="row">
+					  <div class="col-md-12">
+						  <div class="form-group">
+							  <label for="form_message">Message *</label>
+							  <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+							  <div class="help-block with-errors"></div>
+						  </div>
+					  </div>
+				 </div>
+			  </div>
+</form>
 
- 
-								 <div class="form-group has-feedback">
-										<label  class="col-md-4 control-label">
-											</label>
-											 <div class="col-md-6  inputGroupContainer">
-											<div class="input-group"> 
-												  <re-captcha formControlName="recaptcha"
-													name="recaptcha"
-													required 
-													siteKey="6LcZgCwUAAAAAPn1N1j7JD2ywG4LrMhxypKiRmc6"
-													></re-captcha>
-												  <div [hidden]="recaptcha.valid || recaptcha.pristine" class="error">Captcha must be solved</div>
-												 
-												  <span class="glyphicon form-control-feedback"></span>
-											<span class="help-block with-errors"></span>
-										 </div>
-									 
-										 </div>
-								   </div>
-								   
-
-								 <div class="col-md-12">
-									 <input type="submit" class="btn btn-black" value="Send message">
-									 <button (click)="gotoLogin(myform.value)" type="submit" 
-									 class="btn btn-black"> Back 
-								
-							   </button>
-								 </div>
-
-							 </div>
-							 <div class="row">
-								 <div class="col-md-12">
-									<br>
-									 <small class="text-muted"><strong>*</strong> These fields are required.</small>
-								 </div>
-							 </div>
-	</div>
-	   </form></div></div></div>
+<md-dialog-actions>
+	<button md-raised-button (click)="gotoClose()" tabindex="1">Install</button>
+	<button md-button md-dialog-close tabindex="-1">Cancel</button>
+  </md-dialog-actions>

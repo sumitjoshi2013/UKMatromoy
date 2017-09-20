@@ -49,7 +49,7 @@ export class SearchprofilesComponent implements OnInit {
   {
     console.log(userid);
     
-    this.router.navigate(['/#/profiledetail/', userid]);
+    this.router.navigate(['profiledetail/', userid]);
   }
 
   

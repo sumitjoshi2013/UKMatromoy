@@ -4,6 +4,10 @@ import { AuthService } from './../services/auth.service';
 import { MdGridListModule} from '@angular/material';
 import { dataService } from "app/services/data.service";
 import { Jsonp } from '@angular/http';
+import { ModalModule } from 'ngx-modialog';
+import { BootstrapModalModule, Modal, bootstrap4Mode } from 'ngx-modialog/plugins/bootstrap';
+import { ShowInterestComponent } from './../show-interest/show-interest.component';
+import {MdDialog, MdDialogRef,  MD_DIALOG_DATA} from '@angular/material';
 
 class arrayData {
   constructor(public USER_ID: number, 
@@ -25,10 +29,13 @@ class arrayData {
   styleUrls: ['./profiledetail.component.css']
 })
 export class ProfiledetailComponent implements OnInit {
+  userid: number;
   userData: object;
   private profileId;
   constructor(private authService: AuthService, private router: Router, 
-  private dataservice: dataService, private route: ActivatedRoute) {}
+  private dataservice: dataService, private route: ActivatedRoute,
+  public modal: Modal, public dialog: MdDialog
+) {}
 
   ngOnInit() {
     this.profileId = this.route.snapshot.params['profileId'];
@@ -36,7 +43,19 @@ export class ProfiledetailComponent implements OnInit {
     let Url = "http://localhost:8910/api/api/ShowProfile/ShowUserProfileByUniqueId?userid="; 
     this.dataservice.getData(Url + this.profileId ).subscribe((res: any) => 
     { this.userData = res });
+  }
+  
+  Message(value): void
+  {
+   console.log(value.USER_PEROFILE_ID);
+    let dialogRef = this.dialog.open(ShowInterestComponent, {
+      width: '850px',
+      data: { userid: value.USER_PEROFILE_ID}
+    });
 
-   
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    //  this.animal = result;
+    });
   }
 }

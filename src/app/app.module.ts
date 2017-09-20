@@ -52,9 +52,13 @@ import { UsermessagehistoryComponent } from './usermessagehistory/usermessagehis
 import { UsermessagesComponent } from './usermessages/usermessages.component';
 import { SearchprofilesComponent } from './searchprofiles/searchprofiles.component';
 import { ShowInterestComponent } from './show-interest/show-interest.component';
-import {MdAutocompleteModule} from '@angular/material';
+import {MdAutocompleteModule, MdDialog } from '@angular/material';
 import { TestComponent } from './test/test.component';
 import { TestService } from './test/test.service'
+import { ModalModule } from 'ngx-modialog';
+import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
+import { ThanksshowinginterestComponent } from './thanksshowinginterest/thanksshowinginterest.component';
+//import {MdDialog} from '@angular/material';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -139,19 +143,22 @@ export function getAuthHttp(http) {
     UsermessagesComponent,
     SearchprofilesComponent,
     ShowInterestComponent,
-    TestComponent
+    TestComponent,
+    ThanksshowinginterestComponent
     
   ],
   imports: [
     MaterialModule,
     MdGridListModule,
     MdAutocompleteModule,
+   // MdDialog,
     MyDatePickerModule ,
   //AlertModule.forRoot(),
     BrowserModule,
     JsonpModule,
     DpDatePickerModule,
-    RecaptchaModule.forRoot(),
+    RecaptchaModule.forRoot(),  ModalModule.forRoot(),
+    BootstrapModalModule,
     RecaptchaFormsModule,
     FormsModule,ReactiveFormsModule,
     HttpModule, BrowserAnimationsModule,
@@ -171,7 +178,7 @@ export function getAuthHttp(http) {
       { path: 'Fileupload', component: FileuploadComponent , canActivate: [AdminAuthGuard]},
       { path: 'profilelist', component: ProfilelistComponent},
       { path: 'profiledetail/:profileId', component: ProfiledetailComponent , canActivate: [AdminAuthGuard]},
-      { path: '#/profiledetail/:profileId', component: ProfiledetailComponent, canActivate: [AdminAuthGuard]},
+      //{ path: '#/profiledetail/:profileId', component: ProfiledetailComponent, canActivate: [AdminAuthGuard]},
       { path: '#/profiledetail/:profileId', component: ProfiledetailComponent, canActivate: [AdminAuthGuard]},
       { path: 'contactus', component: ContactusComponent },
       { path: 'vision', component: OurvisionComponent },
@@ -183,7 +190,7 @@ export function getAuthHttp(http) {
       { path: 'usermessage', component: UsermessagesComponent , canActivate: [AdminAuthGuard]},
       { path: 'searchprofile', component: SearchprofilesComponent , canActivate: [AdminAuthGuard]},
       { path: 'showInterest', component: ShowInterestComponent},
-      { path: 'test', component: TestComponent},
+      { path: 'thanksshowinginterest/:profileId', component: ThanksshowinginterestComponent},
     ],{ useHash: true })
   ],
   providers: [

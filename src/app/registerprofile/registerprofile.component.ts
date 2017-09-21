@@ -42,10 +42,10 @@ export class RegisterprofileComponent implements OnInit {
 
   ngOnInit() {
     let Url = "http://localhost:8910/api/api/MasterData/"; 
-    this.dataservice.getData(Url + "ReligionMaster?userid="+this.authService.currentUser.name).subscribe((res: any) => { this.religionStatusList = res });
-    this.dataservice.getData(Url + "MotherToungeMaster?userid="+this.authService.currentUser.name).subscribe((res: any) => { this.motherToungeList = res });
-    this.dataservice.getData(Url + "RashiMaster?userid="+this.authService.currentUser.name).subscribe((res: any) => { this.rashiStatusList = res });
-    this.dataservice.getData(Url + "CityMaster?userid="+this.authService.currentUser.name).subscribe((res: any) => { this.cityStatusList = res });
+    this.dataservice.getData(Url + "ReligionMaster?userid=1").subscribe((res: any) => { this.religionStatusList = res });
+    this.dataservice.getData(Url + "MotherToungeMaster?userid=1").subscribe((res: any) => { this.motherToungeList = res });
+    this.dataservice.getData(Url + "RashiMaster?userid=1").subscribe((res: any) => { this.rashiStatusList = res });
+    this.dataservice.getData(Url + "CityMaster?userid=1").subscribe((res: any) => { this.cityStatusList = res });
   }
  
     timeobj = new Array(24);
@@ -104,7 +104,10 @@ export class RegisterprofileComponent implements OnInit {
   recaptcha:  new FormControl('', Validators.required),
 
   nativePlace: new FormControl('', Validators.required),
-  mySocialProfile: new FormControl('')
+  myFacebookId: new FormControl(''),
+  myTwitterId: new FormControl(''),
+  mylinkedinId: new FormControl(''),
+
 });
    open() {
         this.datePicker.api.open();
@@ -360,9 +363,19 @@ export class RegisterprofileComponent implements OnInit {
  {
   return this.myform.get("recaptcha");
  }
-get mySocialProfile()
+get myFacebookId()
  {
-  return this.myform.get("mySocialProfile");
+  return this.myform.get("myFacebookId");
+ }
+
+
+ get myTwitterId()
+ {
+  return this.myform.get("myTwitterId");
+ }
+get mylinkedinId()
+ {
+  return this.myform.get("mylinkedinId");
  }
 
    onSubmit(data: any) {

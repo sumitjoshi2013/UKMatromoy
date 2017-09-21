@@ -60,7 +60,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <div class="col-md-6 selectContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
             <select required name="gender"  formControlName="gender"  class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of genderList;"  value={{item.id}}>{{item.name}}</option>
+              <option *ngFor="let item of genderList;"  value={{item.id}}>{{item?.name}}</option>
             </select>
           </div>
 
@@ -84,7 +84,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <div class="col-md-6 selectContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
              <select  required name="maritalstatus" formControlName="maritalstatus"  class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of maritalStatusList;" value= {{item.id}} >{{item.name}}</option>
+              <option *ngFor="let item of maritalStatusList;" value= {{item?.id}} >{{item?.name}}</option>
             </select>
           </div>
           
@@ -234,7 +234,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label">My Native Place*</label>
+          <label class="col-md-4 control-label">My Birth Place*</label>
           <div class="col-md-6  inputGroupContainer">
             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
               <input formControlName="nativePlace" placeholder="Native Place" class="form-control" type="text">
@@ -526,16 +526,36 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         </div>
       </div>
 
-
+       </fieldset>
+      <legend> Social Networking </legend>
+      <fieldset>
       
  <div class="form-group">
-        <label class="col-md-4 control-label">My Social Networking Link</label>
+        <label class="col-md-4 control-label">My facebook Id</label>
         <div class="col-md-6 selectContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-           <input name="mySocialProfile" formControlName="mySocialProfile" placeholder="for eg facebook link, linkedin..." class="form-control"  type="text">
+           <input name="myFacebookId" formControlName="myFacebookId" placeholder="Facebook Id (Profile URL)" class="form-control"  type="text">
           </div>
       </div>
           </div>
+
+      <div class="form-group">
+              <label class="col-md-4 control-label">My twitter Id</label>
+              <div class="col-md-6 selectContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                 <input name="myTwitterId" formControlName="myTwitterId" placeholder="Twitter Id (Profile URL)" class="form-control"  type="text">
+                </div>
+            </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-md-4 control-label">My linkedin Id</label>
+          <div class="col-md-6 selectContainer">
+            <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+             <input name="mylinkedinId" formControlName="mylinkedinId" placeholder="Linkedin Id (Profile URL)" class="form-control"  type="text">
+            </div>
+        </div>
+  </div>
 
     </fieldset>
 

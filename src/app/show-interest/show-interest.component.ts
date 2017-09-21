@@ -8,13 +8,18 @@ import {MdDialog, MdDialogRef,  MD_DIALOG_DATA} from '@angular/material';
 import { RequestOptions } from '@angular/http';
 import { Headers } from '@angular/http';
 
+
+export interface FormModel {
+  captcha?: string;
+}
+
 @Component({
   selector: 'app-show-interest',
   templateUrl: './show-interest.component.html',
   styleUrls: ['./show-interest.component.css']
 })
 export class ShowInterestComponent   {
-
+ 
   constructor(  public dialog: MdDialog,
     private authService: AuthService, private router: Router, 
     private dataservice: dataService, private route: ActivatedRoute,
@@ -26,7 +31,7 @@ export class ShowInterestComponent   {
     phone: new FormControl('', Validators.required),
     interest: new FormControl('', Validators.required),
     message: new FormControl('', Validators.required),
-
+    recaptcha:  new FormControl('', Validators.required)
   });
 
   get email()
@@ -49,6 +54,11 @@ export class ShowInterestComponent   {
     return this.myform.get("message");
   }
 
+  get recaptcha()
+  {
+    return this.myform.get("recaptcha");
+  }
+
   interestList = [
     {id:1, name:'Accept'},
     {id:2, name:'Reject'},
@@ -68,16 +78,7 @@ gotoClose(data)
     "ContactEmailId": data.value.email,
     "ContactPhoneNumber": data.value.phone
   }
- 
-
- 
   let result= this.dataservice.Insert(url, UserInterestData);
-  console.log(result);
-  //return result;
- 
-  //this.router.navigate(['thanksshowinginterest/', profileId]);
-  //this.dialog.closeAll();
+  //console.log(result);
 }
-
-
 }

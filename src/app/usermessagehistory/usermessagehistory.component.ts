@@ -1,8 +1,9 @@
 import { AuthService } from './../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HeaderMenuComponent } from '../header/header.component';
 import { Router, ActivatedRoute } from "@angular/router";
 import { dataService } from "app/services/data.service";
+import { MD_DIALOG_DATA } from '@angular/material';
 
 
 class arrayData {
@@ -10,7 +11,7 @@ class arrayData {
               public message_sender: string
   ){}
 }
-
+ 
 
 @Component({
   selector: 'app-usermessagehistory',
@@ -20,13 +21,19 @@ class arrayData {
 export class UsermessagehistoryComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router, 
-    private dataservice: dataService, private route: ActivatedRoute  ) 
+    private dataservice: dataService, private route: ActivatedRoute,
+    @Inject(MD_DIALOG_DATA) public userIdFromHome: any
+  ) 
   { }
 
   MessageData : arrayData[]; 
   ngOnInit() {
-    let profileId = this.route.snapshot.params['profileId'];
-    let messageStatusId = this.route.snapshot.params['messageStatusId'];
+    let profileId = this.userIdFromHome.responderId;
+    
+    let messageStatusId = this.userIdFromHome.messageStatusId;
+    console.log("messageStatusId: " + messageStatusId , "responderId " + profileId);
+  //  let profileId = this.route.snapshot.params['profileId'];
+    //let messageStatusId = this.route.snapshot.params['messageStatusId'];
     let Url;// = "http://localhost:8910/api/api/UserMessages/UserLogMessages?ResponderEmailId="; 
     let param;
     if(messageStatusId==1)

@@ -4,7 +4,8 @@ import { HeaderMenuComponent } from '../header/header.component';
 //import './home.js';
 import { Router } from "@angular/router";
 import { dataService } from "app/services/data.service";
-
+import {MdDialog, MdDialogRef,  MD_DIALOG_DATA} from '@angular/material';
+import { UsermessagehistoryComponent } from 'app/usermessagehistory/usermessagehistory.component';
 
 class userArray {
   constructor(public message: string, public profileid: string,
@@ -20,7 +21,9 @@ class userArray {
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router, private dataservice: dataService  ) 
+  constructor(private authService: AuthService, private router: Router, 
+    private dataservice: dataService ,
+    public dialog: MdDialog ) 
   { }
   userData : userArray[]; 
   RequestStatusCount : object; 
@@ -36,11 +39,25 @@ export class HomeComponent implements OnInit {
     subscribe((res: any) => 
     { this.userData = res });
   }
-
+ 
 Message(responderId)
 {
-  //console.log("/messagehistory/" + responderId);
-  this.router.navigate(['/messagehistory/' + responderId]);
+  let dialogRef = this.dialog.open(UsermessagehistoryComponent, {
+    width: '850px',
+    data: { responderId: responderId}
+  });
+
+  
 } 
- 
+ MessageLog(messageStatusId, responderId)
+{
+
+
+  let dialogRef = this.dialog.open(UsermessagehistoryComponent, {
+    width: '850px',
+    data: {messageStatusId: messageStatusId, responderId: responderId}
+  });
+
+
+} 
 }

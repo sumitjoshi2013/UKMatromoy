@@ -2,6 +2,15 @@
 <menubar></menubar>
 -->
 
+<div class="panel-heading">
+		<div class="row">
+		  <div class="col-xs-12 col-sm-12 col-md-12">
+			<h2 class="pull-left"> 
+			  <span class="glyphicon glyphicon-list-alt"> 
+				</span> Send Personalised Message </h2>
+		  </div>
+	  </div>
+</div>
 <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form">
 			  <div class="controls">
 				  <div class="row">
@@ -47,10 +56,31 @@
 						  </div>
 					  </div>
 				 </div>
+
+				 <div class="form-group has-feedback">
+					<label  class="col-md-4 control-label">
+						</label>
+						 <div class="col-md-6  inputGroupContainer">
+						<div class="input-group"> 
+							  <re-captcha formControlName="recaptcha"
+								name="recaptcha"
+								required 
+								siteKey="6LcZgCwUAAAAAPn1N1j7JD2ywG4LrMhxypKiRmc6"
+								></re-captcha>
+							  <div [hidden]="recaptcha.valid || recaptcha.pristine" class="error">Captcha must be solved</div>
+							 
+							  <span class="glyphicon form-control-feedback"></span>
+						<span class="help-block with-errors"></span>
+					 </div>
+				 
+					 </div>
+			   </div>	
+
+
 			  </div>
 			  <md-dialog-actions>
-				<button md-raised-button (click)="gotoClose(myform)" tabindex="1">Install</button>
-				<button md-button md-dialog-close tabindex="-1">Cancel</button>
+				<button md-raised-button (click)="gotoClose(myform)" tabindex="1">Send Message</button>
+				<button md-raised-button md-dialog-close tabindex="-1">Back</button>
 			  </md-dialog-actions>
 
 </form>

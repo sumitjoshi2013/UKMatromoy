@@ -13,13 +13,39 @@ class arrayData {
   constructor(public USER_ID: number, 
               public FULL_NAME: string, 
               public DOB: string,   
+              
+              public TIME: string,   
+              public MY_NATIVE_PLACE: string,   
+              
               public CALCULATED_AGE: string,  
               public GENDER: string,  
               public MY_SUB_CASTE: string, 
               public MY_GOTHRA: string, 
               public MY_OCCUPTION: string, 
               public MY_RELIGION: string, 
-              public JsonRawData: string,   
+              public JsonRawData: string, 
+              
+              public ABOUT_MY_EDUCATION: string,
+              public HEIGHT: string,  
+              public WEIGHT: string, 
+              public SMOKE_STATUS: string, 
+              public DRINK_STATUS: string, 
+              public MY_WORK_STATUS: string, 
+              public ABOUT_ME: string,
+
+              public FACEBOOK_ID: string, 
+              public TWITTER_ID: string, 
+              public OTHERSOCIALNETWORKING_ID: string,
+              public MY_MIN_INCOME: string,
+              
+              public COUNTRY: string, 
+              public CITY: string, 
+              public address: string,
+
+
+            
+
+              public MY_MOTHER_TOUNG: string,
               public USER_PEROFILE_ID: number){}
 }
 
@@ -32,17 +58,31 @@ export class ProfiledetailComponent implements OnInit {
   userid: number;
   userData: object;
   private profileId;
+  interestStatus: boolean;
   constructor(private authService: AuthService, private router: Router, 
   private dataservice: dataService, private route: ActivatedRoute,
   public modal: Modal, public dialog: MdDialog
 ) {}
 
   ngOnInit() {
+    this.interestStatus = true;
     this.profileId = this.route.snapshot.params['profileId'];
-  // console.log(this.profileId);
-    let Url = "http://localhost:8910/api/api/ShowProfile/ShowUserProfileByUniqueId?userid="; 
-    this.dataservice.getData(Url + this.profileId ).subscribe((res: any) => 
-    { this.userData = res });
+    if(this.profileId == null)
+    {
+      this.interestStatus = false;
+      let Url = "http://localhost:8910/api/api/ShowProfile/ShowUserProfileByUniqueId?userid="; 
+      this.dataservice.getData(Url + this.authService.currentUser.name ).subscribe((res: any) => 
+      { this.userData = res });
+    }
+    else
+    {
+      this.interestStatus = true;
+      let Url = "http://localhost:8910/api/api/ShowProfile/ShowUserProfileByUniqueId?userid="; 
+      this.dataservice.getData(Url + this.profileId ).subscribe((res: any) => 
+      { this.userData = res });
+    }
+   console.log(this.interestStatus);
+  
   }
   
   Message(value): void
@@ -57,5 +97,15 @@ export class ProfiledetailComponent implements OnInit {
       console.log('The dialog was closed');
     //  this.animal = result;
     });
+  }
+  GoToSocial(Url)
+  {
+    let url: string = '';
+    if (!/^http[s]?:\/\//.test(Url)) {
+        url += 'http://';
+    }
+    
+    url += Url;
+    window.open(url, '_blank');
   }
 }

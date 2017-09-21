@@ -35,7 +35,7 @@ class arrayData {
 
               public FACEBOOK_ID: string, 
               public TWITTER_ID: string, 
-              public OTHERSOCIALNETWORKING_ID: string,
+              public Linkedin: string,
               public MY_MIN_INCOME: string,
               
               public COUNTRY: string, 

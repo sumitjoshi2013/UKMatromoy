@@ -38,6 +38,8 @@ import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import {DpDatePickerModule} from 'ng2-date-picker';
 import {MyDatePickerModule } from 'mydatepicker/src/my-date-picker';
 import { EqualValidator } from './common/password.match.directive';
+import { OrderByPipe } from './common/orderby.pipe';
+
 import { DropdownRequired } from './common/dropdown.required.directive';
 import { ProfilelistComponent } from './profilelist/profilelist.component';
 import {MdGridListModule} from '@angular/material';
@@ -58,6 +60,7 @@ import { TestService } from './test/test.service'
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { ThanksshowinginterestComponent } from './thanksshowinginterest/thanksshowinginterest.component';
+import { CategoryPipe } from 'app/common/filter.pipe';
 //import {MdDialog} from '@angular/material';
 
 export function getAuthHttp(http) {
@@ -132,6 +135,8 @@ export function getAuthHttp(http) {
     FileSelectDirective,
     GooglerecaptchaComponent,
     EqualValidator,
+   OrderByPipe,
+   CategoryPipe,
     DropdownRequired,
     ProfilelistComponent,
     ProfiledetailComponent,

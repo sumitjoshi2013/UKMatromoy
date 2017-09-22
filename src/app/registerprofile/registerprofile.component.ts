@@ -387,10 +387,10 @@ get mylinkedinId()
       headers.append('Access-Control-Allow-Origin','*');
       headers.append('Access-Control-Allow-Credentials', 'true');
       let options = new RequestOptions({ headers: headers });
-      console.log("POST");
+  //    console.log("POST");
       let url = `${url1}/`;
       let f= this.http.post(url, JSON.stringify(data),options ).subscribe(res => console.log(res.json()));
-      console.log(f);
+   //   console.log(f);
       return f;
    // if (this.myform.valid) {
     //  console.log("Form Submitted!" + this.myform);
@@ -401,13 +401,13 @@ get mylinkedinId()
   private handleError(error: Response) {
     if (error.status === 400)
       {
-          console.log(error.json());
+         // console.log(error.json());
       }
      // return Observable.throw(new BadInput(error.json()));
   
     if (error.status === 404)
       {
-        console.log(error.json());
+      //  console.log(error.json());
       }
       return Observable.throw(new NotFoundError());
      // return Observable.throw(new NotFoundError());

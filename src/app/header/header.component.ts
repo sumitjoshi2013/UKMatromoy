@@ -14,7 +14,7 @@ export class HeaderMenuComponent {
   }
   logout()
   {
-    console.log("logout button called...")
+  //  console.log("logout button called...")
     this.authService.logout();
     this.router.navigate(['/#/login']);
     

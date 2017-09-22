@@ -4,6 +4,8 @@ import { AuthService } from './../services/auth.service';
 import {MdGridListModule} from '@angular/material';
 import { dataService } from "app/services/data.service";
 import {Jsonp } from '@angular/http';
+import { OrderByPipe } from '../common/orderby.pipe';
+import { CategoryPipe } from '../common/filter.pipe';
 
 class jsonArray
 {
@@ -36,6 +38,9 @@ class arrayData {
 export class SearchprofilesComponent implements OnInit {
   userData: arrayData[];
   data: jsonArray[];
+  isDesc: boolean = false;
+  column: string = 'FULL_NAME';
+  direction: number;
 
   constructor(private authService: AuthService, private router: Router, 
     private dataservice: dataService) {}
@@ -47,11 +52,15 @@ export class SearchprofilesComponent implements OnInit {
 
   Viewdetail(userid)
   {
-    console.log(userid);
+    //console.log(userid);
     
     this.router.navigate(['profiledetail/', userid]);
   }
 
-  
+  sort(property){
+    this.isDesc = !this.isDesc; //change the direction    
+    this.column = property;
+    this.direction = this.isDesc ? 1 : -1;
+  };
 
 }

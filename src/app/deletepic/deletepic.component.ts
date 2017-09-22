@@ -10,7 +10,7 @@ export class DeletepicComponent {
 
   delPics(id)
   {
-    console.log(id);
+    //console.log(id);
   }
 
   images = [

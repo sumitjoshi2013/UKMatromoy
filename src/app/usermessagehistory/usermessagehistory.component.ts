@@ -31,7 +31,7 @@ export class UsermessagehistoryComponent implements OnInit {
     let profileId = this.userIdFromHome.responderId;
     
     let messageStatusId = this.userIdFromHome.messageStatusId;
-    console.log("messageStatusId: " + messageStatusId , "responderId " + profileId);
+   // console.log("messageStatusId: " + messageStatusId , "responderId " + profileId);
   //  let profileId = this.route.snapshot.params['profileId'];
     //let messageStatusId = this.route.snapshot.params['messageStatusId'];
     let Url;// = "http://localhost:8910/api/api/UserMessages/UserLogMessages?ResponderEmailId="; 
@@ -64,7 +64,7 @@ export class UsermessagehistoryComponent implements OnInit {
       Url = "http://localhost:8910/api/api/UserMessages/UserLogMessages?ResponderEmailId=";
       param = Url+profileId;
     }
-console.log(param);
+//console.log(param);
     this.dataservice.getData(param).subscribe((res: any) => 
     { this.MessageData = res });
   }

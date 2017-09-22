@@ -11,17 +11,21 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-6">
             <h2 class="text-center pull-left" style="padding-left: 30px;"> <span class="glyphicon glyphicon-list-alt"> </span> 
-              Search Profile </h2>
+              Search Profile (Name) </h2>
           </div>
           <div class="col-xs-9 col-sm-9 col-md-9">
             <div class="col-xs-12 col-sm-12 col-md-12">
               <div class="col-xs-12 col-md-12">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" class="form-control input-md" name="search">
+                    <input type="text" class="form-control input-md" 
+                    [(ngModel)]="searchText"
+                    name="search">
+
                     <div class="input-group-btn">
-                      <button type="button" class="btn btn-md btn-warning"> <span class=" glyphicon glyphicon-search"></span></button>
+                      <button class="btn btn-md btn-warning"> <span class=" glyphicon glyphicon-search"></span></button>
                     </div>
+                    
                   </div>
                 </div>
               </div>
@@ -36,20 +40,61 @@
             <tr>
             
               <th class="text-center"> My Pic </th>
-              <th class="text-center"> Name </th>
-              <th class="text-center"> Date of birth </th>
-			  <th class="text-center"> Religion </th>
+              <th class="text-center" (click)="sort('FULL_NAME')"> Name 
+                  <i class="fa" 
+                  [ngClass]="{'fa-sort': column != 'FULL_NAME', 'fa-sort-asc': 
+                  (column == 'FULL_NAME' && isDesc), 'fa-sort-desc': 
+                  (column == 'FULL_NAME' && !isDesc) }" aria-hidden="true"> 
+                </i>
+              </th>
+              <th class="text-center" (click)="sort('DOB')"> Date of birth 
+                  <i class="fa" 
+                  [ngClass]="{'fa-sort': column != 'DOB', 'fa-sort-asc': 
+                  (column == 'DOB' && isDesc), 'fa-sort-desc': 
+                  (column == 'DOB' && !isDesc) }" aria-hidden="true"> 
+                </i>
+              </th>
+			  <th class="text-center" (click)="sort('MY_RELIGION')"> Religion 
+            <i class="fa" 
+            [ngClass]="{'fa-sort': column != 'MY_RELIGION', 'fa-sort-asc': 
+            (column == 'MY_RELIGION' && isDesc), 'fa-sort-desc': 
+            (column == 'MY_RELIGION' && !isDesc) }" aria-hidden="true"> 
+          </i>
+
+        </th>
 			  
-			  <th class="text-center"> Caste </th>
-              <th class="text-center"> Gotra </th>
-              <th class="text-center"> Profession </th>
+			  <th class="text-center" (click)="sort('MY_SUB_CASTE')"> Caste 
+            <i class="fa" 
+            [ngClass]="{'fa-sort': column != 'MY_SUB_CASTE', 'fa-sort-asc': 
+            (column == 'MY_SUB_CASTE' && isDesc), 'fa-sort-desc': 
+            (column == 'MY_SUB_CASTE' && !isDesc) }" aria-hidden="true"> 
+          </i>
+
+
+        </th>
+              <th class="text-center" (click)="sort('MY_GOTHRA')"> Gotra 
+                  <i class="fa" 
+                  [ngClass]="{'fa-sort': column != 'MY_GOTHRA', 'fa-sort-asc': 
+                  (column == 'MY_GOTHRA' && isDesc), 'fa-sort-desc': 
+                  (column == 'MY_GOTHRA' && !isDesc) }" aria-hidden="true"> 
+                </i>
+      
+              </th>
+              <th class="text-center" (click)="sort('MY_OCCUPTION')"> Profession 
+                  <i class="fa" 
+                  [ngClass]="{'fa-sort': column != 'MY_OCCUPTION', 'fa-sort-asc': 
+                  (column == 'MY_OCCUPTION' && isDesc), 'fa-sort-desc': 
+                  (column == 'MY_OCCUPTION' && !isDesc) }" aria-hidden="true"> 
+                </i>
+      
+              </th>
               <th class="text-center"> 
 					<em class="fa fa-cog"></em>	  
 			</th>
             </tr>
           </thead>
 
-          <tbody *ngFor="let item of userData;">
+          <tbody *ngFor="let item of userData  | category: searchText | orderBy: {property: column, direction: direction}">
             <tr class="edit" id="detail">
               <td id="no" class="text-center">    <a href="#"></a> </td>
               <td id="name" class="text-center"> {{item?.FULL_NAME}} </td>

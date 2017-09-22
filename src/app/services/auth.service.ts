@@ -65,7 +65,7 @@ export class AuthService
   }
   
   logout() { 
-    console.log("Service logout button called...");
+  //  console.log("Service logout button called...");
     localStorage.removeItem('token');
     this.currentUser = null;
   }

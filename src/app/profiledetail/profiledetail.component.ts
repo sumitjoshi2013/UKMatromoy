@@ -74,20 +74,20 @@ export class ProfiledetailComponent implements OnInit {
     }
     this.TrackVisitorProfile(this.userData);
 
-   console.log(this.interestStatus);
+   //console.log(this.interestStatus);
   
   }
   
   Message(value): void
   {
-   console.log(value.USER_PEROFILE_ID);
+  // console.log(value.USER_PEROFILE_ID);
     let dialogRef = this.dialog.open(ShowInterestComponent, {
       width: '850px',
       data: { userid: value.USER_PEROFILE_ID}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+   //   console.log('The dialog was closed');
     //  this.animal = result;
     });
   }

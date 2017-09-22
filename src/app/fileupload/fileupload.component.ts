@@ -30,7 +30,7 @@ export class FileuploadComponent {
         this.filestring = btoa(binaryString);  // Converting binary string data. 
    } 
     logForm(form: NgForm) { 
-        console.log("Name: " + form.name + "Files: " + this.files[0].name); 
+      //  console.log("Name: " + form.name + "Files: " + this.files[0].name); 
         
         
        // this.sendValues(form.name, form.password); 
@@ -41,7 +41,7 @@ export class FileuploadComponent {
         this.http.post('server-url', JSON.stringify({ Username: name, FileData: this.filestring }), options).               // http post method to sending data 
             subscribe( 
             (data) => { 
-                console.log('Response received'); 
+              //  console.log('Response received'); 
             }, 
             (err) => { console.log(err); }, 
             () => console.log('Authentication Complete') 

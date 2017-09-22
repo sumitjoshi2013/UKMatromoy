@@ -49,9 +49,11 @@ private handleError (error: Response) {
     headers.append('Access-Control-Allow-Origin','*');
     headers.append('Access-Control-Allow-Credentials', 'true');
     let options = new RequestOptions({ headers: headers });
-    console.log(JSON.stringify(data));
-    return this.authHttp.post(url,JSON.stringify(data), options)
-      .map(response => response.json());
+    console.log(url);
+    url = `${url}/`;
+    let result= this.http.post(url, JSON.stringify(data),options )
+    .subscribe(res => res.json);
+    return result;
   }
 
 

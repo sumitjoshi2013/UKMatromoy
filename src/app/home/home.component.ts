@@ -9,8 +9,12 @@ import { UsermessagehistoryComponent } from 'app/usermessagehistory/usermessageh
 
 class userArray {
   constructor(public message: string, public profileid: string,
-              public name: string, public status: string,
-              public communicationDate: string, public E_MAIL:string
+              public Name: string, public status: string,
+              public visitordate: string, public EmailId:string,
+              public age: string, public maritialstatus: string,
+              public gotra: string, public religion:string, 
+              public visitorid: string
+             
   ){}
 }
 
@@ -34,7 +38,7 @@ export class HomeComponent implements OnInit {
     subscribe((res: any) => 
     { this.RequestStatusCount = res });
 
-    let showInterest = "http://localhost:8910/api/api/UserMessages/ShowInterest?ResponderEmailId="; 
+    let showInterest = "http://localhost:8910/api/api/VisitorDetails?userid="; 
     this.dataservice.getData(showInterest + this.authService.currentUser.name).
     subscribe((res: any) => 
     { this.userData = res });
@@ -42,22 +46,22 @@ export class HomeComponent implements OnInit {
  
 Message(responderId)
 {
+  console.log(responderId);
+  this.router.navigate(['profiledetail/', responderId]);
+  /*
   let dialogRef = this.dialog.open(UsermessagehistoryComponent, {
     width: '850px',
     data: { responderId: responderId}
   });
-
-  
+  */
 } 
- MessageLog(messageStatusId, responderId)
+
+MessageLog(messageStatusId, responderId)
 {
-
-
   let dialogRef = this.dialog.open(UsermessagehistoryComponent, {
     width: '850px',
     data: {messageStatusId: messageStatusId, responderId: responderId}
   });
-
-
 } 
+
 }

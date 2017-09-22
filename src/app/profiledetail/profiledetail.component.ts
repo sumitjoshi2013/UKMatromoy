@@ -13,10 +13,8 @@ class arrayData {
   constructor(public USER_ID: number, 
               public FULL_NAME: string, 
               public DOB: string,   
-              
               public TIME: string,   
               public MY_NATIVE_PLACE: string,   
-              
               public CALCULATED_AGE: string,  
               public GENDER: string,  
               public MY_SUB_CASTE: string, 
@@ -24,7 +22,6 @@ class arrayData {
               public MY_OCCUPTION: string, 
               public MY_RELIGION: string, 
               public JsonRawData: string, 
-              
               public ABOUT_MY_EDUCATION: string,
               public HEIGHT: string,  
               public WEIGHT: string, 
@@ -32,19 +29,13 @@ class arrayData {
               public DRINK_STATUS: string, 
               public MY_WORK_STATUS: string, 
               public ABOUT_ME: string,
-
               public FACEBOOK_ID: string, 
               public TWITTER_ID: string, 
               public Linkedin: string,
               public MY_MIN_INCOME: string,
-              
               public COUNTRY: string, 
               public CITY: string, 
               public address: string,
-
-
-            
-
               public MY_MOTHER_TOUNG: string,
               public USER_PEROFILE_ID: number){}
 }
@@ -81,6 +72,8 @@ export class ProfiledetailComponent implements OnInit {
       this.dataservice.getData(Url + this.profileId ).subscribe((res: any) => 
       { this.userData = res });
     }
+    this.TrackVisitorProfile(this.userData);
+
    console.log(this.interestStatus);
   
   }
@@ -107,5 +100,21 @@ export class ProfiledetailComponent implements OnInit {
     
     url += Url;
     window.open(url, '_blank');
+  }
+
+  TrackVisitorProfile(data)
+  {
+    this.profileId = this.route.snapshot.params['profileId'];
+    if(this.profileId != null)
+    {
+      let url = "http://localhost:8910/Api/api/VisitorDetails";
+      
+      var UserVisitorData = {
+        "EmailId": this.authService.currentUser.name,
+        "VisitorEmailID": this.profileId
+      }
+      let result= this.dataservice.Insert(url, UserVisitorData);
+     // console.log(UserVisitorData);
+    }
   }
 }

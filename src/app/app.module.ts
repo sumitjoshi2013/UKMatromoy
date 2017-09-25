@@ -64,6 +64,7 @@ import { CategoryPipe } from 'app/common/filter.pipe';
 //import {MdDialog} from '@angular/material';
 import { SearchNamePipe } from 'app/common/filter.pipe';
 import { VisitordetailsComponent } from './visitordetails/visitordetails.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -152,7 +153,8 @@ export function getAuthHttp(http) {
     ShowInterestComponent,
     TestComponent,
     ThanksshowinginterestComponent,
-    VisitordetailsComponent
+    VisitordetailsComponent,
+    AboutUsComponent
     
   ],
   imports: [
@@ -202,6 +204,7 @@ export function getAuthHttp(http) {
       { path: 'showInterest', component: ShowInterestComponent,  canActivate: [AdminAuthGuard] },
       { path: 'thanksshowinginterest/:profileId', component: ThanksshowinginterestComponent},
       { path: 'Visitordetails', component: VisitordetailsComponent},
+      { path: 'aboutus', component: AboutUsComponent},
 
     ],{ useHash: true })
   ],

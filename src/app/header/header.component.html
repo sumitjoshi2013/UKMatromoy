@@ -8,11 +8,11 @@ http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/##
 				<ul class="nav navbar-nav navbar-left">
 					<li><a href="#">Home</a>
 					</li>
+					<li role="presentation" ><a href="#/aboutus">
+							About Us</a>
+						</li>
 					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/profiledetail">
 						My Profile</a>
-					</li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#">
-						About Us</a>
 					</li>
 					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/searchprofile">
 						Search Profiles</a>
@@ -26,12 +26,13 @@ http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/##
 					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/editprofile">
 						Update Profile</a>
 					</li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/contactus">
+					<li role="presentation" ><a href="#/contactus">
 						Contact Us</a>
 					</li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/vision">
+					<li role="presentation" ><a href="#/vision">
 						Our Vision</a></li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/login">
+					<li role="presentation" *ngIf="authService.isLoggedIn()" (click)="logout()">
+						<a href="#/login">
 						Logout</a>
 					</li>	
 				</ul>

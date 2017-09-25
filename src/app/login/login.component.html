@@ -1,9 +1,9 @@
-<menubar></menubar><br>
 <!--https://bootsnipp.com/snippets/featured/login-form-in-modal -->
-
-
+<div class="container">
+        <div class="row" id="main">
+        <div class="panel panel-success " >
+            <menubar></menubar> 
 <form class="form-signin" #f="ngForm" (ngSubmit)="signIn(f.value)" >
-    
 <div id="login-overlay" >
     <div class="panel panel-primary" style="width:750px;margin:0px auto">
     <div class="modal-content">
@@ -53,7 +53,7 @@
                            
                             class="btn btn-success btn-block">Login</button>
                            
-                            <a routerLink="/forgetpassword" class="btn btn-default btn-block">Help to login</a>
+                            <a (click)="ForgetPwd()" class="btn btn-default btn-block">Help to login</a>
                        
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                         <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
                         <li><a href="/read-more/"><u>Read more</u></a></li>
                     </ul>
-                    <p><a routerLink="/registerprofile" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                    <p><a routerLink="/registerprofile/1" class="btn btn-info btn-block">Yes please, register now!</a></p>
                 </div>
             </div>
         </div>
@@ -75,3 +75,4 @@
     </div>
 </div>
 </form>
+        </div></div></div>

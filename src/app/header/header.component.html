@@ -1,91 +1,40 @@
 <!--
- https://bootsnipp.com/snippets/x8ayN
-
-<p *ngIf="authService.isLoggedIn()">
-  Welcome ? {{ authService.currentUser.name }}
-</p>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button> 
-           <a *ngIf="authService.isLoggedIn()" class="navbar-brand" routerLink="/admin">Admin</a>
-           <a *ngIf="authService.isLoggedIn()" class="navbar-brand" routerLink="/searchprofile">Search</a>
-           <a *ngIf="authService.isLoggedIn()" class="navbar-brand" (click)="authService.logout()">Logout</a>
-           <a  class="navbar-brand" routerLink="/login">Login</a>
-        </div>
-     </div>
-</nav>
-
-
- 	<header>		
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="navigation">
-				<div class="container">					
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
-							<span class="sr-only">NavBar</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<div class="navbar-brand">
-							<a href="index.html"><img src="" width="50px"></a>
-						</div>
-					</div>
-					
-					<div class="navbar-collapse collapse">							
-						<div class="menu">
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#" class="active">Home</a></li>
-								<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/searchprofile">Search Profiles</a></li>
-								<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/profiledetail">My Bio Data</a></li>
-								<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/Fileupload">My Pics</a></li>	
-                                <li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/editprofile">Update Profile</a></li>	
-                                <li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/deletepic">Delete Pic</a></li>							
-								<li role="presentation"><a href="#/vision">Our Vision</a></li>
-								<li role="presentation"><a href="#/contactus">Contact us</a></li>
-								<li role="presentation"><a href="#/login" (click)="logout()">Logout</a></li>	
-                                					
-							</ul>
-						</div>
-					</div>						
-				</div>
-			</div>	
-		</nav>		
-	</header>
-<br><br>-->
-
-
-<div class="container">
+http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/##
+-->
+<div id="custom-bootstrap-menu" class="navbar navbar-default "  role="navigation">
+		<div class="container-fluid">
 		
-		<div class="page-container">
-		
-		<nav class="navbar navbar-default">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			  <ul class="nav navbar-nav">
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#" class="active">Home</a></li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/searchprofile">Search Profiles</a></li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/profiledetail">My Profile</a></li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/Fileupload">My Pics</a></li>	
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/editprofile">Update Profile</a></li>	
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/deletepic">Delete Pic</a></li>							
-					<li role="presentation"><a href="#/vision">Our Vision</a></li>
-					<li role="presentation"><a href="#/contactus">Contact us</a></li>
-					<li role="presentation"><a href="#/login" (click)="logout()">Logout</a></li>	
-						
-			  </ul>
-			</div><!-- /.navbar-collapse -->
-		</nav>
-		
-		</div><!-- Page Container -->
-		
+			<div class="collapse navbar-collapse navbar-menubuilder">
+				<ul class="nav navbar-nav navbar-left">
+					<li><a href="#">Home</a>
+					</li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/profiledetail">
+						My Profile</a>
+					</li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#">
+						About Us</a>
+					</li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/searchprofile">
+						Search Profiles</a>
+					</li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/Fileupload">
+						Image Gallery</a>
+					</li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/deletepic">
+						Delete Images</a>
+					</li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/editprofile">
+						Update Profile</a>
+					</li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/contactus">
+						Contact Us</a>
+					</li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/vision">
+						Our Vision</a></li>
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/login">
+						Logout</a>
+					</li>	
+				</ul>
+			</div>
 		</div>
-		
+	</div>

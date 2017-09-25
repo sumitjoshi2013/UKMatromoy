@@ -1,19 +1,29 @@
-<menubar></menubar><br>
+
 <!--https://bootsnipp.com/snippets/VjVR 
 https://bootsnipp.com/snippets/featured/simple-user-profile
 -->
 
 <!-- ******HEADER****** -->
- 
-<div class="container" >
-    
-      <div class="row" id="main">
+<div class="container">
+    <div class="row" id="main">
+    <div class="panel panel-success " >
+        <menubar></menubar>
             <div class="panel-body" id="leftPanel">
                 <div class="row">
                     <div class="col-md-12">
-                      <div>  <h2>{{userData?.FULL_NAME}}</h2> <p> 
+                        <div class="pull-right">
+                            <a 
+                               data-toggle="tooltip" (click)= "Message(userData)" type="button" 
+                               class="btn btn-sm btn-warning">
+                               Send Message
+                              </a>
+                          </div>
+                      <div class="pull-left">  <h2>{{userData?.FULL_NAME}}</h2>
+                      </div>
+                        <p> 
+
                         Last Login: 
-                        May 05,2014,03:00 pm </p>
+                        {{userData?.lastLogin}} </p>
                     <img src="http://lorempixel.com/200/200/abstract/1/" 
                     alt="Texto Alternativo" class="img-circle img-thumbnail">
                  
@@ -40,15 +50,12 @@ https://bootsnipp.com/snippets/featured/simple-user-profile
                                         Link to Linkedin 
                                     <i class="fa fa-linkedin-square" aria-hidden="true"></i>
                                 </button>
-
                             </div>
-                      </div>
                     </div>
                     </div>
                 </div>
       </div>
 </div>
-
 
 <div class="container">
     <div class="row">
@@ -121,7 +128,7 @@ https://bootsnipp.com/snippets/featured/simple-user-profile
                       </tr>
                       <tr>
                         <td>Weight/Height</td>
-                        <td>{{userData?.WEIGHT}}Kg/{{userData?.HEIGHT}}inch </td>
+                        <td>{{userData?.WEIGHT}} Kg/{{userData?.HEIGHT}} inch </td>
                       </tr>
                      
                       <tr>
@@ -150,7 +157,4 @@ https://bootsnipp.com/snippets/featured/simple-user-profile
       </div>
     </div>
   </div>
-
-
-
-  
+</div>  

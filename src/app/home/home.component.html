@@ -1,127 +1,166 @@
-<div class="container">
-<div class="col-md-3">
-<menubar></menubar>
-</div></div>
 <!--https://bootsnipp.com/snippets/p1lVe-->
+<div class="container">
+    <div class="row" id="main">
+      <div class="panel panel-success " >
+        <menubar></menubar>  
+        <div class="panel-body">
+            <h2 class="text-center pull-left"> 
+               <div class="col-md-12  panel-info main-header">Welcome ,  
+                 <span class="destaque"> {{ authService.currentUser.name }}</span></div>
+               </h2>
+          </div>    
+
+          <div class="panel-body">
+          <div class="col-md-3"
+          mdTooltip="This is the total request send by you as of now!" mdTooltipPosition="above">
+             <div class="panel panel-info" >
+                 <div class="panel-heading" >
+                   <div class="row">
+                     <div class="col-xs-6">
+                       <i class="fa fa-envelope-open fa-5x"></i>
+                     </div>
+                     <div class="col-xs-6 text-right" >  {{ RequestStatusCount?.TotalRequestSendCount }} 
+                       <p class="announcement-heading"  ></p>
+                       <p class="announcement-text">Total Request Send</p>
+                     </div>
+                   </div>
+                 </div>
+           
+                   <div class="panel-footer announcement-bottom">
+                     <div class="row">
+                       <div class="col-xs-6">
+                         <a class="btn btn-default" (click)= "MessageLog(1,authService.currentUser.name)">
+                             View Detail <em class="fa fa-pencil">
+                             </em>
+                           </a>
+                       </div>
+                       <div class="col-xs-6 text-right">
+                         <i class="fa fa-arrow-circle-right"></i>
+                       </div>
+                     </div>
+                   </div>
+               </div>
+         </div>
+         
 
 
-  <div class="container">
-      
-        <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-8">
-                <h2 class="text-center pull-left"> 
-                   <div class="col-md-12  panel-info main-header">Welcome ,  <span class="destaque"> {{ authService.currentUser.name }}</span></div>
-                   </h2>
-              </div>            
-          </div>
-        </div>
-  
-  <div class="col-md-3"
-   mdTooltip="This is the total request send by you as of now!" mdTooltipPosition="above">
-	    <div class="panel panel-info" >
-          <div class="panel-heading" >
-            <div class="row">
-              <div class="col-xs-6">
-                <i class="fa fa-envelope-open fa-5x"></i>
-              </div>
-              <div class="col-xs-6 text-right" >  {{ RequestStatusCount?.TotalRequestSendCount }} 
-                <p class="announcement-heading"  ></p>
-                <p class="announcement-text">Total Request Send</p>
-              </div>
-            </div>
-          </div>
-		
-            <div class="panel-footer announcement-bottom">
-              <div class="row">
-                <div class="col-xs-6">
-                  <a class="btn btn-default" (click)= "MessageLog(1,authService.currentUser.name)">
-                      View Detail <em class="fa fa-pencil">
-                      </em>
-                    </a>
+
+         <div class="col-md-3" 
+         mdTooltip="This is the total request received as of now!" mdTooltipPosition="above">
+             <div class="panel panel-default">
+                 <div class="panel-heading">
+                   <div class="row">
+                     <div class="col-xs-6">
+                       <i class="fa fa-heart fa-5x"></i>
+                     </div>
+                     <div class="col-xs-6 text-right">
+                       <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestReceivedCount }} </p>
+                       <p class="announcement-text">Total Request Received</p>
+                     </div>
+                   </div>
+                 </div>
+               
+                   <div class="panel-footer announcement-bottom">
+                     <div class="row">
+                       <div class="col-xs-6">
+                           <a class="btn btn-default" (click)= "MessageLog(2,authService.currentUser.name)">
+                               View Detail <em class="fa fa-pencil">
+                               </em>
+                             </a>
+                       </div>
+                       <div class="col-xs-6 text-right">
+                         <i class="fa fa-arrow-circle-right"></i>
+                       </div>
+                     </div>
+                   </div>
+             
+               </div>
+         </div>	
+
+
+
+         <div class="col-md-3" 
+         mdTooltip="This is the total interest shown by other user but you still didnt respond!" mdTooltipPosition="above">
+             <div class="panel panel-warning">
+                 <div class="panel-heading">
+                   <div class="row">
+                     <div class="col-xs-6">
+                       <i class="fa fa-heartbeat fa-5x"></i>
+                     </div>
+                     <div class="col-xs-6 text-right">
+                       <p class="announcement-heading">{{ RequestStatusCount?.TotalPendingResponseCount }}</p>
+                       <p class="announcement-text">Total Pending Request</p>
+                     </div>
+                   </div>
+                 </div>
+               
+                   <div class="panel-footer announcement-bottom">
+                     <div class="row">
+                       <div class="col-xs-6">
+                           <a class="btn btn-default" (click)= "MessageLog(3,authService.currentUser.name)">
+                               View Detail <em class="fa fa-pencil">
+                               </em>
+                             </a>
+                       </div> 
+                       <div class="col-xs-6 text-right">
+                         <i class="fa fa-arrow-circle-right"></i>
+                       </div>
+                     </div>
+                   </div>
+                 
+               </div>
+         </div>	
+
+
+
+         <div class="col-md-3"  mdTooltip="This is the total request rejected to your profile!" mdTooltipPosition="above">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <i class="fa fa-money fa-5x"></i>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestRejectCount }}</p>
+                      <p class="announcement-text"  >
+                        
+                        Total Rejected Request</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-xs-6 text-right">
-                  <i class="fa fa-arrow-circle-right"></i>
-                </div>
+             
+                  <div class="panel-footer announcement-bottom">
+                    <div class="row">
+                      <div class="col-xs-6">
+                          <a class="btn btn-default" (click)= "MessageLog(4,authService.currentUser.name)">
+                              View Detail <em class="fa fa-pencil">
+                              </em>
+                            </a>
+                      </div>
+                      <div class="col-xs-6 text-right">
+                        <i class="fa fa-arrow-circle-right"></i>
+                      </div>
+                    </div>
+                  </div>
+              
               </div>
-            </div>
-        </div>
-  </div>
-  
-  <div class="col-md-3" 
-  mdTooltip="This is the total request received as of now!" mdTooltipPosition="above">
-	    <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-6">
-                <i class="fa fa-heart fa-5x"></i>
-              </div>
-							<div class="col-xs-6 text-right">
-                <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestReceivedCount }} </p>
-                <p class="announcement-text">Total Request Received</p>
-              </div>
-            </div>
-          </div>
+        </div>			
+
         
-            <div class="panel-footer announcement-bottom">
-              <div class="row">
-                <div class="col-xs-6">
-                    <a class="btn btn-default" (click)= "MessageLog(2,authService.currentUser.name)">
-                        View Detail <em class="fa fa-pencil">
-                        </em>
-                      </a>
-                </div>
-                <div class="col-xs-6 text-right">
-                  <i class="fa fa-arrow-circle-right"></i>
-                </div>
-              </div>
-            </div>
-      
-        </div>
-	</div>	
-  <div class="col-md-3" 
-  mdTooltip="This is the total interest shown by other user but you still didnt respond!" mdTooltipPosition="above">
-	    <div class="panel panel-warning">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-6">
-                <i class="fa fa-heartbeat fa-5x"></i>
-              </div>
-							<div class="col-xs-6 text-right">
-                <p class="announcement-heading">{{ RequestStatusCount?.TotalPendingResponseCount }}</p>
-                <p class="announcement-text">Total Pending Request</p>
-              </div>
-            </div>
-          </div>
+
         
-            <div class="panel-footer announcement-bottom">
-              <div class="row">
-                <div class="col-xs-6">
-                    <a class="btn btn-default" (click)= "MessageLog(3,authService.currentUser.name)">
-                        View Detail <em class="fa fa-pencil">
-                        </em>
-                      </a>
-                </div> 
-                <div class="col-xs-6 text-right">
-                  <i class="fa fa-arrow-circle-right"></i>
-                </div>
-              </div>
-            </div>
-          
-        </div>
-	</div>		
-	<div class="col-md-3"  mdTooltip="This is the total request rejected to your profile!" mdTooltipPosition="above">
+  <div class="col-md-3"  mdTooltip="This is the total profile visited from other users!" mdTooltipPosition="above">
 	    <div class="panel panel-success">
           <div class="panel-heading">
             <div class="row">
               <div class="col-xs-6">
-                <i class="fa fa-money fa-5x"></i>
+                <i class="fa fa-search fa-5x"></i>
               </div>
 							<div class="col-xs-6 text-right">
-                <p class="announcement-heading">{{ RequestStatusCount?.TotalRequestRejectCount }}</p>
+                <p class="announcement-heading">{{ RequestStatusCount?.TotalVisitorCount }}</p>
                 <p class="announcement-text"  >
                   
-                  Total Rejected Request</p>
+                  Total Profile Visitor</p>
               </div>
             </div>
           </div>
@@ -129,7 +168,7 @@
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-6">
-                    <a class="btn btn-default" (click)= "MessageLog(4,authService.currentUser.name)">
+                    <a class="btn btn-default" (click)= "Message()">
                         View Detail <em class="fa fa-pencil">
                         </em>
                       </a>
@@ -139,68 +178,14 @@
                 </div>
               </div>
             </div>
-        
-        </div>
-	</div>			
-
-  <br><br>
-  <div class="container">
-    
-      <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-              <h2 class="text-center pull-left"> 
-                <span class="glyphicon glyphicon-list-alt"> 
-                  </span> Recent Visitors Details </h2>
-            </div>
-            <div class="col-xs-9 col-sm-9 col-md-9">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="col-xs-12 col-md-4">
-               
-                  <div class="form-group">
-                    <div class="input-group">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
-        </div>
       </div>
-        <div class="panel-body table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th class="text-center"> S.NO. </th>
-                <th class="text-left"> Name </th>
-                <th class="text-left"> Age </th>
-                <th class="text-left"> religion </th>
-                <th class="text-left"> Gotra </th>
-                <th class="text-left"> maritialstatus </th>
-                <th class="text-left"> Visitor Date </th>
-                <th class="text-center"> 
-            <em class="fa fa-cog"></em>	  
-        </th>
-              </tr>
-            </thead>
-  
-            <tbody *ngFor="let item of userData; let i=index">
-              <tr class="edit" id="detail">
-                <td id="no" class="text-center">    {{ i + 1 }} </td>
-                <td id="name" class="text-left"> {{item?.Name}} </td>
-                <td id="status" class="text-left"> {{item?.age}} </td>
-                <td id="date" class="text-left"> {{item?.religion}} </td>
-                <td id="name" class="text-left"> {{item?.gotra}} </td>
-                <td id="status" class="text-left"> {{item?.maritialstatus}} </td>
-                <td id="date" class="text-left"> {{item?.visitordate}} </td>
-          <td id="city" class="text-center"> 
-            <a class="btn btn-default" (click)= "Message(item?.EmailId)">
-              <em class="fa fa-pencil">
-              </em>
-            </a>
-         </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>  
-    </div></div>   
+  </div>
+       
+
+
+
+          </div>
+      </div>
+    </div>
+</div>
+    

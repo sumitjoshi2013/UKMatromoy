@@ -77,8 +77,8 @@ gotoClose(data)
     "Message": data.value.message,
     "ContactEmailId": data.value.email,
     "ContactPhoneNumber": data.value.phone
-  }
+  } 
   let result= this.dataservice.Insert(url, UserInterestData);
-  //console.log(result);
+  //console.log(UserInterestData);
 }
 }

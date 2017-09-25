@@ -62,6 +62,8 @@ import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { ThanksshowinginterestComponent } from './thanksshowinginterest/thanksshowinginterest.component';
 import { CategoryPipe } from 'app/common/filter.pipe';
 //import {MdDialog} from '@angular/material';
+import { SearchNamePipe } from 'app/common/filter.pipe';
+import { VisitordetailsComponent } from './visitordetails/visitordetails.component';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -149,7 +151,8 @@ export function getAuthHttp(http) {
     SearchprofilesComponent,
     ShowInterestComponent,
     TestComponent,
-    ThanksshowinginterestComponent
+    ThanksshowinginterestComponent,
+    VisitordetailsComponent
     
   ],
   imports: [
@@ -172,16 +175,17 @@ export function getAuthHttp(http) {
       { path: '', component: HomeComponent , canActivate: [AdminAuthGuard]},
       { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard] },
       { path: 'login', component: LoginComponent },
-      { path: '#/login', component: LoginComponent },
+    //  { path: '#/login', component: LoginComponent },
       { path: 'no-access', component: NoAccessComponent },
       { path: 'registerprofile', component: RegisterprofileComponent },
+      { path: 'registerprofile/:Id', component: RegisterprofileComponent },
       { path: 'multiauth', component: MultiauthenticationComponent,  },
 //{ path: 'multiauth', component: MultiauthenticationComponent, canActivate: [AdminAuthGuard] },
       { path: 'forgetpassword', component: ForgetprofileComponent },
       { path: 'RegistrationOTP', component: RegistrationThanksComponent },
       { path: 'Imagegallery', component: ImagegalleryComponent , canActivate: [AdminAuthGuard]},
       { path: 'Fileupload', component: FileuploadComponent , canActivate: [AdminAuthGuard]},
-      { path: 'profilelist', component: ProfilelistComponent},
+      { path: 'profilelist', component: ProfilelistComponent ,  canActivate: [AdminAuthGuard] },
       { path: 'profiledetail/:profileId', component: ProfiledetailComponent , canActivate: [AdminAuthGuard]},
       { path: 'profiledetail', component: ProfiledetailComponent, canActivate: [AdminAuthGuard]},
       { path: '#/profiledetail', component: ProfiledetailComponent, canActivate: [AdminAuthGuard]},
@@ -195,8 +199,10 @@ export function getAuthHttp(http) {
       { path: 'messagehistory/:profileId/:messageStatusId', component: UsermessagehistoryComponent , canActivate: [AdminAuthGuard]},
       { path: 'usermessage', component: UsermessagesComponent , canActivate: [AdminAuthGuard]},
       { path: 'searchprofile', component: SearchprofilesComponent , canActivate: [AdminAuthGuard]},
-      { path: 'showInterest', component: ShowInterestComponent},
+      { path: 'showInterest', component: ShowInterestComponent,  canActivate: [AdminAuthGuard] },
       { path: 'thanksshowinginterest/:profileId', component: ThanksshowinginterestComponent},
+      { path: 'Visitordetails', component: VisitordetailsComponent},
+
     ],{ useHash: true })
   ],
   providers: [

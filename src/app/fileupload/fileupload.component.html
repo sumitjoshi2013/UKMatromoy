@@ -1,6 +1,8 @@
-<menubar></menubar>
-<div class="container">  
-  <form #form = "ngForm" (ngSubmit)="logForm(form.value)" enctype="multipart/form-data">  
+<div class="container">
+        <div class="row" id="main">
+        <div class="panel panel-success " >
+            <menubar></menubar>
+  <form #form = "ngForm" enctype="multipart/form-data">  
     <div class="container">
             <div class="col-md-6">
                 <div class="form-group">
@@ -18,12 +20,14 @@
                         <input type="text" class="form-control" readonly>
                     </div>
                     <img id='img-upload'/>
-                      <button type="submit" class="btn btn-primary start"> <i class="glyphicon glyphicon-folder-open"></i>
-        <span>Start upload</span></button>  
-      <button type="reset" class="btn btn-warning cancel">
-            <i class="glyphicon glyphicon-ban-circle"></i>
-            <span>Cancel upload</span>
-        </button>
+                      <button type="submit" (click) = "upload(ngForm)" class="btn btn-primary start"> 
+                          <i class="glyphicon glyphicon-folder-open"></i>
+                            <span>Start upload</span>
+                        </button>  
+                        <button type="reset" class="btn btn-warning cancel">
+                            <i class="glyphicon glyphicon-ban-circle"></i>
+                            <span>Cancel upload</span>
+                        </button>
         <div> Only 5 pics are allowed to upload.</div>
 
                 </div>
@@ -41,3 +45,4 @@
 
         </div>
     </div>
+        </div></div>

@@ -1,6 +1,6 @@
 .entry:not(:first-of-type)
 {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .glyphicon
@@ -33,7 +33,7 @@
 }
 
 .container{
-    margin-top:20px;
+    margin-top:0px;
 }
 .image-preview-input {
     position: relative;

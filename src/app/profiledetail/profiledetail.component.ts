@@ -37,14 +37,16 @@ class arrayData {
               public CITY: string, 
               public address: string,
               public MY_MOTHER_TOUNG: string,
-              public USER_PEROFILE_ID: number){}
+              public USER_PEROFILE_ID: number,
+              public lastLogin: string
+            ){}
 }
 
 @Component({
   selector: 'app-profiledetail',
   templateUrl: './profiledetail.component.html',
   styleUrls: ['./profiledetail.component.css']
-})
+}) 
 export class ProfiledetailComponent implements OnInit {
   userid: number;
   userData: object;

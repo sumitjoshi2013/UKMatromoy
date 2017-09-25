@@ -1,22 +1,36 @@
 import { AuthService } from './../services/auth.service';
-import { Component } from '@angular/core';
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'menubar',
   templateUrl: 'header.component.html'
 })
-export class HeaderMenuComponent {
+export class HeaderMenuComponent implements OnInit  {
 
-  constructor(private authService: AuthService, private router: Router) {
-//let a = authService.currentUser.name;
-//let b = authService.isLoggedIn();
+  constructor(private authService: AuthService, private router: Router,
+    private route: ActivatedRoute,
+  ) {
+
   }
+
+  ngOnInit() {
+    let Id = this.route.snapshot.params['Id'];
+    console.log(Id);
+    if(Id != 1)
+    {
+    if(this.authService.isLoggedIn() !=true)
+    {
+      this.logout();
+    }
+  }
+  }
+  
   logout()
   {
   //  console.log("logout button called...")
     this.authService.logout();
-    this.router.navigate(['/#/login']);
+    this.router.navigate(['/login']);
     
   }
 }

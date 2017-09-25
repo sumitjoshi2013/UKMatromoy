@@ -1,0 +1,146 @@
+<div class="container">
+    
+    <menubar></menubar>  
+  <div class="panel-heading">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <h2 class="text-center pull-left" style="padding-left: 30px;"> <span class="glyphicon glyphicon-list-alt"> </span> 
+            Profile Visited (Name) </h2>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control input-md" 
+                  [(ngModel)]="searchText"
+                  name="search">
+
+                  <div class="input-group-btn">
+                    <button class="btn btn-md btn-warning"> 
+                      <span class=" glyphicon glyphicon-search"></span>
+                    </button>
+                  </div>
+                 
+                  <div class="input-group-btn pull-right">
+                      
+                            <button class="btn btn-md btn-warning text-right"
+                            (click) ="GoToBack()"
+                            > back
+                              <span class=" glyphicon glyphicon-arrow-left"></span>
+                            </button>
+                          </div>
+
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel-body table-responsive" style="overflow: scroll;height: 500px;">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+          
+            <th class="text-center"> Id </th>
+            <th class="text-center" (click)="sort('FULL_NAME')"> Name 
+                <i class="fa" 
+                [ngClass]="{'fa-sort': column != 'FULL_NAME', 'fa-sort-asc': 
+                (column == 'FULL_NAME' && isDesc), 'fa-sort-desc': 
+                (column == 'FULL_NAME' && !isDesc) }" aria-hidden="true"> 
+              </i>
+            </th>
+            <th class="text-center" (click)="sort('DOB')"> Date of birth 
+                <i class="fa" 
+                [ngClass]="{'fa-sort': column != 'DOB', 'fa-sort-asc': 
+                (column == 'DOB' && isDesc), 'fa-sort-desc': 
+                (column == 'DOB' && !isDesc) }" aria-hidden="true"> 
+              </i>
+            </th>
+      <th class="text-center" (click)="sort('MY_RELIGION')"> Religion 
+          <i class="fa" 
+          [ngClass]="{'fa-sort': column != 'MY_RELIGION', 'fa-sort-asc': 
+          (column == 'MY_RELIGION' && isDesc), 'fa-sort-desc': 
+          (column == 'MY_RELIGION' && !isDesc) }" aria-hidden="true"> 
+        </i>
+
+      </th>
+      
+      <th class="text-center" (click)="sort('MY_SUB_CASTE')"> Caste 
+          <i class="fa" 
+          [ngClass]="{'fa-sort': column != 'MY_SUB_CASTE', 'fa-sort-asc': 
+          (column == 'MY_SUB_CASTE' && isDesc), 'fa-sort-desc': 
+          (column == 'MY_SUB_CASTE' && !isDesc) }" aria-hidden="true"> 
+        </i>
+
+
+      </th>
+            <th class="text-center" (click)="sort('MY_GOTHRA')"> Gotra 
+                <i class="fa" 
+                [ngClass]="{'fa-sort': column != 'MY_GOTHRA', 'fa-sort-asc': 
+                (column == 'MY_GOTHRA' && isDesc), 'fa-sort-desc': 
+                (column == 'MY_GOTHRA' && !isDesc) }" aria-hidden="true"> 
+              </i>
+    
+            </th>
+            <th class="text-center" (click)="sort('MY_OCCUPTION')"> Profession 
+                <i class="fa" 
+                [ngClass]="{'fa-sort': column != 'MY_OCCUPTION', 'fa-sort-asc': 
+                (column == 'MY_OCCUPTION' && isDesc), 'fa-sort-desc': 
+                (column == 'MY_OCCUPTION' && !isDesc) }" aria-hidden="true"> 
+              </i>
+    
+            </th>
+            <th class="text-center" (click)="sort('visitordate')"> Visitor Date 
+                <i class="fa" 
+                [ngClass]="{'fa-sort': column != 'visitordate', 'fa-sort-asc': 
+                (column == 'visitordate' && isDesc), 'fa-sort-desc': 
+                (column == 'visitordate' && !isDesc) }" aria-hidden="true"> 
+              </i>
+    
+            </th>
+            <th class="text-center"> 
+        <em class="fa fa-cog"></em>	  
+    </th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let item of userData | category: searchText | orderBy: {property: column, direction: direction};  let i=index  ">
+          <tr class="edit" id="detail">
+            <td id="no" class="text-center">    {{i + 1}} </td>
+            <td id="name" class="text-center"> {{item?.FULL_NAME}} </td>
+            <td id="mobile" class="text-center"> {{item?.age}} </td>
+            <td id="mail" class="text-center"> {{item?.religion}} </td>
+      <td id="city" class="text-center"> {{item?.MY_SUB_CASTE}} </td>
+      <td id="mobile" class="text-center"> {{item?.gotra}} </td>
+            <td id="mail" class="text-center"> {{item?.MY_OCCUPTION}} </td>
+            
+            <td id="mail" class="text-center"> {{item?.visitordate}} </td>
+      <td id="city" class="text-center"> 
+        <a class="btn btn-default" (click)= "Message(item?.EmailId)">
+          <em class="fa fa-pencil">
+          </em>
+        </a>
+     </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+<div class="panel-footer">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="col-md-8">
+            </div>
+            <div class="col-md-4">
+            <p class="muted pull-right"><strong> ©  All rights reserved </strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

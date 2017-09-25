@@ -42,7 +42,7 @@ private handleError (error: Response) {
  
 
    Insert(url, data) { 
-    
+    console.log(data);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');

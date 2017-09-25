@@ -31,7 +31,6 @@ class arrayData {
 
 @Component({
   selector: 'app-searchprofiles',
-  encapsulation: ViewEncapsulation.None,
   templateUrl: './searchprofiles.component.html',
   styleUrls: ['./searchprofiles.component.css']
 })
@@ -46,7 +45,7 @@ export class SearchprofilesComponent implements OnInit {
     private dataservice: dataService) {}
 
   ngOnInit() {
-    let Url = "http://localhost:8910/api/api/Registration?emailid="; 
+    let Url = "http://localhost:8910/api/api/Registration/GetAllProfiles?emailid="; 
     this.dataservice.getData(Url + this.authService.currentUser.name ).subscribe((res: any) => { this.userData = res });
   }
 

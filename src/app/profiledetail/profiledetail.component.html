@@ -12,9 +12,9 @@ https://bootsnipp.com/snippets/featured/simple-user-profile
                 <div class="row">
                     <div class="col-md-12">
                         <div class="pull-right">
-                            <a 
+                            <a  
                                data-toggle="tooltip" (click)= "Message(userData)" type="button" 
-                               class="btn btn-sm btn-warning">
+                               [class]="interestStatus ? 'btn btn-sm btn-warning': 'btn disabled'">
                                Send Message
                               </a>
                           </div>
@@ -141,10 +141,10 @@ https://bootsnipp.com/snippets/featured/simple-user-profile
                           </tr>
                   </tbody>
                 </table>
-                <div class="pull-right">
+                <div *ngIf=interestStatus; class="pull-right">
                     <a 
                        data-toggle="tooltip" (click)= "Message(userData)" type="button" 
-                       class="btn btn-sm btn-primary">
+                       [class]="interestStatus ? 'btn btn-sm btn-warning': 'btn disabled'">
                        Send Message
                       </a>
                   </div>

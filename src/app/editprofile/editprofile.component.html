@@ -1,659 +1,79 @@
+
 <!--
 http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
+<div class="container">
+   <div  style="width:250px;margin:0px auto">
+<alert  type="danger" dismissible="true">
+  <div class="panel-heading">{{error}}</div>
+</alert>
+   </div></div>
  -->
+
+
  <div class="container">
-    <div class="row" id="main">
-    <div class="panel panel-success " >
-        <menubar></menubar>   
-        
-        <div class="panel panel-primary" style="width:750px;margin:0px auto">
-  
-     <div class="panel-heading">Please fill the below user registration form. Note: All fields are mandatory. </div>
-      <div class="panel-body">
-           
-  <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form">
-
-      <legend> Basic information </legend>
-   <fieldset>
-        <div class="form-group" >
-        <label class="col-md-4 control-label">First Name*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input readonly=true  class="form-control"  type="text">
-            (Not editable)
-          </div>
-        </div>
-        </div>
-      
-      <!-- Text input-->
-          
-      
-   <div class="form-group">
-        <label class="col-md-4 control-label">Last Name*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              Last Name
-          </div>
-        </div>
-   </div>
+    <div class="panel panel-primary" >
+       <menubar></menubar>
+       <div class="panel-heading">Update User Registration. Note: All fields are mandatory. </div>
+       <div class="panel-body">
+            
+   <form  class="form-horizontal" id="reg_form">
  
-     <div class="form-group">
-        <label class="col-md-4 control-label">Gender*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            Male
-          </div>
-        </div>
-      </div>
-
-     <div class="form-group">
-        <label class="col-md-4 control-label">Marital Status*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-             Married
-          </div>
-        </div>
-      </div>
-
-      <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Gotra*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              Gotra
-          </div>
-        </div>
-      </div>
-
-       <!-- Text input-->
-       <div class="form-group">
-        <label class="col-md-4 control-label">LandLine number</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-mobile"></i></span>
-            Landline number
-          </div>
-        </div>
-      </div>
-
-      <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Phone number*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-mobile"></i></span>
-            Phone number  
-          </div>
-        </div>
-      </div>
-
-       <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Place of birth*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-              Date of birth
-          </div>
-        </div>
-      </div>
- 
-       <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Date of birth*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-             Time of birth    
-          </div>
-        </div>
-      </div>
-      
-       <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Time of birth*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div formGroupName="time" class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-            Time (hr:min:sec)
-          </div>
-        </div>
-        </div>
-      </fieldset>
-
-
-      <legend> Other Information </legend>
-       <fieldset>
-      <!-- Form Name -->
-    
-          <div class="form-group">
-        <label class="col-md-4 control-label">My Height*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input formControlName="height" required name="height" placeholder="for eg 5.6 (only decimal value)"  class="form-control"  type="text"> 
-          </div>
-              <div *ngIf="height.errors && (height.dirty || height.touched)">
-            <div *ngIf="height.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> height  is required.
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">My Weight*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input formControlName="weight"   name="weight" placeholder="for eg 56 (only numeric value)"   class="form-control"  type="text"> 
-          </div>
-                    <div *ngIf="weight.errors && (weight.dirty || weight.touched)">
-            <div *ngIf="weight.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> weight  is required.
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">My Income Range*</label>
-       <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-             <select required name="incomerange"  formControlName="incomerange" class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of CTCIncomeList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="incomerange.errors && (incomerange.dirty || incomerange.touched)">
-            <div *ngIf="incomerange.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Select the income range. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-
-
- <div class="form-group">
-        <label class="col-md-4 control-label">Smoke Status*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-             <select required name="smokestatus" formControlName="smokestatus" class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of smokeStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="smokestatus.errors && (smokestatus.dirty || smokestatus.touched)">
-            <div *ngIf="smokestatus.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the smoke status. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-
-       <div class="form-group">
-        <label class="col-md-4 control-label">Diet Status*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-             <select required name="dietstatus" formControlName="dietstatus"  class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of dietStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="dietstatus.errors && (dietstatus.dirty || dietstatus.touched)">
-            <div *ngIf="dietstatus.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the diet status. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-
-
-       <div class="form-group">
-        <label class="col-md-4 control-label">My Work Status*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-             <select required name="workstatus" formControlName="workstatus"    class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of workStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="workstatus.errors && (workstatus.dirty || workstatus.touched)">
-            <div *ngIf="workstatus.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the work status. 
-          </div>
-        </div>
-        </div>
-
-      </div>
-  </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Drinking Status*</label>
-         <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-glass"></i></span>
-             <select required name="drinkstatus" formControlName="drinkstatus"  class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of drinkStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="drinkstatus.errors && (drinkstatus.dirty || drinkstatus.touched)">
-            <div *ngIf="drinkstatus.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the drink status. 
-          </div>
-        </div>
-        </div>
-
-
-      </div>
-  </div>
-
-           <div class="form-group">
-        <label class="col-md-4 control-label">My Religion*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-              <select required name="religion" formControlName="religion"   class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of religionStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="religion.errors && (religion.dirty || religion.touched)">
-            <div *ngIf="religion.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the religion. 
-          </div>
-        </div>
-        </div>
-
-      </div>
-        </div>
-
-            <div class="form-group">
-        <label class="col-md-4 control-label">MY Mother Tounge*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-             <select required name="mothertounge" formControlName="mothertounge" class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of motherToungeList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="mothertounge.errors && (mothertounge.dirty || mothertounge.touched)">
-            <div *ngIf="mothertounge.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-      </div>
-          </div>
-
-           
-
-            <div class="form-group">
-        <label class="col-md-4 control-label">My Rashi*</label>
-      <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-              <select required name="rashi" formControlName="rashi"  class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of rashiStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-
-        <div *ngIf="rashi.errors && (rashi.dirty || rashi.touched)">
-          <div *ngIf="rashi.errors.required">
-          <div class="alert-warning">
-         <strong>Warning!</strong> Please select the mother tounge. 
-        </div>
-      </div>
-      </div>
-
-      </div>
-  </div>
-
- <div class="form-group">
-        <label class="col-md-4 control-label">My Sub Caste*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            <!-- 
-            <select required name="gender"   class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of subCasteStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-            -->
-           <input name="mySubCaste" formControlName="mySubCaste" placeholder="form eg Joshi/Pant/Bisht/Pandey" class="form-control"  type="text">
-          </div>
-         <div *ngIf="mySubCaste.errors && (mySubCaste.dirty || mySubCaste.touched)">
-            <div *ngIf="mySubCaste.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> SubCaste  is required.
-          </div>
-        </div>
-        </div>
-
-        <div *ngIf="mySubCaste.errors && (mySubCaste.dirty || mySubCaste.touched)">
-            <div *ngIf="mySubCaste.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-      </div>
-          </div>
-
-
-
-        <div class="form-group">
-        <label class="col-md-4 control-label">About my Education</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-            <textarea  name="education" formControlName="education" placeholder="for eg I have done MBC/MCA..." class="form-control"  type="text">
-            </textarea>
-          </div>
-
-          <div *ngIf="education.errors && (education.dirty ||education.touched)">
-            <div *ngIf="education.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-
-        <div class="form-group">
-        <label class="col-md-4 control-label">About my Profession</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-            <textarea  name="profession"  formControlName="profession" placeholder="for eg I am working as .. earing ... total exp  ..." class="form-control"  type="text">
-            </textarea>
-          </div>
-
-          <div *ngIf="profession.errors && (profession.dirty ||profession.touched)">
-            <div *ngIf="profession.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-
-        </div>
-      </div>
-
-
-      
- <div class="form-group">
-        <label class="col-md-4 control-label">My Social Networking Link</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-           <input name="mySocialProfile" formControlName="mySocialProfile" placeholder="for eg facebook link, linkedin..." class="form-control"  type="text">
-          </div>
-      </div>
-          </div>
-
-    </fieldset>
-
-
-      <legend> Residential Information </legend>
-       <fieldset>
-        <!-- Text input-->
-      
-      <div class="form-group">
-        <label class="col-md-4 control-label">Full Address</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-            <textarea name="address" formControlName="address" placeholder="Address" class="form-control" type="text"> </textarea>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Select Basic -->
-      
-      <div class="form-group">
-        <label class="col-md-4 control-label">Country*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-             <select required name="country" formControlName="country" class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of countryStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="country.errors && (country.dirty ||country.touched)">
-            <div *ngIf="country.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-
-      <!-- Text input-->
-      
-      <div class="form-group">
-        <label class="col-md-4 control-label">Current Living City*</label>
-        <div class="col-md-6 selectContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-              <select required name="city" formControlName="city"  class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of cityStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-          </div>
-
-          <div *ngIf="city.errors && (city.dirty ||city.touched)">
-            <div *ngIf="city.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Current Living Place*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-            <input name="place" formControlName="place"  placeholder="like haldwani, nanital" class="form-control"  type="text">
-          </div>
-
-          <div *ngIf="place.errors && (place.dirty ||place.touched)">
-            <div *ngIf="place.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-      
-      
-      <!-- Text input-->
-      
-      <div class="form-group">
-        <label class="col-md-4 control-label">Zip Code*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-            <input name="zip" formControlName="zip" placeholder="Zip Code" class="form-control"  type="text">
-          </div>
-          
-        </div>
-      </div>
-      
-        <!-- Text area -->
-      
-      <div class="form-group">
-        <label class="col-md-4 control-label">About yourself </label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-            <textarea class="form-control" formControlName="about" name="comment" placeholder="About "></textarea>
-          </div>
-        </div>
-      </div>
-      
-     
-       </fieldset>
-
-      <legend> Account information </legend>
-      <fieldset>
-        <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">E-Mail*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input formControlName="email" placeholder="E-Mail Address" 
-            class="form-control"  type="text"
-            >
-          </div>
-        <div *ngIf="email.errors && (email.dirty || email.touched) ">
-            <div *ngIf="email.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please verify the Email Id communication purpose.
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>
-      
-    
-        <div class="form-group has-feedback">
-            <label for="password"  class="col-md-4 control-label">
-                    Password*
-                </label>
-          <div class="col-md-6  inputGroupContainer">
-                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input 
-            type="password" 
-            id="password" 
-            class="form-control" validateEqual=confirmPassword
-            formControlName="password"> 
-                <span class="glyphicon form-control-feedback"></span>
-                <span class="help-block with-errors"></span>
-                </div>
-         <div *ngIf="password.errors && (password.dirty || password.touched)">
-            <div *ngIf="password.errors.required">
+       <legend> Basic information </legend>
+    <fieldset>
+         <div class="form-group" >
+         <label class="col-md-4 control-label">First Name*</label>
+         <div class="col-md-6  inputGroupContainer">
+           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+             <input placeholder="for eg sumit" class="form-control"  
+             [ngModel]="basicUserDetails?.firstName" 
+             (ngModelChange)="basicUserDetails.firstName = $event" name="firstName"
+             type="text">
+           </div>
+           <div *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+             <div *ngIf="firstName.errors.required">
              <div class="alert-warning">
-                <strong>Warning!</strong> Password  is required for authencation purpose.
-              </div>
-            </div>
-          <div *ngIf="!password.valid">
-            <div class="alert-warning">
-                <strong>Warning!</strong> Password Mismatch.
-            </div>
-          </div>
-        </div>
-
-          </div>
-        </div>
-     
-        <div class="form-group has-feedback">
-            <label for="confirmPassword"  class="col-md-4 control-label">
-                   Confirm Password*
-                </label>
-                 <div class="col-md-6  inputGroupContainer">
-                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input 
-      type="password" 
-      class="form-control" 
-      id="confirmPassword"   validateEqual="password" reverse="true"
-      formControlName="confirmPassword">
-
-                <span class="glyphicon form-control-feedback"></span>
-                <span class="help-block with-errors"></span>
-             </div>
-
-      
-             <div *ngIf="confirmPassword.errors && (confirmPassword.dirty || confirmPassword.touched)">
-              <div *ngIf="confirmPassword.errors.required">
-               <div class="alert-warning">
-                  <strong>Warning!</strong> Password  is required for authencation purpose.
-                </div>
-              </div>
-            <div *ngIf="!confirmPassword.valid">
-              <div class="alert-warning">
-                  <strong>Warning!</strong> Password Mismatch.
-              </div>
-            </div>
-          </div>
-       <!--   
-    status  {{confirmPassword.valid}} {{confirmPassword.pristine }} {{confirmPassword.dirty}}
-       -->         
-  </div>
-        </div>
-  
-         </fieldset>
-
-  <legend> Security Check </legend>
-      <fieldset>
-      
- <div class="form-group has-feedback">
-            <label  class="col-md-4 control-label">
-                </label>
-                 <div class="col-md-6  inputGroupContainer">
-                <div class="input-group"> 
-                      <re-captcha formControlName="recaptcha"
-                        name="recaptcha"
-                        required 
-                        siteKey="6LcZgCwUAAAAAPn1N1j7JD2ywG4LrMhxypKiRmc6"
-                        ></re-captcha>
-                      <div [hidden]="recaptcha.valid || recaptcha.pristine" class="error">Captcha must be solved</div>
-                     
-                      <span class="glyphicon form-control-feedback"></span>
-                <span class="help-block with-errors"></span>
-             </div>
-         
-             </div>
+            <strong>Warning!</strong> First Name is required.
+           </div> 
+         </div>
+         </div>
        </div>
-       
-      
-       </fieldset>
-
-       
-    <legend> Terms and Conditions* </legend>
-      <fieldset>
-
-      <input [disabled]="this.myform.invalid"  type="checkbox" required name="terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" id="field_terms">   <label for="terms">I agree with the <a href="/terms.html" title="You may read our terms and conditions by clicking on this link">terms and conditions</a> for Registration.</label><span class="req">* </span>
-  
-      <!-- Button -->
-      <div class="form-group">
-        <label class="col-md-4 control-label"></label>
-        <div class="col-md-4">
-        status :  my form {{ this.myform.valid}}
-        <!-- 
-        <button   [disabled]="this.myform.invalid" type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
-        -->
-         <button type="submit" (click)="onSubmit(myform.value)" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
-
-      <button (click)="gotoLogin(myform.value)" type="submit" 
-                class="btn btn-warning"> Back 
-            <span class="glyphicon glyphicon-send"></span>
-          </button>
-        </div>
       </div>
-    </fieldset>
-  </form>
-    </div>
+       <!-- Text input-->
+           
+       
+    
+       <!-- Button -->
+       <div class="form-group">
+         <label class="col-md-4 control-label"></label>
+         <div class="col-md-4">
+         status :  my form {{ this.myform.valid}}
+         <!-- 
+         <button   [disabled]="this.myform.invalid" type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+         -->
+          <button type="submit" (click)="onSubmit(myform.value)" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+ 
+       <button (click)="gotoLogin(myform.value)" type="submit" 
+                 class="btn btn-warning"> Back 
+             <span class="glyphicon glyphicon-send"></span>
+           </button>
+         </div>
+       </div>
+     </fieldset>
+   </form>
+     </div>
+   </div>
   </div>
+ <div>
+    
  </div>
-    </div></div>
-
-   <div style="margin-top: 20px" >
-    <div>Form details:-</div>
-    <pre>Is form valid?: <br>{{myform.valid | json}}</pre>
-    <pre>Is form submitted?: <br>{{myform.submitted | json}}</pre>
-    <pre>submitted value: <br>{{dob.formatted | json}}</pre>
-    <pre>submitted value: <br>{{myform.value | json}}</pre>
-  </div>
+   
+ <!--
+    <div style="margin-top: 20px" >
+     <div>Form details:-</div>
+     <pre>Is form valid?: <br>{{myform.valid | json}}</pre>
+     <pre>Is form submitted?: <br>{{myform.submitted | json}}</pre>
+     <pre>submitted value: <br>{{dob.formatted | json}}</pre>
+     -->
+     <pre>submitted value: <br>{{myform.value | json}}</pre>
+   
+  

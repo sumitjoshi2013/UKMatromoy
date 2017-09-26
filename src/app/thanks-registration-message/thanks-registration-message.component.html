@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row" id="main">
+    <div class="panel panel-success " >
+        <menubar></menubar>
+            <div class="panel-body" id="leftPanel">
+               <p> Welcome 
+                <b>
+                {{ authService.currentUser.name }} ,
+              </b>
+            </p>
+                Thanks for the registration but stil your profile seems to be  in-complete .
+                <p>
+                Please  <a  class="btn btn-default" (click) = "Submit()" >
+                  update
+                  <em class="fa fa-pencil">
+                    </em>
+                </a>  your profile so that you can access the all features.
+                </p>   
+                
+            </div>
+    </div>
+    </div>
+</div>

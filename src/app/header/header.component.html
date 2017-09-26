@@ -23,14 +23,14 @@ http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/##
 					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/deletepic">
 						Delete Images</a>
 					</li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/editprofile">
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/editprofile"  >
 						Update Profile</a>
-					</li>
-					<li role="presentation" ><a href="#/contactus">
-						Contact Us</a>
 					</li>
 					<li role="presentation" ><a href="#/vision">
 						Our Vision</a></li>
+					<li role="presentation" ><a href="#/contactus">
+							Contact Us</a>
+					</li>
 					<li role="presentation" *ngIf="authService.isLoggedIn()" (click)="logout()">
 						<a href="#/login">
 						Logout</a>

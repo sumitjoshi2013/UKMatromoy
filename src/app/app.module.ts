@@ -65,7 +65,10 @@ import { CategoryPipe } from 'app/common/filter.pipe';
 import { SearchNamePipe } from 'app/common/filter.pipe';
 import { VisitordetailsComponent } from './visitordetails/visitordetails.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { RegistrationProfileBasicComponent } from './registration-profile-basic/registration-profile-basic.component';
+import { ThanksRegistrationMessageComponent } from './thanks-registration-message/thanks-registration-message.component';
 
+ 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
     tokenName: 'token'
@@ -154,7 +157,9 @@ export function getAuthHttp(http) {
     TestComponent,
     ThanksshowinginterestComponent,
     VisitordetailsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    RegistrationProfileBasicComponent,
+    ThanksRegistrationMessageComponent
     
   ],
   imports: [
@@ -196,6 +201,7 @@ export function getAuthHttp(http) {
       { path: 'vision', component: OurvisionComponent },
       { path: 'deletepic', component: DeletepicComponent , canActivate: [AdminAuthGuard]},
       { path: 'editprofile', component: EditprofileComponent , canActivate: [AdminAuthGuard]},
+      { path: 'editprofile/:userId', component: EditprofileComponent , canActivate: [AdminAuthGuard]},
       { path: 'messagehistory', component: UsermessagehistoryComponent , canActivate: [AdminAuthGuard]},
       { path: 'messagehistory/:profileId', component: UsermessagehistoryComponent , canActivate: [AdminAuthGuard]},
       { path: 'messagehistory/:profileId/:messageStatusId', component: UsermessagehistoryComponent , canActivate: [AdminAuthGuard]},
@@ -205,6 +211,9 @@ export function getAuthHttp(http) {
       { path: 'thanksshowinginterest/:profileId', component: ThanksshowinginterestComponent},
       { path: 'Visitordetails', component: VisitordetailsComponent},
       { path: 'aboutus', component: AboutUsComponent},
+      { path: 'registrationbasic', component: RegistrationProfileBasicComponent},
+      { path: 'thanksregistration', component: ThanksRegistrationMessageComponent},
+      { path: 'thanksregistration/:emailid', component: ThanksRegistrationMessageComponent},
 
     ],{ useHash: true })
   ],

@@ -34,6 +34,7 @@ public formModel: FormModel = {};
     signIn(credentials) {
     if (this.form.valid) 
   {
+    /*
     this.authService.login(credentials)
     .subscribe(result => { 
         if (result)
@@ -44,8 +45,39 @@ public formModel: FormModel = {};
           this.invalidLogin = true; 
           }
       });
+*/
+
+      this.authService.login(credentials)
+      .subscribe( result => { 
+         console.log(result);
+
+         if (result)
+         {
+          console.log('Test User' + this.authService.currentUser.admin);
+            if(this.authService.currentUser.admin == "true")
+            {
+              this.router.navigate(['/']);
+            }
+            else
+            {
+              console.log('Updated Profile');
+             // ..this.router.navigate(['/registerprofile', this.authService.currentUser.name]);
+              this.router.navigate(['/thanksregistration', this.authService.currentUser.name ]);
+            }
+         }
+         else
+         {  
+         this.invalidLogin = true; 
+         }
+     });
+
+      
+     }
+
+
+    //console.log("HiL" +  this.authService.currentUser.admin);
    }
-    }
+  
 
 ForgetPwd()
 {

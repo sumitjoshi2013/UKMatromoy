@@ -1,0 +1,266 @@
+
+<div class="container">
+   <div class="panel panel-primary" style="width:750px;margin:0px auto">
+      
+      
+     <div class="panel-heading">Please fill the below user registration form. Note: All fields are mandatory. </div>
+      <div class="panel-body">
+           
+  <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form">
+
+      <legend> Basic information </legend>
+      <fieldset>
+
+          <div class="form-group">
+              <label class="col-md-4 control-label">Profile Created By*</label>
+              <div class="col-md-6 selectContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                  <select required name="profileCreateBy"  formControlName="profileCreateBy"  class="ui fluid search selection dropdown" >
+                    <option *ngFor="let item of profileCreatedByList;"  value={{item.id}}>{{item?.name}}</option>
+                  </select>
+                </div>
+      
+                <div *ngIf="profileCreatedByList.errors && (profileCreateBy.dirty || profileCreateBy.touched)">
+                  <div *ngIf="profileCreateBy.errors.required">
+                  <div class="alert-warning">
+                 <strong>Warning!</strong> Profile Create By  is required.
+                </div>
+              </div>
+              </div>
+      
+              </div>
+            </div>
+
+
+           <div class="form-group" >
+           <label class="col-md-4 control-label">First Name*</label>
+           <div class="col-md-6  inputGroupContainer">
+             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+               <input formControlName="firstName" placeholder="for eg sumit" class="form-control"  type="text">
+             </div>
+             <div *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+               <div *ngIf="firstName.errors.required">
+               <div class="alert-warning">
+              <strong>Warning!</strong> First Name is required.
+             </div>
+           </div>
+           </div>
+         </div>
+        </div>
+         <!-- Text input-->
+             
+         
+      <div class="form-group">
+           <label class="col-md-4 control-label">Last Name*</label>
+           <div class="col-md-6  inputGroupContainer">
+             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+               <input formControlName="lastName" placeholder="for eg joshi" class="form-control" type="text">
+             </div>
+   
+                <div *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+               <div *ngIf="lastName.errors.required">
+               <div class="alert-warning">
+              <strong>Warning!</strong> Last Name  is required.
+             </div>
+           </div>
+           </div>
+           </div>
+      </div>
+    
+        <div class="form-group">
+           <label class="col-md-4 control-label">Gender*</label>
+           <div class="col-md-6 selectContainer">
+             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+               <select required name="gender"  formControlName="gender"  class="ui fluid search selection dropdown" >
+                 <option *ngFor="let item of genderList;"  value={{item.id}}>{{item?.name}}</option>
+               </select>
+             </div>
+   
+             <div *ngIf="gender.errors && (gender.dirty || gender.touched)">
+               <div *ngIf="gender.errors.required">
+               <div class="alert-warning">
+              <strong>Warning!</strong> Gender  is required.
+             </div>
+           </div>
+           </div>
+   
+           </div>
+         </div>
+   
+         <div class="form-group">
+            <label class="col-md-4 control-label">LandLine number</label>
+            <div class="col-md-6  inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-mobile"></i></span>
+                <input formControlName="landline" placeholder="for eg 05964-12345"
+                   maxlength="11"
+                   minlength="10"  
+                class="form-control" type="text">
+              </div>
+             
+            </div>
+          </div>
+    
+          <!-- Text input-->
+          <div class="form-group">
+              <label class="col-md-4 control-label">Phone number*</label>
+              <div class="col-md-6  inputGroupContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-mobile"></i></span>
+                  <input formControlName="mobile" placeholder="for eg 9650899699"
+                     maxlength="10"
+                     minlength="10"  
+                  class="form-control" type="text">
+                </div>
+      
+              
+              </div>
+            </div>
+
+      </fieldset>   
+   
+
+      <legend> Account information </legend>
+      <fieldset>
+        <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">E-Mail*</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input formControlName="email" placeholder="E-Mail Address" 
+            class="form-control"  type="text"
+            >
+          </div>
+        <div *ngIf="email.errors && (email.dirty || email.touched) ">
+            <div *ngIf="email.errors.required">
+            <div class="alert-warning">
+           <strong>Warning!</strong> Please verify the Email Id communication purpose.
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+      
+    
+        <div class="form-group has-feedback">
+            <label for="password"  class="col-md-4 control-label">
+                    Password*
+                </label>
+          <div class="col-md-6  inputGroupContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input 
+            type="password" 
+            id="password" 
+            class="form-control" validateEqual=confirmPassword
+            formControlName="password"> 
+                <span class="glyphicon form-control-feedback"></span>
+                <span class="help-block with-errors"></span>
+                </div>
+         <div *ngIf="password.errors && (password.dirty || password.touched)">
+            <div *ngIf="password.errors.required">
+             <div class="alert-warning">
+                <strong>Warning!</strong> Password  is required for authencation purpose.
+              </div>
+            </div>
+          <div *ngIf="!password.valid">
+            <div class="alert-warning">
+                <strong>Warning!</strong> Password Mismatch.
+            </div>
+          </div>
+        </div>
+
+          </div>
+        </div>
+     
+        <div class="form-group has-feedback">
+            <label for="confirmPassword"  class="col-md-4 control-label">
+                   Confirm Password*
+                </label>
+                 <div class="col-md-6  inputGroupContainer">
+                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input 
+      type="password" 
+      class="form-control" 
+      id="confirmPassword"   validateEqual="password" reverse="true"
+      formControlName="confirmPassword">
+
+                <span class="glyphicon form-control-feedback"></span>
+                <span class="help-block with-errors"></span>
+             </div>
+
+      
+             <div *ngIf="confirmPassword.errors && (confirmPassword.dirty || confirmPassword.touched)">
+              <div *ngIf="confirmPassword.errors.required">
+               <div class="alert-warning">
+                  <strong>Warning!</strong> Password  is required for authencation purpose.
+                </div>
+              </div>
+            <div *ngIf="!confirmPassword.valid">
+              <div class="alert-warning">
+                  <strong>Warning!</strong> Password Mismatch.
+              </div>
+            </div>
+          </div>
+       <!--   
+    status  {{confirmPassword.valid}} {{confirmPassword.pristine }} {{confirmPassword.dirty}}
+       -->         
+  </div>
+        </div>
+  
+         </fieldset>
+
+  <legend> Security Check </legend>
+      <fieldset>
+      
+ <div class="form-group has-feedback">
+            <label  class="col-md-4 control-label">
+                </label>
+                 <div class="col-md-6  inputGroupContainer">
+                <div class="input-group"> 
+                      <re-captcha formControlName="recaptcha"
+                        name="recaptcha"
+                        required 
+                        siteKey="6LcZgCwUAAAAAPn1N1j7JD2ywG4LrMhxypKiRmc6"
+                        ></re-captcha>
+                      <div [hidden]="recaptcha.valid || recaptcha.pristine" class="error">Captcha must be solved</div>
+                     
+                      <span class="glyphicon form-control-feedback"></span>
+                <span class="help-block with-errors"></span>
+             </div>
+         
+             </div>
+       </div>
+       
+      
+       </fieldset>
+
+       
+    <legend> Terms and Conditions* </legend>
+      <fieldset>
+
+      <input [disabled]="this.myform.invalid"  type="checkbox" required name="terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" id="field_terms">   <label for="terms">I agree with the <a href="/terms.html" title="You may read our terms and conditions by clicking on this link">terms and conditions</a> for Registration.</label><span class="req">* </span>
+  
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+        status :  my form {{ this.myform.valid}}
+        <!-- 
+        <button   [disabled]="this.myform.invalid" type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+        -->
+         <button type="submit" (click)="onSubmit(myform.value)" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+
+      <button (click)="gotoLogin(myform.value)" type="submit" 
+                class="btn btn-warning"> Back 
+            <span class="glyphicon glyphicon-send"></span>
+          </button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+    </div>
+  </div>
+ </div>
+<div>
+   
+</div>
+  
+

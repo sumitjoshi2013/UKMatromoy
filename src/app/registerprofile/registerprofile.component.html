@@ -1,4 +1,4 @@
-<menubar></menubar>
+
 <!--
 http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
 <div class="container">
@@ -11,15 +11,41 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
 
 
 <div class="container">
-   <div class="panel panel-primary" style="width:750px;margin:0px auto">
-  
+   <div class="panel panel-primary" >
+      <menubar></menubar>
      <div class="panel-heading">Please fill the below user registration form. Note: All fields are mandatory. </div>
       <div class="panel-body">
            
-  <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form">
+  <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form" enctype="multipart/form-data">
 
       <legend> Basic information </legend>
    <fieldset>
+
+
+
+      <div class="form-group">
+          <label class="col-md-4 control-label">Profile Created By*</label>
+          <div class="col-md-6 selectContainer">
+            <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+               <select  required name="profileCreateBy" formControlName="profileCreateBy"  class="ui fluid search selection dropdown" >
+                <option *ngFor="let item of profileCreatedByList;" value= {{item?.id}} >{{item?.name}}</option>
+              </select>
+            </div>
+            <div *ngIf="profileCreateBy.errors && (profileCreateBy.dirty || profileCreateBy.touched)">
+              <div *ngIf="profileCreateBy.errors.required">
+              <div class="alert-warning">
+             <strong>Warning!</strong> Profile Create By  is required.
+            </div>
+          </div>
+          </div>
+  
+  
+          </div>
+        </div>
+  
+
+
+
         <div class="form-group" >
         <label class="col-md-4 control-label">First Name*</label>
         <div class="col-md-6  inputGroupContainer">
@@ -156,10 +182,10 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
               </div>
             </div>
 
-            <div *ngIf="phone.errors.minlength || phone.errors.maxlength" >
+            <div *ngIf="mobile.errors.minlength || mobile.errors.maxlength" >
               <div class="alert-warning">
                 <strong>Warning!</strong> 
-                Phone number should be min number of {{phone.errors.minlength.requiredLength}}
+                Phone number should be min number of {{mobile.errors.minlength.requiredLength}}
               </div>
             </div>
 
@@ -253,10 +279,13 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
       </fieldset>
 
 
-      <legend> Other Information </legend>
+      <legend> Personal Information </legend>
        <fieldset>
       <!-- Form Name -->
     
+          
+
+
           <div class="form-group">
         <label class="col-md-4 control-label">My Height*</label>
         <div class="col-md-6  inputGroupContainer">

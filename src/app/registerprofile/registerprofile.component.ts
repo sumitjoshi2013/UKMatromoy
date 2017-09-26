@@ -25,7 +25,7 @@ class arrayData {
 export interface FormModel {
   captcha?: string;
 }
-
+  
 @Component({
   selector: 'app-registerprofile',
   templateUrl: './registerprofile.component.html',
@@ -102,11 +102,13 @@ export class RegisterprofileComponent implements OnInit {
   about: new FormControl('', Validators.required),
   mySubCaste: new FormControl('', Validators.required),
   recaptcha:  new FormControl('', Validators.required),
+  profileCreateBy:  new FormControl('', Validators.required),
 
   nativePlace: new FormControl('', Validators.required),
   myFacebookId: new FormControl(''),
   myTwitterId: new FormControl(''),
   mylinkedinId: new FormControl(''),
+
 
 });
    open() {
@@ -134,6 +136,19 @@ export class RegisterprofileComponent implements OnInit {
     error = "error";
     maxDate = new Date(2000, 0, 1);
     
+  
+profileCreatedByList = [
+  {id:1, name:'Self'},
+  {id:2, name:'Relative'},
+  {id:3, name:'Brother'},
+  {id:4, name:'Sister'},
+  {id:5, name:'Father'},
+  {id:6, name:'Mother'},
+  {id:7, name:'Friend'},
+  {id:8, name:'Others'}
+];
+
+
     genderList = [
         {id:1, name:'Male'},
         {id:2, name:'Female'}
@@ -377,23 +392,19 @@ get mylinkedinId()
  {
   return this.myform.get("mylinkedinId");
  }
+ get profileCreateBy()
+ {
+  return this.myform.get("profileCreateBy");
+ }
+ 
 
    onSubmit(data: any) {
-   
       let url1 = "http://localhost:8910/Api/api/Registration";
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Accept', 'application/json');
-      headers.append('Access-Control-Allow-Origin','*');
-      headers.append('Access-Control-Allow-Credentials', 'true');
-      let options = new RequestOptions({ headers: headers });
-  //    console.log("POST");
-      let url = `${url1}/`;
-      let f= this.http.post(url, JSON.stringify(data),options ).subscribe(res => console.log(res.json()));
- 
+      let f=this.dataservice.Insert(url1, data);
+       //this.http.post(url, JSON.stringify(data),options ).subscribe(res => console.log(res.json()));
       return f;
-
   }
+  
   private handleError(error: Response) {
     if (error.status === 400)
       {

@@ -17,7 +17,7 @@ http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/##
 					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/searchprofile">
 						Search Profiles</a>
 					</li>
-					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/Fileupload">
+					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/Fileupload" (click)="gotoImage()" >
 						Image Gallery</a>
 					</li>
 					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/deletepic">

@@ -26,6 +26,12 @@ export class HeaderMenuComponent implements OnInit  {
   }
   }
   
+  gotoImage()
+  {
+   // this.router.navigate(['/Fileupload'],);
+    window.location.href = "#/Fileupload";
+  }
+
   logout()
   {
   //  console.log("logout button called...")

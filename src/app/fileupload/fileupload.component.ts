@@ -1,6 +1,6 @@
 //http://valor-software.com/ng2-file-upload/
 //https://plnkr.co/edit/hQ6RtzCfPosfQl4HlbZQ?p=preview
-import { Component, ViewChild } from '@angular/core'; 
+import { Component, ViewChild, OnInit, Input } from '@angular/core'; 
 import { Headers, Http, RequestOptions } from '@angular/http'; 
  
 import { NgForm, Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms'; 
@@ -17,7 +17,14 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./fileupload.component.css']
   
 })
-export class FileuploadComponent {
+
+
+export class FileuploadComponent implements OnInit{
+
+  //console.log(counter);
+  ngOnInit() {
+
+  }
     files: FileList; 
     filestring: string; 
     constructor(private router: Router, private formBuilder: FormBuilder, private http: Http, 
@@ -33,6 +40,7 @@ export class FileuploadComponent {
     myform = new FormGroup({
       name: new FormControl('', Validators.required),
       myfile: new FormControl('', Validators.required),
+      IsProfilePic: new FormControl('', Validators.required)
     });
 
    
@@ -57,6 +65,9 @@ export class FileuploadComponent {
     
       let fileToUpload;
       let fi = this.fileInput.nativeElement;
+      console.log(this.myform.controls.name.value);
+
+
 /*
       if (fi.files && fi.files[0]) 
       {
@@ -76,6 +87,8 @@ export class FileuploadComponent {
 */
 
           let file: File = fi.files[0];  
+        //  console.log("File " + file.name);
+/*
           let formData: FormData = new FormData();  
           formData.append('uploadFile', file, file.name);  
           formData.append('fileTitle',  "sumit");  
@@ -85,21 +98,25 @@ export class FileuploadComponent {
           let options = new RequestOptions({ headers: headers });  
           let apiUrl1 = "http://localhost:8910/Api/api/Fileupload/File";  
           this.http.post(apiUrl1, formData, options)  
-          .map(res => res.json())  
+          .map((res: any) => res.json())  
           .catch(error => Observable.throw(error))  
           .subscribe(  
           data => console.log('success'),  
           error => console.log(error)  
           )  
+          */
 
           let url = "http://localhost:8910/Api/api/Fileupload/Data";
           var UserProfilePicData = {
             "emailId": this.authService.currentUser.name,
             "PicName": file.name,
-            "IsProfilePic": 1
+            "PicFilePath": this.myform.controls.name.value,
+            "IsProfilePic": this.myform.controls.IsProfilePic.value
           } 
           console.log(UserProfilePicData);
           this.dataservice.Insert(url,UserProfilePicData);
+
+          //this.count = 0;
     }  
 
      

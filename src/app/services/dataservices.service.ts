@@ -29,10 +29,20 @@ export class WebApiObservableService {
 
     deleteServiceWithId(url: string, key: string, val: string):  Observable<any> {
     return this.http
-        .delete(url + "?" + key + "=" + val, this.options)
+        .post(url + "?" + key + "=" + val, this.options)
         .map(this.extractData)
         .catch(this.handleError);
     }     
+
+
+    postService(url: string, data: any):  Observable<any> {
+        //console.log(data);
+        return this.http
+            .post(url, data , this.options)
+            .map(this.extractData)
+            .catch(this.handleError);
+        }     
+    
 
     private extractData(res: Response) {
         let body = res.json();

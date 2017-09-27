@@ -32,23 +32,40 @@ export class DeletepicComponent implements OnInit {
       }
 
   private errorMessage: string;
+  private resultMessage: string;
   delPics(id)
   {
+
+    var UpdateUserPics = {
+      "PicId": id
+    } 
+    console.log(UpdateUserPics);
 /*
     this.picObservableService
     .deleteServiceWithId('http://localhost:8910/Api/api/Fileupload/Delete', "PicId", id)
     .subscribe(
-        result => console.log(result),
+        result => this.resultMessage = result,
         error => this.errorMessage = error
 ); 
 */
+
+this.picObservableService
+.postService('http://localhost:8910/Api/api/Fileupload/Delete',UpdateUserPics)
+.subscribe(
+    result =>console.log(result),
+    error => this.errorMessage = error
+); 
+
+//console.log("Result: " + this.resultMessage);
+//console.log("Error Result: " + this.errorMessage);
+/*
     let url = "http://localhost:8910/Api/api/Fileupload/Delete";
     var UpdateUserPics = {
       "PicId": id
     } 
     //console.log(UpdateUserPics);
     this.dataservice.Insert(url,UpdateUserPics);
-    
+  */  
   }
 
   SetProfilePic(id)

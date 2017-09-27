@@ -12,6 +12,7 @@
                   <th>Pic</th>
                   <th>Name</th>
                   <th>Action</th>
+                  <th>Set Profile Pic</th>
               </tr>
            </thead>
            <tbody>
@@ -19,20 +20,28 @@
                    <td>
                       <i class="glyphicon glyphicon-info-sign"></i>
                    </td>
-                   <td>
+                   <td> 
                       <img class="rounded-circle" 
-                      src= {{item.src}}
+                      src= {{item?.src}}
                       alt="Photo gallery" style="width:200px;height:200px">
                    </td>
                    <td>
-                   {{item.text}}
+                   {{item?.text}}
                    </td>
                    <td>
-                      <button (click)="delPics(item.id)" type="submit" 
+                      <button (click)="delPics(item?.id)" type="submit" 
                       class="btn btn-warning"> Delete 
                        <span class="glyphicon glyphicon-send"></span>
                      </button>
                    </td>
+
+                   <td>
+                    <button (click)="SetProfilePic(item?.id)" type="submit" 
+                    class="btn btn-warning"> Delete 
+                     <span class="glyphicon glyphicon-send"></span>
+                   </button>
+                 </td>
+
                </tr>
             
            </tbody>

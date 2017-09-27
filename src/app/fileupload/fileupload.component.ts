@@ -98,7 +98,7 @@ export class FileuploadComponent {
             "PicName": file.name,
             "IsProfilePic": 1
           } 
-
+          console.log(UserProfilePicData);
           this.dataservice.Insert(url,UserProfilePicData);
     }  
 

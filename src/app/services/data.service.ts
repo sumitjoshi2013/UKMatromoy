@@ -42,18 +42,26 @@ private handleError (error: Response) {
  
 
    Insert(url, data) { 
+  
     console.log(data);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
     headers.append('Access-Control-Allow-Origin','*');
     headers.append('Access-Control-Allow-Credentials', 'true');
+    headers.append('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    
     let options = new RequestOptions({ headers: headers });
   //  console.log(url);
     url = `${url}/`;
     let result= this.http.post(url, JSON.stringify(data),options )
     .subscribe(res => res.json);
     return result;
+   
+
+
+    
+
   }
 
 
@@ -71,9 +79,9 @@ private handleError1(error: Response | any) {
     console.error(errMsg);  
     return Observable.throw(errMsg);  
 }  
-
-
 }
+
+
 
 
 

@@ -6,6 +6,9 @@ http://valor-software.com/ngx-bootstrap/#/alerts
 http://www.nriol.com/india-statistics/biggest-cities-india.asp
 https://github.com/vlio20/angular-datepicker
 
+validation
+https://coryrylan.com/blog/angular-form-builder-and-validation-management
+
 Grid : http://4dev.tech/2016/02/tutorial-angular-2-datatable-with-sorting-filtering-and-resizable-columns/
 # AuthDemo
 

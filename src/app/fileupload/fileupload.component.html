@@ -7,10 +7,10 @@
             <div class="col-md-6">
                 <div class="form-group">
                         <label>File Name</label>  
-                        <input type="text" formControlName="name"  name="name" class="form-control" ngModel>  
-                        
+                        <input type="text" formControlName="name"  name="name" class="form-control">  
+                         <label>Is Profile Pic</label>
                         <input type="checkbox" name="isActive" formControlName="IsProfilePic">
-                        <label>Is Profile Pic</label>
+                       
                     <br>
                     <label>Upload Image</label>
                     <div class="input-group">
@@ -20,7 +20,7 @@
                                 <input type="file" #fileInput name="myfile" id="imgInp" accept="image/jpg">  
                             </span>
                         </span>
-                        <input type="text"  class="form-control" readonly>
+                        <input type="text" formControlName="filename"  class="form-control" readonly>
                     </div>
                     <img id='img-upload'/>
                       <button type="submit" (click) = "logForm(myform)" class="btn btn-primary start"> 
@@ -31,7 +31,7 @@
                             <i class="glyphicon glyphicon-ban-circle"></i>
                             <span>Cancel upload</span>
                         </button>
-        <div> Only 5 pics are allowed to upload.</div>
+                        <div> Only 5 pics are allowed to upload.</div>
 
                 </div>
              <!--
@@ -46,3 +46,13 @@
 
 
         </div></div>
+
+
+  {{Message}}
+
+        <div style="margin-top: 20px" >
+            <div>Form details:-</div>
+            <pre>Is form valid?: <br>{{myform.valid | json}}</pre>
+            <pre>Is form submitted?: <br>{{myform.submitted | json}}</pre>
+            <pre>submitted value: <br>{{myform.value | json}}</pre>
+          </div>        

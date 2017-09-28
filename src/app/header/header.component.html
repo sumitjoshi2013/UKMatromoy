@@ -8,9 +8,7 @@ http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/##
 				<ul class="nav navbar-nav navbar-left">
 					<li><a href="#">Home</a>
 					</li>
-					<li role="presentation" ><a href="#/aboutus">
-							About Us</a>
-						</li>
+					
 					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/profiledetail">
 						My Profile</a>
 					</li>
@@ -26,9 +24,12 @@ http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/##
 					<li role="presentation" *ngIf="authService.isLoggedIn()"><a href="#/editprofile"  >
 						Update Profile</a>
 					</li>
-					<li role="presentation" ><a href="#/vision">
+					<li role="presentation" ><a href="#/aboutus/1">
+						About Us</a>
+					</li>
+					<li role="presentation" ><a href="#/vision/1">
 						Our Vision</a></li>
-					<li role="presentation" ><a href="#/contactus">
+					<li role="presentation" ><a href="#/contactus/1">
 							Contact Us</a>
 					</li>
 					<li role="presentation" *ngIf="authService.isLoggedIn()" (click)="logout()">

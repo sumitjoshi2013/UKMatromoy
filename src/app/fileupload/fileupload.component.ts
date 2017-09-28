@@ -37,6 +37,24 @@ export class FileuploadComponent implements OnInit{
     constructor(private router: Router, private formBuilder: FormBuilder, private http: Http, 
       private dataservice: dataService,  private authService: AuthService
     ) {  }
+
+    isChecked = false;
+    public message:string;
+     toggle(){
+        this.isChecked = !this.isChecked;
+        console.log(  this.isChecked);
+        if(this.isChecked)
+          this.message = "Yes please, I want to make this image as a profile pic."
+        else
+          this.message = "No thanks, I dont want to make this image as a profile pic."
+     }
+
+    ProfilePicMessage(event)
+    {
+      console.log(event);
+
+    }
+
     getFiles(event) { 
         this.files = event.target.files; 
         var reader = new FileReader(); 

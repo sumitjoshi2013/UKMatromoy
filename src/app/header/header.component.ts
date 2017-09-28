@@ -19,10 +19,10 @@ export class HeaderMenuComponent implements OnInit  {
     console.log(Id);
     if(Id != 1)
     {
-    if(this.authService.isLoggedIn() !=true)
-    {
-      this.logout();
-    }
+      if(this.authService.isLoggedIn() !=true)
+      {
+        this.logout();
+      }
   }
   }
   

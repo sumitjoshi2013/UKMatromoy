@@ -1,58 +1,105 @@
-<div class="container">
-        <div class="row" id="main">
-        <div class="panel panel-success " >
-            <menubar></menubar>
-  <form [formGroup]="myform">  
-    <div class="container">
-            <div class="col-md-6">
-                <div class="form-group">
-                        <label>File Name</label>  
-                        <input type="text" formControlName="name"  name="name" class="form-control">  
-                         <label>Is Profile Pic</label>
-                        <input type="checkbox" name="isActive" formControlName="IsProfilePic">
-                       
-                    <br>
-                    <label>Upload Image</label>
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <span class="btn btn-default btn-file">
-                                Browse… 
-                                <input type="file" #fileInput name="myfile" id="imgInp" accept="image/jpg">  
-                            </span>
-                        </span>
-                        <input type="text" formControlName="filename"  class="form-control" readonly>
-                    </div>
-                    <img id='img-upload'/>
-                      <button type="submit" (click) = "logForm(myform)" class="btn btn-primary start"> 
-                          <i class="glyphicon glyphicon-folder-open"></i>
-                            <span>Start upload</span>
-                        </button>  
-                        <button type="reset" class="btn btn-warning cancel">
-                            <i class="glyphicon glyphicon-ban-circle"></i>
-                            <span>Cancel upload</span>
-                        </button>
-                        <div> Only 5 pics are allowed to upload.</div>
 
+
+ <div class="container">
+    <div class="panel panel-primary" >
+       <menubar></menubar>
+      <div class="panel-heading">Please upload the pics for your image gallery. </div>
+       <div class="panel-body">
+            
+   <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form" enctype="multipart/form-data">
+ 
+       <legend> Upload Images </legend>
+    <fieldset>
+       <div class="form-group">
+           <label class="col-md-4 control-label"> File Name* </label>
+           <div class="col-md-6 selectContainer">
+             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <input type="text" formControlName="name"  name="name" class="form-control">  
+             </div>
+             <div *ngIf="name.errors && (name.dirty || name.touched)">
+               <div *ngIf="name.errors.required">
+               <div class="alert-warning">
+              <strong>Warning!</strong> Image/File Name is required.
+             </div>
+           </div>
+           </div>
+           </div>
+         </div>
+   
+
+
+         <div class="form-group">
+            <label class="col-md-4 control-label"> Is Profile Pic* </label>
+            <div class="col-md-6 selectContainer">
+              <div class="input-group"> 
+                    <md-checkbox name="isProfilePic" [checked]="isChecked" (change)="toggle()" formControlName="IsProfilePic">
+                            {{this.message }}
+                    </md-checkbox>
+              
                 </div>
-             <!--
+            </div>
+          </div>
+
+ 
+          <div class="form-group">
+            <label class="col-md-4 control-label"> Upload Image* </label>
+            <div class="col-md-6 selectContainer">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            Browse… 
+                            <input type="file" #fileInput name="myfile" id="imgInp" accept="image/jpg">  
+                        </span>
+                    </span>
+                    <input type="text" formControlName="filename"  class="form-control" readonly>
+                </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+            
+                <!-- 
+                status :  my form {{ this.myform.valid}}
+                <button   [disabled]="this.myform.invalid" type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+            -->
+             <button [disabled]="this.myform.invalid" type="submit" (click) = "logForm(myform)" class="btn btn-primary start"> 
+                <i class="glyphicon glyphicon-folder-open"></i>
+                  <span>Start upload</span>
+              </button>  
+
+              <button type="reset" class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Go to Back</span>
+                </button>
+            </div>
+          </div>
+ 
+     </fieldset>
+
+     <legend> Image Gallery </legend>
+    <fieldset>
+            <!--
                 <app-imagegallery></app-imagegallery>
              -->
-            </div>
-            </div>
-      
+    </fieldset>
+
+   </form>
+     </div>
+   </div>
+  </div>
+ <div>
+    
+ </div>
+   
+ 
+    <div style="margin-top: 20px" >
+     <div>Form details:-</div>
+     <pre>Is form valid?: <br>{{myform.valid | json}}</pre>
+     <pre>Is form submitted?: <br>{{myform.submitted | json}}</pre>
      
-  </form>  
-</div> 
-
-
-        </div></div>
-
-
-  {{Message}}
-
-        <div style="margin-top: 20px" >
-            <div>Form details:-</div>
-            <pre>Is form valid?: <br>{{myform.valid | json}}</pre>
-            <pre>Is form submitted?: <br>{{myform.submitted | json}}</pre>
-            <pre>submitted value: <br>{{myform.value | json}}</pre>
-          </div>        
+     <pre>submitted value: <br>{{myform.value | json}}</pre>
+   </div>
+ 

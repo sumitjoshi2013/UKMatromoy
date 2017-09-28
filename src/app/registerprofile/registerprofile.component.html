@@ -820,7 +820,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <!-- 
         <button   [disabled]="this.myform.invalid" type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
         -->
-         <button type="submit" (click)="onSubmit(myform.value)" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+         <button type="submit" [disabled]="this.myform.invalid" (click)="onSubmit(myform.value)" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
 
       <button (click)="gotoLogin(myform.value)" type="submit" 
                 class="btn btn-warning"> Back 

@@ -1,54 +1,77 @@
-<!--https://bootsnipp.com/snippets/p1lVe-->
 
-<div class="container">
-        <div class="row" id="main">
-        <div class="panel panel-success " >
-            <menubar></menubar>   
+
+ <div class="container">
+        <div class="panel panel-primary" >
+           <menubar></menubar>
+          <div class="panel-heading"> Please clearlify delete your upload images. </div>
+           <div class="panel-body">
+                
+       <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form" enctype="multipart/form-data">
+     
+           <legend> Upload Images </legend>
+        <fieldset>
+                <table class="table table-condensed table-bordered table-hover small">
+                        <thead>
+                           <tr>
+                                <th class="text-center"> 
+                                        <em class="fa fa-cog"></em>	  
+                                    </th>
+                               <th>Pic</th>
+                               <th>Name</th>
+                               <th>Action</th>
+                               <th>Set Profile Pic</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let item of images" class="text-info">
+                                <td>
+                                   <i class="glyphicon glyphicon-info-sign"></i>
+                                </td>
+                                <td> 
+                                   <img class="rounded-circle" 
+                                   src= {{item?.src}}
+                                   alt="Photo gallery" style="width:200px;height:200px">
+                                </td>
+                                <td>
+                                {{item?.text}}
+                                </td>
+                                <td>
+                                   <button (click)="delPics(item?.id)" type="submit" 
+                                   class="btn btn-warning"> Delete 
+                                    <span class="glyphicon glyphicon-send"></span>
+                                  </button>
+                                </td>
+             
+                                <td>
+                                 <button (click)="SetProfilePic(item?.id)" type="submit" 
+                                 class="btn btn-warning"> Delete 
+                                  <span class="glyphicon glyphicon-send"></span>
+                                </button>
+                              </td>
+             
+                            </tr>
+                         
+                        </tbody>
+                    </table>
+         </fieldset>
+    
+         
        
-       <table class="table table-condensed table-bordered table-hover small">
-           <thead>
-              <tr>
-                  <th style="width:30px;">.</th>
-                  <th>Pic</th>
-                  <th>Name</th>
-                  <th>Action</th>
-                  <th>Set Profile Pic</th>
-              </tr>
-           </thead>
-           <tbody>
-               <tr  *ngFor="let item of images" class="text-info">
-                   <td>
-                      <i class="glyphicon glyphicon-info-sign"></i>
-                   </td>
-                   <td> 
-                      <img class="rounded-circle" 
-                      src= {{item?.src}}
-                      alt="Photo gallery" style="width:200px;height:200px">
-                   </td>
-                   <td>
-                   {{item?.text}}
-                   </td>
-                   <td>
-                      <button (click)="delPics(item?.id)" type="submit" 
-                      class="btn btn-warning"> Delete 
-                       <span class="glyphicon glyphicon-send"></span>
-                     </button>
-                   </td>
-
-                   <td>
-                    <button (click)="SetProfilePic(item?.id)" type="submit" 
-                    class="btn btn-warning"> Delete 
-                     <span class="glyphicon glyphicon-send"></span>
-                   </button>
-                 </td>
-
-               </tr>
-            
-           </tbody>
-       </table>
+    
+       </form>
+         </div>
+       </div>
+      </div>
+     <div>
+        
      </div>
-     <div class="col-md-6">
-       <div id='grafico4' class="grafico" style="height: 400px;"></div>
-   </div>
- </div>
-        </div>
+       
+     
+        <div style="margin-top: 20px" >
+         <div>Form details:-</div>
+         <pre>Is form valid?: <br>{{myform.valid | json}}</pre>
+         <pre>Is form submitted?: <br>{{myform.submitted | json}}</pre>
+         
+         <pre>submitted value: <br>{{myform.value | json}}</pre>
+       </div>
+     

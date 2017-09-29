@@ -29,24 +29,17 @@ export class AuthService
    
     let user = credentials.email;
     let password = credentials.password;
-    // console.log(credentials);
     let _InstUrl = "http://localhost:8910/api/api/Token?username="+user+"&password="+password+""; 
-    //console.log(_InstUrl);
-    let data = JSON.stringify(credentials); //[{"email": "sumit.joshi"}, {"password": "pwd"}];
+    let data = JSON.stringify(credentials); 
     let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
     let options = new RequestOptions({ headers: headers, method: "get"});
     return this.http.get(_InstUrl,  options)
           .map(res =>{
             let result = res.json()           
-         // console.log(result);
-          //
             if (result) {
                 localStorage.setItem('token', result);
-               // console.log("result: " + result);
                 let jwt = new JwtHelper();
                 this.currentUser = jwt.decodeToken(localStorage.getItem('token'));
-             //   console.log("currentUser: " + localStorage.getItem('token'));
-               // console.log("currentUser email: " + this.currentUser.name);
                 return true; 
                     }
             else
@@ -65,7 +58,6 @@ export class AuthService
   }
   
   logout() { 
-  //  console.log("Service logout button called...");
     localStorage.removeItem('token');
     this.currentUser = null;
   }

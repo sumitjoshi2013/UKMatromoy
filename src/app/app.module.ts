@@ -68,7 +68,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { RegistrationProfileBasicComponent } from './registration-profile-basic/registration-profile-basic.component';
 import { ThanksRegistrationMessageComponent } from './thanks-registration-message/thanks-registration-message.component';
 import { WebApiObservableService } from 'app/services/dataservices.service';
-
+import { AutofocusDirective } from 'app/common/autofocus.directive';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({

@@ -18,6 +18,7 @@ import { dataService } from "app/services/data.service";
 import {MdAutocompleteModule} from '@angular/material';
 import { AuthService } from "app/services/auth.service";
 
+
 class arrayData {
   constructor(public id: number, public name: string){}
 }
@@ -64,20 +65,20 @@ export class RegisterprofileComponent implements OnInit {
     pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/";
 
   myform = new FormGroup({
-  firstName: new FormControl('', Validators.required),
-  lastName: new FormControl('', Validators.required),
-  landline:  new FormControl('', [Validators.minLength(10), Validators.maxLength(11)]),
-  mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+  firstName: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(30)] ),
+  lastName: new FormControl('', [Validators.minLength(0), Validators.maxLength(30)] ),
+  landline:  new FormControl('', [Validators.minLength(7), Validators.maxLength(15)]),
+  mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(15)]),
   gender: new FormControl('', Validators.required),
   maritalstatus : new FormControl('', Validators.required),
-  gotra : new FormControl('', Validators.required),
+  gotra : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(20)] ),
   dob : new FormControl('', Validators.required),
   time: new FormGroup({
   hh : new FormControl('', Validators.required),
   min : new FormControl('', Validators.required),
   sec : new FormControl('', Validators.required)
   }),
-  birthplace : new FormControl('', Validators.required),
+  birthplace : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(20)] ),
   //timeofbirth : new FormControl('', Validators.required),
   email : new FormControl('', Validators.required),
   password : new FormControl('', Validators.required),
@@ -92,19 +93,19 @@ export class RegisterprofileComponent implements OnInit {
   religion: new FormControl('', Validators.required),
   mothertounge: new FormControl('', Validators.required),
   rashi: new FormControl('', Validators.required),
-  education: new FormControl('', Validators.required),
-  profession: new FormControl('', Validators.required),
+  education: new FormControl('', [Validators.minLength(0), Validators.maxLength(200)]),
+  profession: new FormControl('' , [Validators.minLength(0), Validators.maxLength(200)]),
   address: new FormControl('', Validators.required),
   country: new FormControl('', Validators.required),
   city: new FormControl('', Validators.required),
-  place: new FormControl('', Validators.required),
-  zip: new FormControl('', Validators.required),
-  about: new FormControl('', Validators.required),
-  mySubCaste: new FormControl('', Validators.required),
+
+  zip: new FormControl(''),
+  about: new FormControl(''),
+  mySubCaste: new FormControl(''),
   recaptcha:  new FormControl('', Validators.required),
   profileCreateBy:  new FormControl('', Validators.required),
 
-  nativePlace: new FormControl('', Validators.required),
+  nativePlace: new FormControl('', [Validators.minLength(0), Validators.maxLength(200)]),
   myFacebookId: new FormControl(''),
   myTwitterId: new FormControl(''),
   mylinkedinId: new FormControl(''),
@@ -358,10 +359,7 @@ profileCreatedByList = [
   {
     return this.myform.get("city");
   }
-  get place()
-  {
-    return this.myform.get("place");
-  }
+ 
   get zip()
   {
     return this.myform.get("zip");

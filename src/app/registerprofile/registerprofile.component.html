@@ -17,17 +17,16 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
       <div class="panel-body">
            
   <form  class="form-horizontal"  [formGroup]="myform"  id="reg_form" enctype="multipart/form-data">
-
       <legend> Basic information </legend>
    <fieldset>
-
-
-
       <div class="form-group">
           <label class="col-md-4 control-label">Profile Created By*</label>
           <div class="col-md-6 selectContainer">
             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-               <select  required name="profileCreateBy" formControlName="profileCreateBy"  class="ui fluid search selection dropdown" >
+               <select  required name="profileCreateBy" formControlName="profileCreateBy"  
+               class="ui fluid search selection dropdown" 
+               autofocus
+               >
                 <option *ngFor="let item of profileCreatedByList;" value= {{item?.id}} >{{item?.name}}</option>
               </select>
             </div>
@@ -38,19 +37,20 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
             </div>
           </div>
           </div>
-  
-  
           </div>
         </div>
-  
-
 
 
         <div class="form-group" >
         <label class="col-md-4 control-label">First Name*</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input formControlName="firstName" placeholder="for eg sumit" class="form-control"  type="text">
+            <input formControlName="firstName" placeholder="for eg sumit" 
+            class="form-control"  type="text"
+            maxlength="30"
+            minlength="1"  
+            required
+            >
           </div>
           <div *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
             <div *ngIf="firstName.errors.required">
@@ -65,19 +65,14 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
           
       
    <div class="form-group">
-        <label class="col-md-4 control-label">Last Name*</label>
+        <label class="col-md-4 control-label">Last Name</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input formControlName="lastName" placeholder="for eg joshi" class="form-control" type="text">
+            <input formControlName="lastName" placeholder="for eg joshi" class="form-control" type="text"
+            maxlength="30"
+            minlength="0"  
+            >
           </div>
-
-             <div *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
-            <div *ngIf="lastName.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Last Name  is required.
-          </div>
-        </div>
-        </div>
         </div>
    </div>
  
@@ -97,13 +92,8 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
           </div>
         </div>
         </div>
-
-
-        </div>
+  </div>
       </div>
-
-
-
 
      <div class="form-group">
         <label class="col-md-4 control-label">Marital Status*</label>
@@ -113,8 +103,6 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
               <option *ngFor="let item of maritalStatusList;" value= {{item?.id}} >{{item?.name}}</option>
             </select>
           </div>
-          
-
           <div *ngIf="maritalstatus.errors && (maritalstatus.dirty || maritalstatus.touched)">
             <div *ngIf="maritalstatus.errors.required">
             <div class="alert-warning">
@@ -122,29 +110,111 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
           </div>
         </div>
         </div>
-
-
         </div>
       </div>
+
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label">Date of birth*</label>
+            <div class="col-md-6  inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                  <my-date-picker required formControlName="dob"
+                    #dayPicker [options]="myDatePickerOptions">
+                   </my-date-picker>
+                </div>
+                
+              <div *ngIf="dob.errors && (dob.dirty || dob.touched)">
+                <div *ngIf="dob.errors.required">
+                <div class="alert-warning">
+               <strong>Warning!</strong> Date of birth is required. 
+              </div>
+            </div>
+            </div>
+    
+            </div>
+          </div>
+          
+           <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Time of birth*</label>
+            <div class="col-md-6  inputGroupContainer">
+              <div formGroupName="time" class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    
+                <select required name="hh"  formControlName="hh" style="height:30px"   class="selectpicker" data-style="btn-primary" >
+                    <option *ngFor="let object of timeobj; let index = index" value= "{{index}}">
+                      {{index}} hr
+                    </option>
+                  </select>
+                :
+                <select required name="min"  formControlName="min" style="height:30px"  class="selectpicker" data-style="btn-primary" >
+                    <option *ngFor="let object of minobj; let index = index" value= "{{index}}">
+                      {{index}} min
+                    </option>
+                  </select>
+                  :
+                  <select required name="sec"  formControlName="sec" style="height:30px" class="selectpicker" data-style="btn-primary"  >
+                      <option *ngFor="let object of minobj; let index = index" value= "{{index}}">
+                        {{index}} sec
+                      </option>
+                    </select>
+                     (hr:min:sec)
+              </div>
+        
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Place of birth*</label>
+                <div class="col-md-6  inputGroupContainer">
+                  <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                    <input formControlName="birthplace" placeholder="like delhi, haldwani, almora" class="form-control" type="text"
+                    maxlength="20"
+                    minlength="1"  
+                    required >
+                  </div>
+                     <div *ngIf="birthplace.errors && (birthplace.dirty || birthplace.touched)">
+                    <div *ngIf="birthplace.errors.required">
+                    <div class="alert-warning">
+                   <strong>Warning!</strong> Birthplace  is required.
+                  </div>
+                </div>
+                </div>
+                </div>
+              </div>
+            
 
       <!-- Text input-->
       <div class="form-group">
         <label class="col-md-4 control-label">Gotra*</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input formControlName="gotra" placeholder="for eg kaushik, parashar, bhardwaj" class="form-control" type="text">
+            <input formControlName="gotra" placeholder="for eg kaushik, parashar, bhardwaj" class="form-control" type="text"
+            maxlength="20"
+            minlength="1"  
+            required >
           </div>
-
             <div *ngIf="gotra.errors && (gotra.dirty || gotra.touched)">
             <div *ngIf="gotra.errors.required">
             <div class="alert-warning">
-           <strong>Warning!</strong> gotra  is required.
+           <strong>Warning!</strong> Gotra  is required.
           </div>
         </div>
         </div>
-
         </div>
       </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label"> My Native Place </label>
+          <div class="col-md-6  inputGroupContainer">
+            <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input formControlName="nativePlace" placeholder="The place where your forefather belongs" class="form-control" type="text"
+              maxlength="20"
+              minlength="0" 
+              >
+            </div>
+          </div>
+        </div>
 
        <!-- Text input-->
        <div class="form-group">
@@ -152,8 +222,9 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-mobile"></i></span>
             <input formControlName="landline" placeholder="for eg 05964-12345"
-               maxlength="10"
-               minlength="10"  
+            maxlength="15"
+            minlength="7"  
+            
             class="form-control" type="text">
           </div>
           <div *ngIf="landline.errors && (landline.dirty || landline.touched)">
@@ -166,131 +237,44 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label">Phone number*</label>
+        <label class="col-md-4 control-label">Mobile/Phone number*</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-mobile"></i></span>
             <input formControlName="mobile" placeholder="for eg 9650899699"
-               maxlength="10"
-               minlength="10"  
+            maxlength="15"
+            minlength="10"  
+            required  
             class="form-control" type="text">
           </div>
-
           <div *ngIf="mobile.touched && mobile.invalid">
             <div *ngIf="mobile.errors.required" > 
               <div class="alert-warning">
                 <strong>Warning!</strong> Mobile is required.
               </div>
             </div>
-
             <div *ngIf="mobile.errors.minlength || mobile.errors.maxlength" >
               <div class="alert-warning">
                 <strong>Warning!</strong> 
                 Phone number should be min number of {{mobile.errors.minlength.requiredLength}}
               </div>
             </div>
-
           </div>
         </div>
       </div>
 
-       <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Place of birth*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-            <input formControlName="birthplace" placeholder="like delhi, haldwani, almora" class="form-control" type="text">
-          </div>
-             <div *ngIf="birthplace.errors && (birthplace.dirty || birthplace.touched)">
-            <div *ngIf="birthplace.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Birthplace  is required.
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>
- 
-       <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Date of birth*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-              <my-date-picker required formControlName="dob"
-                #dayPicker [options]="myDatePickerOptions">
-               </my-date-picker>
-            </div>
-            
-          <div *ngIf="dob.errors && (dob.dirty || dob.touched)">
-            <div *ngIf="dob.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Date of birth is required. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-      
-       <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Time of birth*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div formGroupName="time" class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-
-            <select required name="hh"  formControlName="hh" style="height:30px"   class="selectpicker" data-style="btn-primary" >
-                <option *ngFor="let object of timeobj; let index = index" value= "{{index}}">
-                  {{index}} hr
-                </option>
-              </select>
-            :
-            <select required name="min"  formControlName="min" style="height:30px"  class="selectpicker" data-style="btn-primary" >
-                <option *ngFor="let object of minobj; let index = index" value= "{{index}}">
-                  {{index}} min
-                </option>
-              </select>
-              :
-              <select required name="sec"  formControlName="sec" style="height:30px" class="selectpicker" data-style="btn-primary"  >
-                  <option *ngFor="let object of minobj; let index = index" value= "{{index}}">
-                    {{index}} sec
-                  </option>
-                </select>
-                 (hr:min:sec)
-          </div>
-        </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label">My Birth Place*</label>
-          <div class="col-md-6  inputGroupContainer">
-            <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-              <input formControlName="nativePlace" placeholder="Native Place" class="form-control" type="text">
-            </div>
-               <div *ngIf="nativePlace.errors && (nativePlace.dirty || nativePlace.touched)">
-              <div *ngIf="nativePlace.errors.required">
-              <div class="alert-warning">
-             <strong>Warning!</strong> nativePlace  is required.
-            </div>
-          </div>
-          </div>
-          </div>
-        </div>
-
-
+      <!-- Text input-->
       </fieldset>
-
 
       <legend> Personal Information </legend>
        <fieldset>
       <!-- Form Name -->
-    
-          
-
-
-          <div class="form-group">
+      <div class="form-group">
         <label class="col-md-4 control-label">My Height*</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input formControlName="height" required name="height" placeholder="for eg 5.6 (only decimal value)"  class="form-control"  type="text"> 
+            <input formControlName="height" required name="height" placeholder="for eg 5.6 (only decimal value) inches"  class="form-control"  type="text"
+            maxlength="3"
+            minlength="1"  >
           </div>
               <div *ngIf="height.errors && (height.dirty || height.touched)">
             <div *ngIf="height.errors.required">
@@ -306,7 +290,11 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <label class="col-md-4 control-label">My Weight*</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input formControlName="weight"   name="weight" placeholder="for eg 56 (only numeric value)"   class="form-control"  type="text"> 
+            <input formControlName="weight"   name="weight" placeholder="for eg 56 (only numeric value)"   class="form-control"  type="text"
+            maxlength="3"
+            minlength="1"  
+            
+            > 
           </div>
                     <div *ngIf="weight.errors && (weight.dirty || weight.touched)">
             <div *ngIf="weight.errors.required">
@@ -463,7 +451,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
 
            
 
-            <div class="form-group">
+      <div class="form-group">
         <label class="col-md-4 control-label">My Rashi*</label>
       <div class="col-md-6 selectContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
@@ -471,8 +459,6 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
               <option *ngFor="let item of rashiStatusList;" value= {{item.id}} >{{item.name}}</option>
             </select>
           </div>
-
-
         <div *ngIf="rashi.errors && (rashi.dirty || rashi.touched)">
           <div *ngIf="rashi.errors.required">
           <div class="alert-warning">
@@ -488,29 +474,12 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <label class="col-md-4 control-label">My Sub Caste*</label>
         <div class="col-md-6 selectContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            <!-- 
-            <select required name="gender"   class="ui fluid search selection dropdown" >
-              <option *ngFor="let item of subCasteStatusList;" value= {{item.id}} >{{item.name}}</option>
-            </select>
-            -->
-           <input name="mySubCaste" formControlName="mySubCaste" placeholder="form eg Joshi/Pant/Bisht/Pandey" class="form-control"  type="text">
+           <input name="mySubCaste" formControlName="mySubCaste" placeholder="" class="form-control"  type="text"
+           maxlength="20"
+           minlength="1"  
+           >
           </div>
-         <div *ngIf="mySubCaste.errors && (mySubCaste.dirty || mySubCaste.touched)">
-            <div *ngIf="mySubCaste.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> SubCaste  is required.
-          </div>
-        </div>
-        </div>
-
-        <div *ngIf="mySubCaste.errors && (mySubCaste.dirty || mySubCaste.touched)">
-            <div *ngIf="mySubCaste.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
+      
       </div>
           </div>
 
@@ -520,18 +489,12 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <label class="col-md-4 control-label">About my Education</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-            <textarea  name="education" formControlName="education" placeholder="for eg I have done MBC/MCA..." class="form-control"  type="text">
+            <textarea  name="education" formControlName="education" placeholder="for eg I have done MBC/MCA..." class="form-control"  type="text"
+            maxlength="200"
+            minlength="0"  
+            >
             </textarea>
           </div>
-
-          <div *ngIf="education.errors && (education.dirty ||education.touched)">
-            <div *ngIf="education.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
         </div>
       </div>
 
@@ -539,19 +502,12 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <label class="col-md-4 control-label">About my Profession</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-            <textarea  name="profession"  formControlName="profession" placeholder="for eg I am working as .. earing ... total exp  ..." class="form-control"  type="text">
+            <textarea  name="profession"  formControlName="profession" placeholder="for eg I am working as .. earing ... total exp  ..." class="form-control"  type="text"
+            maxlength="200"
+            minlength="0"  
+            >
             </textarea>
           </div>
-
-          <div *ngIf="profession.errors && (profession.dirty ||profession.touched)">
-            <div *ngIf="profession.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-
         </div>
       </div>
 
@@ -642,34 +598,13 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
           </div>
         </div>
         </div>
-
         </div>
       </div>
 
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Current Living Place*</label>
-        <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-            <input name="place" formControlName="place"  placeholder="like haldwani, nanital" class="form-control"  type="text">
-          </div>
-
-          <div *ngIf="place.errors && (place.dirty ||place.touched)">
-            <div *ngIf="place.errors.required">
-            <div class="alert-warning">
-           <strong>Warning!</strong> Please select the mother tounge. 
-          </div>
-        </div>
-        </div>
-
-        </div>
-      </div>
-      
-      
       <!-- Text input-->
       
       <div class="form-group">
-        <label class="col-md-4 control-label">Zip Code*</label>
+        <label class="col-md-4 control-label">Zip Code</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
             <input name="zip" formControlName="zip" placeholder="Zip Code" class="form-control"  type="text">
@@ -701,6 +636,7 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
             <input formControlName="email" placeholder="E-Mail Address" 
             class="form-control"  type="text"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" 
             >
           </div>
         <div *ngIf="email.errors && (email.dirty || email.touched) ">

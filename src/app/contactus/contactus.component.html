@@ -1,115 +1,86 @@
 <!--https://bootsnipp.com/snippets/Bqm1E-->
+
+
 <div class="container">
         <div class="row" id="main">
         <div class="panel panel-success " >
-            <menubar></menubar>   
-<div class="contact-us">
-		<div class="container">
-		   <div class="contact-form">
-			<div class="row">
-				<div class="col-sm-7">                  
-						<form  class="form-horizontal"  [formGroup]="myform"  id="reg_form" enctype="multipart/form-data">
-							<div class="messages" id="form-messages"></div>
-						 <div class="controls">
-							 <div class="row">
-								 <div class="col-md-6">
-									 <div class="form-group">
-										 <label for="form_name"> Firstname *</label>
-										 <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
-										 <div class="help-block with-errors"></div>
-									 </div>
-								 </div>
-								 <div class="col-md-6">
-									 <div class="form-group">
-										 <label for="form_lastname"> Lastname *</label>
-										 <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
-										 <div class="help-block with-errors"></div>
-									 </div>
-								 </div>
-							 </div>
-							 <div class="row">
-								 <div class="col-md-6">
-									 <div class="form-group">
-										 <label for="form_email"> Email *</label>
-										 <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-										 <div class="help-block with-errors"></div>
-									 </div>
-								 </div>
-								 <div class="col-md-6">
-									 <div class="form-group">
-										 <label for="form_phone"> Phone*</label>
-										 <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required oninvalid="setCustomValidity('Plz enter your correct phone number ')"
-	 onchange="try{setCustomValidity('')}catch(e){}">
-										 
-									 </div>
-								 </div>
-							 </div>
-							 <div class="row">
-								 <div class="col-md-12">
-									 <div class="form-group">
-										 <label for="form_message"> Message *</label>
-										 <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
-										 <div class="help-block with-errors"></div>
-									 </div>
-								 </div>
-								 <div class="col-md-12">
-									
-									 <button (click)="SendMessage(myform.value)" type="submit" 
-									 class="btn btn-warning"> Send message 
-								 <span class="glyphicon glyphicon-send"></span>
-							   </button>
-								 </div>
-							 </div>
-							 <div class="row">
-								 <div class="col-md-12">
-									<br>
-									 <small class="text-muted"><strong>*</strong> These fields are required.</small>
-								 </div>
-							 </div>
-						 </div>
- 
-					 </form>
-	 
-				</div>
-				<div class="col-sm-5">
-					<div class="row col1">
-						<div class="col-xs-3">
-							<i class="fa fa-map-marker" style="font-size:16px;"></i>   Address
-						</div>
-						<div class="col-xs-9">
-							 One Gateway Center, Suite 25500+,<br> Newark 23, NJ 10235
-						</div>
-					</div>
-					
-					 <div class="row col1">
-						 <div class="col-sm-3">
-							 <i class="fa fa-phone"></i>   Phone
-						 </div>
-						 <div class="col-sm-9">
-							  +(91) 123 277 4239
-						 </div>
-					 </div>
-					 <div class="row col1">
-						 <div class="col-sm-3">
-							  <i class="fa fa-fax"></i>    Fax  
-						 </div>
-						 <div class="col-sm-9">
-							   123 123 4567
-						 </div>
-					 </div>
-					 <div class="row col1">
-						 <div class="col-sm-3">
-							 <i class="fa fa-envelope"></i>   Email
-						 </div>
-						 <div class="col-sm-9">
-							  <a href="mailto:info@yourdomain.com">info@yourdomain.com</a> <br> <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>
-						 </div>
-					 </div><br>
-				
-				</div>
-			</div>
-			
-		   </div>
-		</div>
-	</div>
- 
+            <menubar></menubar> 
+			<form  class="form-horizontal"  [formGroup]="myform"  id="reg_form">
+				<div class="messages" id="form-messages"></div>
+				<div id="login-overlay" >
+    <div class="panel panel-primary" style="width:750px;margin:0px auto">
+    <div class="modal-content">
+        <div class="modal-header">
+             <h4 class="modal-title" id="myModalLabel">Contact us</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="well">
+                     
+                            <div class="form-group">
+									<label for="form_name"> Name *</label>
+									<input id="name" type="text" name="name" class="form-control" 
+									placeholder="Please enter your Name *" 
+									required autofocus
+									data-error="Name is required.">
+                            </div>
+							
+							<div class="form-group">
+									<label for="form_email"> Email *</label>
+									<input id="email" type="email" name="email" class="form-control" 
+									placeholder="Please enter your email *"  required autofocus 
+									data-error="Valid email is required.">
+							</div>
+
+							<div class="form-group">
+									<label for="form_phone"> Phone*</label>
+									<input id="phone" type="tel" name="phone"  class="form-control" 
+									placeholder="Please enter your phone*"   required autofocus
+									>
+							</div>
+							
+							<div class="form-group">
+									<label for="form_message"> Message *</label>
+									<textarea id="form_message" 
+									name="message" class="form-control" 
+									placeholder="Message for me *" 
+									rows="4" required="required" 
+									data-error="Please,leave us a message."></textarea>
+							</div>
+
+                            <div id="loginErrorMsg" class="alert alert-error hide">Error</div>
+							<form class="form-signin" #f="ngForm" (ngSubmit)="signIn(f.value)" >		
+							<div class="form-group">
+                                <label class="control-label">
+                                  </label>
+                                  <re-captcha 
+                                  [(ngModel)]="formModel.captcha"
+                                  name="captcha"
+                                  required
+                                  siteKey="6LcZgCwUAAAAAPn1N1j7JD2ywG4LrMhxypKiRmc6"
+                                  #captchaControl="ngModel" ></re-captcha>
+							</div>
+							</form>
+							<button (click)="SendMessage(myform.value)" type="submit" 
+							class="btn btn-warning"> Send message 
+						<span class="glyphicon glyphicon-send"></span>
+					</button>
+                       
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <p class="lead">Contact us @<span class="text-success"> Web Site Name</span></p>
+                    <ul class="list-unstyled" style="line-height: 2">
+                        <li><span class="fa fa-check text-success"></span> Web Site Name </li>
+                        <li><span class="fa fa-check text-success"></span> Email Address</li>
+                        <li><span class="fa fa-check text-success"></span> Phone number </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</form>
+        </div></div></div>

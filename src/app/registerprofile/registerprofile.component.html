@@ -753,9 +753,6 @@ http://valor-software.com/ngx-bootstrap/index-bs4.html#/alerts
         <label class="col-md-4 control-label"></label>
         <div class="col-md-4">
         status :  my form {{ this.myform.valid}}
-        <!-- 
-        <button   [disabled]="this.myform.invalid" type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
-        -->
          <button type="submit" 
          [disabled]="this.myform.invalid && !this.isChecked && !recaptcha.valid" (click)="onSubmit(myform.value)" 
          class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span>

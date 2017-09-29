@@ -47,10 +47,10 @@
                                   siteKey="6LcZgCwUAAAAAPn1N1j7JD2ywG4LrMhxypKiRmc6"
                                   #captchaControl="ngModel" ></re-captcha>
                                
-                               
+                                
                             </div>
                             <button type="submit"
-                           
+                            [disabled]="!this.form.valid"
                             class="btn btn-success btn-block">Login</button>
                            
                             <a (click)="ForgetPwd()" class="btn btn-default btn-block">Help to login</a>

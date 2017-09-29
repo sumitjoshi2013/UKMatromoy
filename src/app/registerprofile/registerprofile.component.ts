@@ -41,6 +41,12 @@ export class RegisterprofileComponent implements OnInit {
   rashiStatusList : arrayData[]; 
   cityStatusList : arrayData[]; 
 
+  isChecked = false;
+  public message:string;
+   toggle(){
+      this.isChecked = !this.isChecked;
+      }
+
   ngOnInit() {
     let Url = "http://localhost:8910/api/api/MasterData/"; 
     this.dataservice.getData(Url + "ReligionMaster?userid=1").subscribe((res: any) => { this.religionStatusList = res });
@@ -95,7 +101,7 @@ export class RegisterprofileComponent implements OnInit {
   rashi: new FormControl('', Validators.required),
   education: new FormControl('', [Validators.minLength(0), Validators.maxLength(200)]),
   profession: new FormControl('' , [Validators.minLength(0), Validators.maxLength(200)]),
-  address: new FormControl('', Validators.required),
+  address: new FormControl(''),
   country: new FormControl('', Validators.required),
   city: new FormControl('', Validators.required),
 
@@ -110,7 +116,7 @@ export class RegisterprofileComponent implements OnInit {
   myTwitterId: new FormControl(''),
   mylinkedinId: new FormControl(''),
 
-
+  terms: new FormControl(''),
 });
    open() {
         this.datePicker.api.open();
@@ -218,6 +224,14 @@ profileCreatedByList = [
     private dataservice: dataService,  private authService: AuthService
   ) {  }
   
+
+  
+  get terms()
+  {
+    return this.myform.get("terms");
+  }
+
+
   get nativePlace()
   {
     return this.myform.get("nativePlace");
